@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<title>JAGA — Jaringan Analitik Guard Anti-fraud</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    .isometric-tilt {
+      transform: perspective(1000px) rotateX(16deg) rotateY(-14deg) rotateZ(3deg);
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#222749",
+            "surface-container-lowest": "#080B24",
+            "primary-container": "#35F2A0",
+            "primary-accent": "#8BFFCE",
+            "inverse-surface": "#dfe0ff",
+            "on-secondary": "#2a2e4e",
+            "outline": "#859588",
+            "on-primary-container": "#00472b",
+            "error-container": "#481016",
+            "error-accent": "#FF5C67",
+            "primary": "#c6ffda",
+            "surface-container-low": "#0D1130",
+            "on-surface-variant": "#9ca7c5",
+            "on-secondary-container": "#afb2da",
+            "primary-fixed": "#51ffad",
+            "surface-bright": "#22274c",
+            "secondary-container": "#2f3559",
+            "outline-variant": "#2c345b",
+            "surface": "#080B24",
+            "surface-container-high": "#1C2248",
+            "surface-container-highest": "#283060",
+            "on-background": "#dfe0ff",
+            "secondary": "#c1c4ec",
+            "on-surface": "#e4e7ff",
+            "error": "#FF5C67",
+            "surface-container": "#131735"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.375rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-desktop": "2rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter-desktop": "1.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter", "sans-serif"],
+            "headline-xl": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["JetBrains Mono", "monospace"],
+            "label-md": ["JetBrains Mono", "monospace"],
+            "label-lg": ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-[#080B24] font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-surface-container-lowest">
+<!-- ========================================== -->
+<!-- NAVIGATION BAR                             -->
+<!-- ========================================== -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#080B24]/90 backdrop-blur-md border-b border-outline-variant/30">
+<div class="h-16 w-full max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2">
+<div class="relative flex items-center justify-center">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container animate-pulse"></div>
+<div class="absolute w-4 h-4 rounded-full bg-primary-container/30 animate-ping"></div>
+</div>
+<span class="font-headline-sm text-lg text-white font-extrabold tracking-tight uppercase">JAGA</span>
+</div>
+<div class="hidden lg:flex items-center pl-3 border-l border-outline-variant/40">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider">Jaringan Analitik Guard Anti-fraud</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-1 text-sm">
+<a class="px-3 py-1.5 rounded-lg bg-surface-container-high text-white font-medium text-xs tracking-wide" href="#paradigm">Overview</a>
+<a class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-white hover:bg-surface-container transition-colors text-xs tracking-wide" href="#pillars">Architecture</a>
+<a class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-white hover:bg-surface-container transition-colors text-xs tracking-wide" href="#cockpit">Cockpit Preview</a>
+<a class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-white hover:bg-surface-container transition-colors text-xs tracking-wide" href="#security">Governance &amp; Tech</a>
+</nav>
+<div class="flex items-center gap-3">
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary-container text-[#080B24] font-headline-sm text-xs font-bold shadow-[0_0_18px_rgba(53,242,160,0.3)] hover:bg-primary-accent transition-all" href="#cockpit">
+<span>Explore Platform</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<main class="w-full pt-16 bg-[#080B24] min-h-screen">
+<!-- ========================================== -->
+<!-- 01. STREAMLINED HERO SECTION               -->
+<!-- ========================================== -->
+<section class="relative w-full overflow-hidden px-4 md:px-8 pt-12 pb-16 lg:py-20 border-b border-outline-variant/20">
+<!-- Ambient Visual Grid & Vectors -->
+<div class="absolute inset-0 pointer-events-none opacity-40">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="44" id="heroGrid" patternunits="userSpaceOnUse" width="44">
+<circle cx="2" cy="2" fill="#859588" fill-opacity="0.25" r="1"></circle>
+<path d="M 44 0 L 0 0 0 44" fill="none" stroke="#2c345b" stroke-opacity="0.3" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#heroGrid)" height="100%" width="100%"></rect>
+<g stroke="#35f2a0" stroke-dasharray="3 3" stroke-opacity="0.35" stroke-width="1.2">
+<line x1="20%" x2="42%" y1="22%" y2="40%"></line>
+<line x1="42%" x2="58%" y1="40%" y2="20%"></line>
+<line x1="42%" x2="68%" y1="40%" y2="58%"></line>
+<line x1="68%" x2="88%" y1="58%" y2="35%"></line>
+</g>
+<circle class="animate-pulse" cx="20%" cy="22%" fill="#35f2a0" r="4.5"></circle>
+<circle cx="42%" cy="40%" fill="#35f2a0" fill-opacity="0.9" r="7"></circle>
+<circle cx="58%" cy="20%" fill="#c1c4ec" r="4"></circle>
+<circle class="animate-ping" cx="68%" cy="58%" fill="#FF5C67" r="9" style="animation-duration: 3s;"></circle>
+<circle cx="68%" cy="58%" fill="#FF5C67" r="5"></circle>
+<circle cx="88%" cy="35%" fill="#35f2a0" r="4.5"></circle>
+</svg>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- Hero Copy -->
+<div class="lg:col-span-7 flex flex-col gap-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-primary-container/20 w-fit">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="font-label-sm text-[11px] text-primary-accent tracking-widest uppercase font-semibold">SOVEREIGN HEALTHCARE RISK INTELLIGENCE</span>
+</div>
+<h1 class="font-headline-xl text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-[1.15] font-extrabold">
+            See The <span class="text-primary-container underline decoration-primary-container/40 underline-offset-8">Network</span> Behind Every Healthcare Risk.
+          </h1>
+<p class="font-body-md text-base text-on-surface-variant max-w-2xl leading-relaxed">
+            JAGA is a sovereign intelligence platform engineered to uncover coordinated anomalies across participants, physicians, clinics, and claims — exposing collusive fraud rings that transaction-level audits can never see.
+          </p>
+<div class="flex flex-wrap items-center gap-3 pt-2">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary-container text-[#080B24] font-headline-sm text-xs font-bold shadow-lg shadow-primary-container/20 hover:bg-primary-accent transition-all" href="#cockpit">
+<span>View Live Cockpit</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-container border border-outline-variant/40 text-white font-body-md text-xs font-medium hover:bg-surface-container-high transition-all" href="#pillars">
+<span class="material-symbols-outlined text-[16px] text-primary-container">hub</span>
+<span>Explore 4 AI Layers</span>
+</a>
+</div>
+<!-- Trust Badges -->
+<div class="flex flex-wrap items-center gap-4 pt-4 border-t border-outline-variant/30 text-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[16px]">verified</span>
+<span class="font-label-sm text-on-surface-variant">UU PDP Compliant</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[16px]">account_tree</span>
+<span class="font-label-sm text-on-surface-variant">Relational Graph AI</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[16px]">shield_person</span>
+<span class="font-label-sm text-on-surface-variant">Human-in-the-Loop</span>
+</div>
+</div>
+</div>
+<!-- Floating HUD Panel -->
+<div class="lg:col-span-5 relative">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary-container/25 via-primary/10 to-error/25 rounded-2xl blur-xl opacity-60"></div>
+<div class="relative bg-surface-container-low border border-outline-variant/40 rounded-xl p-5 shadow-2xl">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container">
+<span class="font-label-sm text-[10px] text-primary-accent uppercase tracking-wider font-mono">NETWORK DOSSIER</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-error-container/60 border border-error/30">
+<div class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></div>
+<span class="font-label-sm text-[10px] text-error font-mono font-bold tracking-wider">COLLUSIVE RING FLAGGED</span>
+</div>
+</div>
+<div class="py-3">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Target Facility Node</span>
+<h3 class="font-headline-md text-lg text-white font-bold">Rumah Sakit Citra Kasih X</h3>
+</div>
+<div class="text-right">
+<span class="font-headline-xl text-3xl font-bold text-error font-mono">87</span>
+<span class="font-label-sm text-xs text-on-surface-variant">/100</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-3 p-2.5 bg-surface-container rounded-lg border border-outline-variant/20">
+<div>
+<span class="font-label-sm text-[10px] text-on-surface-variant block">Participants</span>
+<span class="font-mono text-xs font-bold text-white">42 NIK</span>
+</div>
+<div>
+<span class="font-label-sm text-[10px] text-on-surface-variant block">Physicians</span>
+<span class="font-mono text-xs font-bold text-white">3 SIP</span>
+</div>
+<div>
+<span class="font-label-sm text-[10px] text-on-surface-variant block">Claim Exposure</span>
+<span class="font-mono text-xs font-bold text-error">Rp 4.8B</span>
+</div>
+</div>
+</div>
+<!-- Risk Attribution Vectors -->
+<div class="space-y-2 pt-1 pb-3 text-xs">
+<div>
+<div class="flex justify-between font-mono text-[11px] mb-1">
+<span class="text-on-surface-variant">Referral Funnel Concentration</span>
+<span class="text-primary-container font-bold">+24 pts</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 82%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-mono text-[11px] mb-1">
+<span class="text-on-surface-variant">Cross-Claim Diagnostic Lexical Duplication</span>
+<span class="text-primary-container font-bold">+21 pts</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 74%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-mono text-[11px] mb-1">
+<span class="text-on-surface-variant">Graph Triadic Motif Anomaly</span>
+<span class="text-primary-container font-bold">+18 pts</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 62%;"></div>
+</div>
+</div>
+</div>
+<a class="w-full py-2 px-3 rounded bg-primary-container text-[#080B24] font-headline-sm text-xs font-bold flex items-center justify-center gap-1.5 hover:bg-primary-accent transition-colors" href="#cockpit">
+<span>Inspect Syndicate Topology</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 02. STREAMLINED PROBLEM & PARADIGM SHIFT   -->
+<!-- ========================================== -->
+<section class="w-full bg-[#0D1130] px-4 md:px-8 py-16 border-b border-outline-variant/20" id="paradigm">
+<div class="max-w-7xl mx-auto flex flex-col gap-8">
+<div class="max-w-2xl">
+<span class="font-label-sm text-xs text-primary-accent uppercase font-mono tracking-widest font-semibold">THE STRUCTURAL PARADIGM SHIFT</span>
+<h2 class="font-headline-xl text-2xl sm:text-3xl text-white font-extrabold tracking-tight mt-1">
+            Fraud doesn’t look suspicious alone. <br class="hidden sm:block"/>
+<span class="text-primary-container">The pattern only appears in the network.</span>
+</h2>
+<p class="font-body-md text-sm text-on-surface-variant mt-2 leading-relaxed">
+            Individual claims pass rule-based auditing with flawless compliance. But when mapped across relational vectors, dispersed activities reveal coordinated fraud syndicates.
+          </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+<!-- Traditional Isolated Claims (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container rounded-xl p-5 border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+<span class="font-label-sm text-xs text-on-surface-variant font-mono font-bold">LEGACY: ISOLATED TRANSACTION AUDIT</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-mono text-[10px]">BLIND PASS</span>
+</div>
+<p class="font-body-md text-xs text-on-surface-variant mt-3 leading-relaxed">
+                Claims are reviewed individually. Tariff limits, diagnosis codes, and dates check out, allowing synthetic rings to operate below detection thresholds.
+              </p>
+<div class="space-y-2 mt-4">
+<div class="p-2.5 rounded bg-surface-container-low border border-outline-variant/20 flex items-center justify-between text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span>
+<div>
+<div class="font-mono font-bold text-white text-[11px]">CLAIM #10291 • Rp 5.000.000</div>
+<div class="text-on-surface-variant text-[10px]">Dr. S***, Sp.PD — Verified &amp; Approved</div>
+</div>
+</div>
+<span class="text-primary-container font-mono text-[10px] font-bold">PASS 100%</span>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low border border-outline-variant/20 flex items-center justify-between text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span>
+<div>
+<div class="font-mono font-bold text-white text-[11px]">CLAIM #10292 • Rp 4.900.000</div>
+<div class="text-on-surface-variant text-[10px]">Dr. S***, Sp.PD — Verified &amp; Approved</div>
+</div>
+</div>
+<span class="text-primary-container font-mono text-[10px] font-bold">PASS 100%</span>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low border border-outline-variant/20 flex items-center justify-between text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span>
+<div>
+<div class="font-mono font-bold text-white text-[11px]">CLAIM #10293 • Rp 5.100.000</div>
+<div class="text-on-surface-variant text-[10px]">Dr. R***, Sp.A — Verified &amp; Approved</div>
+</div>
+</div>
+<span class="text-primary-container font-mono text-[10px] font-bold">PASS 100%</span>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 mt-4 text-[11px] font-mono text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[16px]">warning</span>
+<span>Outcome: Zero systemic anomaly flagged. Funds disbursed.</span>
+</div>
+</div>
+<!-- JAGA Connected Network (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-5 border border-primary-container/30 relative flex flex-col justify-between shadow-xl">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+<span class="font-label-sm text-xs text-error font-mono font-bold uppercase">JAGA: RELATIONAL GRAPH RECONSTRUCTION</span>
+<span class="px-2 py-0.5 rounded bg-error-container/60 border border-error/40 text-error font-mono text-[10px] font-bold animate-pulse">COLLUSION DETECTED</span>
+</div>
+<p class="font-body-md text-xs text-on-surface-variant mt-3 leading-relaxed">
+                Projected across interconnected nodes, correlated IP timestamps, doctor cross-referrals, and diagnostic clone embeddings expose 42 claims as an orchestrated syndicate.
+              </p>
+<!-- Dynamic Compact Graph SVG -->
+<div class="mt-4 p-3 rounded-lg bg-[#080B24] border border-outline-variant/30 h-44 relative flex items-center justify-center">
+<svg class="w-full h-full" viewbox="0 0 520 160">
+<defs>
+<lineargradient id="edgeGlow" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#35F2A0" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#FF5C67" stop-opacity="0.9"></stop>
+</lineargradient>
+</defs>
+<!-- Edges -->
+<line stroke="url(#edgeGlow)" stroke-width="1.8" x1="80" x2="240" y1="40" y2="80"></line>
+<line stroke="url(#edgeGlow)" stroke-width="1.8" x1="80" x2="240" y1="80" y2="80"></line>
+<line stroke="url(#edgeGlow)" stroke-width="1.8" x1="80" x2="240" y1="120" y2="80"></line>
+<line stroke="#FF5C67" stroke-dasharray="4 2" stroke-width="2.5" x1="240" x2="420" y1="80" y2="50"></line>
+<line stroke="#FF5C67" stroke-dasharray="4 2" stroke-width="2.5" x1="240" x2="420" y1="80" y2="110"></line>
+<!-- Patient Nodes -->
+<circle cx="80" cy="40" fill="#1C2248" r="7" stroke="#35F2A0" stroke-width="1.5"></circle>
+<circle cx="80" cy="80" fill="#1C2248" r="7" stroke="#35F2A0" stroke-width="1.5"></circle>
+<circle cx="80" cy="120" fill="#1C2248" r="7" stroke="#35F2A0" stroke-width="1.5"></circle>
+<text fill="#9ca7c5" font-family="JetBrains Mono" font-size="9" x="35" y="84">42 Patients</text>
+<!-- Doctors Node -->
+<circle cx="240" cy="80" fill="#481016" r="15" stroke="#FF5C67" stroke-width="2"></circle>
+<text fill="#ffffff" font-family="JetBrains Mono" font-size="10" font-weight="bold" text-anchor="middle" x="240" y="84">3 Dr (SIP)</text>
+<!-- Target Provider & Pharmacy -->
+<circle cx="420" cy="50" fill="#1C2248" r="14" stroke="#FF5C67" stroke-width="2"></circle>
+<circle cx="420" cy="50" fill="none" r="18" stroke="#FF5C67" stroke-dasharray="3 3" stroke-width="1"></circle>
+<text fill="#FF5C67" font-family="JetBrains Mono" font-size="9" font-weight="bold" x="445" y="54">RS CITRA (Flagged)</text>
+<circle cx="420" cy="110" fill="#1C2248" r="11" stroke="#FF5C67" stroke-width="1.5"></circle>
+<text fill="#c1c4ec" font-family="JetBrains Mono" font-size="9" x="442" y="114">Apotek X-9</text>
+</svg>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-3">
+<div class="p-2 rounded bg-surface-container border border-outline-variant/20">
+<span class="font-label-sm text-[10px] text-on-surface-variant block">Lexical Chart Similarity</span>
+<span class="font-mono text-xs text-error font-bold">87.4% Match (ICD-10 M54.5)</span>
+</div>
+<div class="p-2 rounded bg-surface-container border border-outline-variant/20">
+<span class="font-label-sm text-[10px] text-on-surface-variant block">Temporal Timestamp Burst</span>
+<span class="font-mono text-xs text-error font-bold">12-sec Rapid Succession</span>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 mt-4 text-[11px] font-mono text-primary-accent flex items-center justify-between">
+<span>Verdict: Intercepted Rp 4.8B before settlement</span>
+<span class="font-bold text-primary-container">Pre-Disbursement Save</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 03. 4 ISOMETRIC 3D CORE PILLARS            -->
+<!-- ========================================== -->
+<section class="w-full bg-[#080B24] px-4 md:px-8 py-16 border-b border-outline-variant/20" id="pillars">
+<div class="max-w-7xl mx-auto flex flex-col gap-10">
+<div class="max-w-2xl">
+<span class="font-label-sm text-xs text-primary-accent uppercase font-mono tracking-widest font-semibold">DEFENSE-GRADE ARCHITECTURE</span>
+<h2 class="font-headline-xl text-2xl sm:text-3xl text-white font-extrabold tracking-tight mt-1">
+            Engineered for high-dimensional risk discovery.
+          </h2>
+<p class="font-body-md text-sm text-on-surface-variant mt-2 leading-relaxed">
+            Four calibrated intelligence pillars combining multi-tier topology graphs, statistical ensembles, explainable attribution, and real-time active feedback.
+          </p>
+</div>
+<!-- 4 Isometric Vector Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- CARD 1: Isometric Graph Topology -->
+<div class="bg-surface-container rounded-xl p-5 border border-outline-variant/40 hover:border-primary-container/40 transition-all duration-300 flex flex-col justify-between group shadow-lg">
+<div>
+<!-- 3D Isometric Illustration 1 -->
+<div class="w-full h-40 bg-[#080B24] rounded-lg border border-outline-variant/30 mb-4 overflow-hidden relative flex items-center justify-center p-2">
+<svg class="w-full h-full max-h-36" viewbox="0 0 240 160">
+<defs>
+<lineargradient id="isoPlaneGrad1" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#1C2248" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#0D1130" stop-opacity="0.9"></stop>
+</lineargradient>
+<lineargradient id="isoEdgeGlow" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#35F2A0"></stop>
+<stop offset="100%" stop-color="#8BFFCE"></stop>
+</lineargradient>
+</defs>
+<!-- Base Isometric Layer Grid -->
+<g transform="translate(120, 30)">
+<!-- Bottom Plane -->
+<polygon fill="url(#isoPlaneGrad1)" points="0,45 80,90 0,135 -80,90" stroke="#2c345b" stroke-width="1"></polygon>
+<line stroke="#2c345b" stroke-dasharray="2 2" stroke-width="0.7" x1="-40" x2="40" y1="67.5" y2="112.5"></line>
+<line stroke="#2c345b" stroke-dasharray="2 2" stroke-width="0.7" x1="40" x2="-40" y1="67.5" y2="112.5"></line>
+<!-- Top Elevated Plane -->
+<polygon fill="#131735" fill-opacity="0.75" points="0,10 75,52 0,94 -75,52" stroke="#35F2A0" stroke-opacity="0.6" stroke-width="1.2"></polygon>
+<!-- Inter-layer Pillar Connectors -->
+<line stroke="#35F2A0" stroke-dasharray="3 2" stroke-opacity="0.5" stroke-width="1" x1="0" x2="0" y1="10" y2="45"></line>
+<line stroke="#35F2A0" stroke-dasharray="3 2" stroke-opacity="0.5" stroke-width="1" x1="75" x2="80" y1="52" y2="90"></line>
+<line stroke="#35F2A0" stroke-dasharray="3 2" stroke-opacity="0.5" stroke-width="1" x1="-75" x2="-80" y1="52" y2="90"></line>
+<!-- Floating Interconnected Nodes on Top Plane -->
+<line stroke="url(#isoEdgeGlow)" stroke-width="2" x1="-35" x2="0" y1="50" y2="35"></line>
+<line stroke="url(#isoEdgeGlow)" stroke-width="2" x1="0" x2="40" y1="35" y2="60"></line>
+<line stroke="#FF5C67" stroke-dasharray="3 2" stroke-width="2" x1="0" x2="5" y1="35" y2="70"></line>
+<line stroke="url(#isoEdgeGlow)" stroke-width="1.5" x1="-35" x2="5" y1="50" y2="70"></line>
+<!-- Isometric 3D Nodes -->
+<circle cx="-35" cy="50" fill="#35F2A0" r="5"></circle>
+<circle cx="0" cy="35" fill="#8BFFCE" r="7" stroke="#080B24" stroke-width="1.5"></circle>
+<circle cx="40" cy="60" fill="#35F2A0" r="5.5"></circle>
+<!-- Flagged Syndicate Red Node with Pulse Aura -->
+<circle cx="5" cy="70" fill="#FF5C67" fill-opacity="0.3" r="9"></circle>
+<circle cx="5" cy="70" fill="#FF5C67" r="6" stroke="#ffffff" stroke-width="1.5"></circle>
+</g>
+</svg>
+</div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono text-primary-container text-xs font-bold">PILLAR 01</span>
+<span class="font-mono text-on-surface-variant text-[10px]">APACHE AGE</span>
+</div>
+<h3 class="font-headline-sm text-base text-white font-bold mb-1">Network-Level Topology</h3>
+<p class="font-body-md text-xs text-on-surface-variant leading-relaxed">
+                Dynamic heterogeneous knowledge graphs connecting patients, practitioners, facilities, and billing codes to expose multi-point rings.
+              </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/30 font-mono text-[10px] text-primary-accent uppercase tracking-wider">
+              Deep Relational Projection
+            </div>
+</div>
+<!-- CARD 2: Isometric Multi-Layered AI Consensus -->
+<div class="bg-surface-container rounded-xl p-5 border border-outline-variant/40 hover:border-primary-container/40 transition-all duration-300 flex flex-col justify-between group shadow-lg">
+<div>
+<!-- 3D Isometric Illustration 2 -->
+<div class="w-full h-40 bg-[#080B24] rounded-lg border border-outline-variant/30 mb-4 overflow-hidden relative flex items-center justify-center p-2">
+<svg class="w-full h-full max-h-36" viewbox="0 0 240 160">
+<defs>
+<lineargradient id="cubeTop" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#35F2A0" stop-opacity="0.85"></stop>
+<stop offset="100%" stop-color="#1C2248" stop-opacity="0.9"></stop>
+</lineargradient>
+</defs>
+<g transform="translate(120, 25)">
+<!-- Tier 1 Base Slab (Deterministic Rules) -->
+<polygon fill="#1C2248" points="0,75 60,105 0,135 -60,105" stroke="#2c345b" stroke-width="1"></polygon>
+<polygon fill="#0D1130" points="60,105 60,113 0,143 0,135"></polygon>
+<polygon fill="#080B24" points="-60,105 -60,113 0,143 0,135"></polygon>
+<text fill="#9ca7c5" font-family="JetBrains Mono" font-size="8" text-anchor="middle" x="0" y="112">L1 • RULES</text>
+<!-- Tier 2 Slab (Anomaly Engine) -->
+<polygon fill="#222749" points="0,50 55,77 0,104 -55,77" stroke="#3b4a40" stroke-width="1"></polygon>
+<polygon fill="#131735" points="55,77 55,83 0,110 0,104"></polygon>
+<text fill="#c6ffda" font-family="JetBrains Mono" font-size="8" text-anchor="middle" x="0" y="84">L2 • STATS</text>
+<!-- Tier 3 Slab (Graph Louvain) -->
+<polygon fill="#283060" points="0,25 50,50 0,75 -50,50" stroke="#35F2A0" stroke-width="1"></polygon>
+<text fill="#8BFFCE" font-family="JetBrains Mono" font-size="8" text-anchor="middle" x="0" y="56">L3 • GRAPH</text>
+<!-- Tier 4 Top Glass Slab (Ensemble GBDT) -->
+<polygon fill="url(#cubeTop)" points="0,2 45,24 0,46 -45,24" stroke="#ffffff" stroke-width="1.2"></polygon>
+<text fill="#080B24" font-family="JetBrains Mono" font-size="8" font-weight="bold" text-anchor="middle" x="0" y="28">L4 • GBDT</text>
+<!-- Floating Vertical Data Packet Rays -->
+<circle class="animate-pulse" cx="20" cy="18" fill="#ffffff" r="3"></circle>
+<line stroke="#35F2A0" stroke-dasharray="2 2" stroke-width="1" x1="20" x2="20" y1="18" y2="105"></line>
+<circle cx="-15" cy="35" fill="#FF5C67" r="2.5"></circle>
+<line stroke="#FF5C67" stroke-dasharray="2 2" stroke-width="1" x1="-15" x2="-15" y1="35" y2="120"></line>
+</g>
+</svg>
+</div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono text-primary-container text-xs font-bold">PILLAR 02</span>
+<span class="font-mono text-on-surface-variant text-[10px]">ENSEMBLE</span>
+</div>
+<h3 class="font-headline-sm text-base text-white font-bold mb-1">Multi-Layered AI Consensus</h3>
+<p class="font-body-md text-xs text-on-surface-variant leading-relaxed">
+                Fuses deterministic statutory rules, unsupervised statistical anomaly matrices, and supervised GBDTs into one weighted score.
+              </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/30 font-mono text-[10px] text-primary-accent uppercase tracking-wider">
+              4-Tier Algorithmic Fusion
+            </div>
+</div>
+<!-- CARD 3: Isometric Explainable Attribution Slab -->
+<div class="bg-surface-container rounded-xl p-5 border border-outline-variant/40 hover:border-primary-container/40 transition-all duration-300 flex flex-col justify-between group shadow-lg">
+<div>
+<!-- 3D Isometric Illustration 3 -->
+<div class="w-full h-40 bg-[#080B24] rounded-lg border border-outline-variant/30 mb-4 overflow-hidden relative flex items-center justify-center p-2">
+<svg class="w-full h-full max-h-36" viewbox="0 0 240 160">
+<defs>
+<lineargradient id="hudGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#1C2248" stop-opacity="0.95"></stop>
+<stop offset="100%" stop-color="#0D1130" stop-opacity="0.85"></stop>
+</lineargradient>
+</defs>
+<g transform="translate(120, 35)">
+<!-- Isometric Tilted HUD Tablet -->
+<polygon fill="url(#hudGrad)" points="0,5 75,45 0,90 -75,45" stroke="#35F2A0" stroke-width="1.2"></polygon>
+<polygon fill="#0D1130" points="75,45 75,52 0,97 0,90"></polygon>
+<polygon fill="#080B24" points="-75,45 -75,52 0,97 0,90"></polygon>
+<!-- Isometric 3D Bar 1 (+24 pts) -->
+<polygon fill="#35F2A0" points="-30,30 -22,26 -22,12 -30,16"></polygon>
+<polygon fill="#8BFFCE" points="-22,26 -14,30 -14,16 -22,12"></polygon>
+<polygon fill="#c6ffda" points="-30,16 -22,12 -14,16 -22,20"></polygon>
+<text fill="#35F2A0" font-family="JetBrains Mono" font-size="8" font-weight="bold" text-anchor="middle" x="-22" y="8">+24</text>
+<!-- Isometric 3D Bar 2 (+21 pts) -->
+<polygon fill="#35F2A0" points="-5,44 3,40 3,28 -5,32"></polygon>
+<polygon fill="#8BFFCE" points="3,40 11,44 11,32 3,28"></polygon>
+<polygon fill="#c6ffda" points="-5,32 3,28 11,32 3,36"></polygon>
+<text fill="#35F2A0" font-family="JetBrains Mono" font-size="8" font-weight="bold" text-anchor="middle" x="3" y="24">+21</text>
+<!-- Isometric 3D Bar 3 (+18 pts) -->
+<polygon fill="#FF5C67" points="20,58 28,54 28,45 20,49"></polygon>
+<polygon fill="#ffb4ab" points="28,54 36,58 36,49 28,45"></polygon>
+<polygon fill="#ffdad6" points="20,49 28,45 36,49 28,53"></polygon>
+<text fill="#FF5C67" font-family="JetBrains Mono" font-size="8" font-weight="bold" text-anchor="middle" x="28" y="41">+18</text>
+<!-- Glowing Radar Concentric Rings on Tablet -->
+<ellipse cx="-20" cy="58" fill="none" rx="14" ry="7" stroke="#35F2A0" stroke-dasharray="2 2" stroke-width="0.8"></ellipse>
+<circle cx="-20" cy="58" fill="#35F2A0" r="2.5"></circle>
+</g>
+</svg>
+</div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono text-primary-container text-xs font-bold">PILLAR 03</span>
+<span class="font-mono text-on-surface-variant text-[10px]">SHAP MATRIX</span>
+</div>
+<h3 class="font-headline-sm text-base text-white font-bold mb-1">Explainable AI Attribution</h3>
+<p class="font-body-md text-xs text-on-surface-variant leading-relaxed">
+                Zero black-box opacity. Flagged risk scores decompose into court-ready evidentiary points and explicit regulatory protocol citations.
+              </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/30 font-mono text-[10px] text-primary-accent uppercase tracking-wider">
+              Legal Evidentiary Clarity
+            </div>
+</div>
+<!-- CARD 4: Isometric Continuous Active Flywheel -->
+<div class="bg-surface-container rounded-xl p-5 border border-outline-variant/40 hover:border-primary-container/40 transition-all duration-300 flex flex-col justify-between group shadow-lg">
+<div>
+<!-- 3D Isometric Illustration 4 -->
+<div class="w-full h-40 bg-[#080B24] rounded-lg border border-outline-variant/30 mb-4 overflow-hidden relative flex items-center justify-center p-2">
+<svg class="w-full h-full max-h-36" viewbox="0 0 240 160">
+<defs>
+<lineargradient id="flywheelGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#35F2A0"></stop>
+<stop offset="50%" stop-color="#1C2248"></stop>
+<stop offset="100%" stop-color="#FF5C67"></stop>
+</lineargradient>
+</defs>
+<g transform="translate(120, 50)">
+<!-- Isometric Outer Orbit Loop -->
+<ellipse cx="0" cy="20" fill="none" rx="75" ry="38" stroke="#2c345b" stroke-width="1.5"></ellipse>
+<!-- Isometric Flow Ring Segment (Glowing) -->
+<path d="M -65,25 A 75,38 0 0,0 55,38" fill="none" stroke="url(#flywheelGrad)" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 55,38 A 75,38 0 0,0 -20,-17" fill="none" stroke="#35F2A0" stroke-dasharray="4 3" stroke-width="2"></path>
+<!-- Orbiting Satellites / Nodes -->
+<!-- Node 1: Detect -->
+<circle cx="-65" cy="25" fill="#35F2A0" r="5"></circle>
+<!-- Node 2: Investigator Verdict -->
+<circle cx="0" cy="58" fill="#8BFFCE" r="7" stroke="#080B24" stroke-width="1.5"></circle>
+<!-- Node 3: Model Retrain -->
+<circle cx="55" cy="38" fill="#FF5C67" r="5"></circle>
+<!-- Node 4: Dynamic Weight Calibration -->
+<circle cx="-20" cy="-17" fill="#c1c4ec" r="4.5"></circle>
+<!-- Isometric Core Hub Cylinder -->
+<polygon fill="#1C2248" points="0,5 25,18 0,31 -25,18" stroke="#35F2A0" stroke-width="1"></polygon>
+<polygon fill="#0D1130" points="25,18 25,28 0,41 0,31"></polygon>
+<polygon fill="#080B24" points="-25,18 -25,28 0,41 0,31"></polygon>
+<circle class="animate-ping" cx="0" cy="18" fill="#35F2A0" r="3.5" style="animation-duration: 2.5s;"></circle>
+<circle cx="0" cy="18" fill="#ffffff" r="3"></circle>
+<text fill="#9ca7c5" font-family="JetBrains Mono" font-size="8" text-anchor="middle" x="0" y="78">ACTIVE LEARNING FEEDBACK</text>
+</g>
+</svg>
+</div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-mono text-primary-container text-xs font-bold">PILLAR 04</span>
+<span class="font-mono text-on-surface-variant text-[10px]">CLOSED-LOOP</span>
+</div>
+<h3 class="font-headline-sm text-base text-white font-bold mb-1">Continuous Active Learning</h3>
+<p class="font-body-md text-xs text-on-surface-variant leading-relaxed">
+                Investigator determinations immediately calibrate false positive filters and graph edge weights without cold system downtime.
+              </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/30 font-mono text-[10px] text-primary-accent uppercase tracking-wider">
+              Autonomous Edge Calibration
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 04. COMPACT INVESTIGATION COCKPIT PREVIEW  -->
+<!-- ========================================== -->
+<section class="w-full bg-[#0D1130] px-4 md:px-8 py-16 border-b border-outline-variant/20" id="cockpit">
+<div class="max-w-7xl mx-auto flex flex-col gap-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="font-label-sm text-xs text-primary-accent uppercase font-mono tracking-widest font-semibold">PALANTIR-STYLE INVESTIGATION DESK</span>
+<h2 class="font-headline-xl text-2xl sm:text-3xl text-white font-extrabold tracking-tight mt-1">
+              Built for investigators. <span class="text-primary-container">Not black-box automation.</span>
+</h2>
+<p class="font-body-md text-sm text-on-surface-variant mt-1.5">
+              An operational triage cockpit integrating graph subgraphs, natural language evidence, and certified human verdicts.
+            </p>
+</div>
+<div class="flex items-center gap-2 font-mono text-xs text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>LIVE QUEUE • CASE #JAGA-0241</span>
+</div>
+</div>
+<!-- Integrated Unified Cockpit Component -->
+<div class="w-full bg-surface-container rounded-xl border border-outline-variant/40 shadow-2xl overflow-hidden">
+<!-- Window Header -->
+<div class="h-10 bg-[#080B24] px-4 flex items-center justify-between border-b border-outline-variant/30 text-xs">
+<div class="flex items-center gap-2 font-mono text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-outline"></span>
+<span class="ml-2 font-semibold text-white">JAGA // TACTICAL TRIAGE DESK</span>
+</div>
+<div class="hidden sm:flex items-center gap-4 font-mono text-on-surface-variant text-[11px]">
+<span>OPERATOR: ID-JKN-8812</span>
+<span>CLEARANCE: LEVEL-4</span>
+<span class="text-primary-container">LATENCY: 12ms</span>
+</div>
+</div>
+<!-- Cockpit Content: 3-column triage layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
+<!-- Column 1: Priority Queue (4 cols) -->
+<div class="lg:col-span-4 bg-surface-container-low border-r border-outline-variant/30 p-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-2 mb-3 border-b border-outline-variant/20">
+<span class="font-headline-sm text-xs font-bold text-white uppercase tracking-wider">Prioritized Rings</span>
+<span class="font-mono text-[10px] px-2 py-0.5 rounded bg-error-container/60 text-error font-bold">3 CRITICAL</span>
+</div>
+<div class="space-y-2">
+<!-- Selected Active Card -->
+<div class="p-3 rounded-lg bg-surface-container-high border border-primary-container/40 shadow-sm cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[11px] font-bold text-primary-container">#JAGA-0241</span>
+<span class="px-1.5 py-0.5 rounded bg-error/20 text-error font-mono text-[10px] font-bold">92/100 RISK</span>
+</div>
+<h4 class="font-headline-sm text-xs text-white font-bold mt-1">Klinik Pratama Medika Ring</h4>
+<p class="font-body-md text-[11px] text-on-surface-variant mt-0.5">Phantom lab referrals across 12 physicians.</p>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-outline-variant/20 text-[11px] font-mono">
+<span class="text-on-surface-variant">Exposure:</span>
+<span class="font-bold text-primary-container">Rp 8.240.000.000</span>
+</div>
+</div>
+<!-- Inactive Card 2 -->
+<div class="p-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer border border-outline-variant/20">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[11px] text-on-surface-variant">#JAGA-0182</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container/40 text-error font-mono text-[10px] font-bold">81/100 RISK</span>
+</div>
+<h4 class="font-headline-sm text-xs text-white font-bold mt-1">RSIA Bunda Nusantara</h4>
+<p class="font-body-md text-[11px] text-on-surface-variant mt-0.5">Unbundling cluster for specialized surgical procedures.</p>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-outline-variant/20 text-[11px] font-mono">
+<span class="text-on-surface-variant">Exposure:</span>
+<span class="font-bold text-white">Rp 3.410.000.000</span>
+</div>
+</div>
+<!-- Inactive Card 3 -->
+<div class="p-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer border border-outline-variant/20">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[11px] text-on-surface-variant">#JAGA-0117</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary font-mono text-[10px] font-bold">64/100 RISK</span>
+</div>
+<h4 class="font-headline-sm text-xs text-white font-bold mt-1">Apotek Sehat Group</h4>
+<p class="font-body-md text-[11px] text-on-surface-variant mt-0.5">Automated script refills on deceased beneficiaries.</p>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-outline-variant/20 text-[11px] font-mono">
+<span class="text-on-surface-variant">Exposure:</span>
+<span class="font-bold text-white">Rp 1.150.000.000</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant/20 text-[11px] font-mono text-on-surface-variant flex items-center justify-between">
+<span>Displaying 3 of 142 Rings</span>
+<span class="text-primary-container">Auto-Refreshed</span>
+</div>
+</div>
+<!-- Column 2: Graph Subgraph Visualizer (5 cols) -->
+<div class="lg:col-span-5 bg-[#080B24] p-4 flex flex-col justify-between relative border-r border-outline-variant/30">
+<div>
+<div class="flex items-center justify-between pb-2 mb-2 border-b border-outline-variant/20">
+<span class="font-label-sm text-xs text-white font-mono uppercase">Subgraph Projection (Ring #0241)</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+<span class="font-mono text-[10px] text-error font-bold">CYCLIC MOTIF</span>
+</div>
+</div>
+<!-- WebGL / SVG Topology preview -->
+<div class="h-64 w-full relative flex items-center justify-center">
+<svg class="w-full h-full" viewbox="0 0 340 220">
+<!-- Connections -->
+<line stroke="#3b4a40" stroke-width="1.5" x1="60" x2="160" y1="50" y2="100"></line>
+<line stroke="#3b4a40" stroke-width="1.5" x1="60" x2="160" y1="110" y2="100"></line>
+<line stroke="#3b4a40" stroke-width="1.5" x1="60" x2="160" y1="170" y2="100"></line>
+<line stroke="#FF5C67" stroke-dasharray="3 2" stroke-width="2" x1="160" x2="260" y1="100" y2="60"></line>
+<line stroke="#FF5C67" stroke-dasharray="3 2" stroke-width="2" x1="160" x2="260" y1="100" y2="150"></line>
+<line stroke="#FF5C67" stroke-dasharray="2 2" stroke-width="1.5" x1="260" x2="260" y1="60" y2="150"></line>
+<!-- Nodes -->
+<circle cx="60" cy="50" fill="#1C2248" r="10" stroke="#35F2A0" stroke-width="1.5"></circle>
+<text fill="#c6ffda" font-family="JetBrains Mono" font-size="8" text-anchor="middle" x="60" y="53">NIK-1</text>
+<circle cx="60" cy="110" fill="#1C2248" r="10" stroke="#35F2A0" stroke-width="1.5"></circle>
+<text fill="#c6ffda" font-family="JetBrains Mono" font-size="8" text-anchor="middle" x="60" y="113">NIK-2</text>
+<circle cx="60" cy="170" fill="#1C2248" r="10" stroke="#35F2A0" stroke-width="1.5"></circle>
+<text fill="#c6ffda" font-family="JetBrains Mono" font-size="8" text-anchor="middle" x="60" y="173">NIK-3</text>
+<!-- Dr Hub -->
+<circle cx="160" cy="100" fill="#481016" r="16" stroke="#FF5C67" stroke-width="2"></circle>
+<text fill="#ffffff" font-family="JetBrains Mono" font-size="9" font-weight="bold" text-anchor="middle" x="160" y="103">12 DR</text>
+<!-- Clinics -->
+<circle cx="260" cy="60" fill="#1C2248" r="18" stroke="#FF5C67" stroke-width="2"></circle>
+<text fill="#FF5C67" font-family="JetBrains Mono" font-size="8" font-weight="bold" text-anchor="middle" x="260" y="63">KLINIK-M</text>
+<circle cx="260" cy="150" fill="#1C2248" r="14" stroke="#FF5C67" stroke-width="1.5"></circle>
+<text fill="#e4e7ff" font-family="JetBrains Mono" font-size="8" text-anchor="middle" x="260" y="153">LAB-7</text>
+</svg>
+</div>
+</div>
+<!-- Quick Metrics HUD -->
+<div class="grid grid-cols-3 gap-2 p-2 rounded bg-surface-container border border-outline-variant/30 text-center font-mono text-[11px]">
+<div>
+<span class="text-on-surface-variant text-[10px] block">Entities</span>
+<span class="text-white font-bold">46 Total</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-[10px] block">Co-occurrence</span>
+<span class="text-error font-bold">91.4%</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-[10px] block">Time Window</span>
+<span class="text-primary-container font-bold">14 Days</span>
+</div>
+</div>
+</div>
+<!-- Column 3: Plain-Language AI Synthesis & Human Verdict (3 cols) -->
+<div class="lg:col-span-3 bg-surface-container-low p-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-2 mb-3 border-b border-outline-variant/20">
+<span class="font-headline-sm text-xs font-bold text-white uppercase tracking-wider">AI Synthesis</span>
+<span class="font-mono text-[10px] text-primary-container bg-surface-container px-1.5 py-0.5 rounded">GENAI AGENT</span>
+</div>
+<div class="p-2.5 rounded bg-surface-container border border-outline-variant/20 text-xs leading-relaxed space-y-2">
+<span class="font-mono text-[11px] text-primary-accent font-semibold block">Temuan Sistem:</span>
+<p class="text-on-surface-variant text-[11px]">
+                    "12 dokter merujuk 91% pasien fisioterapi ke Klinik Pratama Medika. Teridentifikasi 42 klaim identik (ICD-10 M54.5) yang diajukan bersamaan dari alamat IP tunggal (103.14.88.19)."
+                  </p>
+</div>
+<div class="space-y-1.5 mt-3 text-[11px] font-mono">
+<div class="flex items-center gap-1.5 text-error">
+<span class="material-symbols-outlined text-[15px]">cancel</span>
+<span>100% IP Shared match</span>
+</div>
+<div class="flex items-center gap-1.5 text-error">
+<span class="material-symbols-outlined text-[15px]">cancel</span>
+<span>Timestamp burst anomaly</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary-container">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>No prior clinical record</span>
+</div>
+</div>
+</div>
+<!-- Human Action Array -->
+<div class="pt-4 space-y-2 border-t border-outline-variant/20 mt-4">
+<button class="w-full py-2 px-3 rounded bg-error text-white font-headline-sm text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-error/20 hover:brightness-110 transition-all">
+<span class="material-symbols-outlined text-[15px]">pause_circle</span>
+<span>Freeze Disbursement (Rp 8.2B)</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-1.5 px-2 rounded bg-surface-container border border-outline-variant/30 hover:bg-surface-container-high text-white text-[11px] font-medium transition-colors">
+                    Request Audit
+                  </button>
+<button class="py-1.5 px-2 rounded bg-surface-container border border-outline-variant/30 hover:bg-surface-container-high text-on-surface-variant text-[11px] font-medium transition-colors">
+                    Dismiss Alert
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 05. COMPACT SOVEREIGN IMPACT METRICS       -->
+<!-- ========================================== -->
+<section class="w-full bg-[#080B24] px-4 md:px-8 py-14 border-b border-outline-variant/20">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/30">
+<span class="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider block">POPULATION DEFENSE</span>
+<div class="font-headline-xl text-3xl sm:text-4xl font-bold text-white mt-1">240M+</div>
+<p class="font-body-md text-xs text-primary-accent mt-1">Citizens Protected from Identity Theft</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/30">
+<span class="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider block">ANNUAL CAPITAL SURVEILLANCE</span>
+<div class="font-headline-xl text-3xl sm:text-4xl font-bold text-primary-container mt-1">~Rp 150T</div>
+<p class="font-body-md text-xs text-on-surface-variant mt-1">JKN Sovereign Healthcare Budget</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/30">
+<span class="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider block">INVESTIGATOR VELOCITY</span>
+<div class="font-headline-xl text-3xl sm:text-4xl font-bold text-white mt-1">2.0×</div>
+<p class="font-body-md text-xs text-primary-accent mt-1">Faster Audit Resolution Speed</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/30">
+<span class="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider block">REGULATORY STANDARDS</span>
+<div class="font-headline-xl text-3xl sm:text-4xl font-bold text-white mt-1">UU PDP</div>
+<p class="font-body-md text-xs text-primary-accent mt-1">Strict Cryptographic Compliance</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 06. COMPACT UNIFIED BENTO: TECH & SECURITY -->
+<!-- ========================================== -->
+<section class="w-full bg-[#0D1130] px-4 md:px-8 py-16 border-b border-outline-variant/20" id="security">
+<div class="max-w-7xl mx-auto flex flex-col gap-8">
+<div class="max-w-2xl">
+<span class="font-label-sm text-xs text-primary-accent uppercase font-mono tracking-widest font-semibold">SOVEREIGN PRIVACY &amp; INFRASTRUCTURE</span>
+<h2 class="font-headline-xl text-2xl sm:text-3xl text-white font-extrabold tracking-tight mt-1">
+            Engineered for sensitive public healthcare data.
+          </h2>
+<p class="font-body-md text-sm text-on-surface-variant mt-2 leading-relaxed">
+            Strict compliance with UU No. 27/2022 (UU PDP), ensuring zero identity leakage, cryptographic auditing, and high-throughput Apache AGE graph processing.
+          </p>
+</div>
+<!-- Compact Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Bento 1 -->
+<div class="p-5 rounded-xl bg-surface-container border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 text-primary-container mb-3">
+<span class="material-symbols-outlined text-[20px]">enhanced_encryption</span>
+<span class="font-mono text-xs font-bold uppercase">CRYPTOGRAPHIC PRIVACY</span>
+</div>
+<h3 class="font-headline-sm text-base text-white font-bold mb-1.5">SHA-256 Pseudonymization</h3>
+<p class="font-body-md text-xs text-on-surface-variant leading-relaxed">
+                Beneficiary NIKs and doctor SIPs are irreversibly hashed before graph ingestion. Re-identification requires certified multi-signature court warrants.
+              </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/20 text-[10px] font-mono text-primary-accent">
+              UU PDP ART. 16 COMPLIANT
+            </div>
+</div>
+<!-- Bento 2 -->
+<div class="p-5 rounded-xl bg-surface-container border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 text-primary-container mb-3">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+<span class="font-mono text-xs font-bold uppercase">GRAPH INFRASTRUCTURE</span>
+</div>
+<h3 class="font-headline-sm text-base text-white font-bold mb-1.5">Apache AGE + Ray Cluster</h3>
+<p class="font-body-md text-xs text-on-surface-variant leading-relaxed">
+                High-scale property graph capable of querying 500M+ heterogeneous nodes with sub-second cyclic detection and real-time community discovery.
+              </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/20 text-[10px] font-mono text-primary-accent">
+              POSTGRESQL EXTENSION RUNTIME
+            </div>
+</div>
+<!-- Bento 3 -->
+<div class="p-5 rounded-xl bg-surface-container border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 text-primary-container mb-3">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+<span class="font-mono text-xs font-bold uppercase">GOVERNANCE GUARANTEE</span>
+</div>
+<h3 class="font-headline-sm text-base text-white font-bold mb-1.5">Zero Black-Box Sanctions</h3>
+<p class="font-body-md text-xs text-on-surface-variant leading-relaxed">
+                JAGA strictly operates as a decision-support cockpit. No algorithmic determination can trigger fund freezing without certified investigator authorization.
+              </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/20 text-[10px] font-mono text-primary-accent">
+              LEAST-PRIVILEGE MANDATE
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 07. STREAMLINED FINAL CALL TO ACTION       -->
+<!-- ========================================== -->
+<section class="relative w-full bg-[#080B24] px-4 md:px-8 py-16 overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 pointer-events-none opacity-20">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<circle class="animate-spin" cx="50%" cy="50%" fill="none" r="240" stroke="#35F2A0" stroke-dasharray="6 4" stroke-width="1" style="animation-duration: 35s;"></circle>
+<circle cx="50%" cy="50%" fill="none" r="380" stroke="#35F2A0" stroke-opacity="0.4" stroke-width="0.8"></circle>
+</svg>
+</div>
+<div class="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center gap-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-primary-container/20">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="font-label-sm text-[11px] text-primary-accent tracking-widest uppercase font-semibold">SOVEREIGN HEALTHCARE INTEGRITY</span>
+</div>
+<h2 class="font-headline-xl text-3xl sm:text-4xl text-white font-extrabold tracking-tight">
+          Fraud evolves. <br/>
+<span class="text-primary-container">Your surveillance system should too.</span>
+</h2>
+<p class="font-body-md text-sm text-on-surface-variant max-w-xl leading-relaxed">
+          Deploy defense-grade network risk intelligence to safeguard sovereign healthcare resources, eliminate systemic leakage, and empower investigators with court-ready evidentiary clarity.
+        </p>
+<div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+<a class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary-container text-[#080B24] font-headline-sm text-xs font-bold shadow-lg shadow-primary-container/20 hover:bg-primary-accent transition-all" href="#cockpit">
+<span>Explore JAGA Cockpit</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-surface-container border border-outline-variant/40 text-white font-body-md text-xs font-medium hover:bg-surface-container-high transition-all" href="#pillars">
+<span class="material-symbols-outlined text-[16px] text-primary-container">layers</span>
+<span>View Architecture</span>
+</a>
+</div>
+<div class="pt-6 flex flex-wrap items-center justify-center gap-4 font-mono text-[10px] text-on-surface-variant">
+<span>UU PDP NO. 27/2022 COMPLIANT</span>
+<span>•</span>
+<span>CRYPTOGRAPHIC DE-IDENTIFICATION</span>
+<span>•</span>
+<span>HUMAN OVERSIGHT MANDATED</span>
+</div>
+</div>
+</section>
+</main>
+<!-- ========================================== -->
+<!-- MINIMAL DARK FOOTER                        -->
+<!-- ========================================== -->
+<footer class="w-full bg-[#080B24] border-t border-outline-variant/30 py-8">
+<div class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+<span class="font-headline-sm text-sm text-white font-extrabold uppercase tracking-tight">JAGA</span>
+</div>
+<span class="text-outline-variant text-xs">•</span>
+<span class="font-body-md text-xs text-on-surface-variant">Jaringan Analitik Guard Anti-fraud © 2026</span>
+</div>
+<div class="flex items-center gap-4 text-xs font-mono text-on-surface-variant">
+<span>STATUS: ACTIVE RUNTIME</span>
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="text-primary-accent font-semibold">UU PDP READY</span>
+</div>
+</div>
+</footer>
+</body></html>
