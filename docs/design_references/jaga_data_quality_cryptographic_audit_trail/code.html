@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-primary":"#006d43","error-container":"#93000a","tertiary":"#ffeeed","on-secondary-fixed":"#151938","surface-dim":"#0e112a","primary-fixed-dim":"#0ee292","on-primary-fixed-variant":"#005232","secondary-fixed":"#dfe0ff","on-primary-fixed":"#002111","tertiary-fixed":"#ffdad9","on-surface-variant":"#bacbbd","on-primary-container":"#006a42","on-error":"#690005","surface-container-low":"#161933","on-tertiary-fixed":"#400009","secondary-container":"#414466","surface-bright":"#343752","surface-tint":"#0ee292","on-tertiary":"#680015","outline-variant":"#3b4a40","on-secondary-container":"#afb2da","on-secondary-fixed-variant":"#414466","inverse-on-surface":"#2b2e49","on-surface":"#dfe0ff","on-error-container":"#ffdad6","inverse-surface":"#dfe0ff","on-primary":"#003921","secondary":"#c1c4ec","tertiary-fixed-dim":"#ffb3b3","primary":"#c6ffda","on-secondary":"#2a2e4e","surface-variant":"#30334d","surface":"#0e112a","on-tertiary-container":"#b12134","on-tertiary-fixed-variant":"#920121","outline":"#859588","on-background":"#dfe0ff","tertiary-container":"#ffc8c7","primary-container":"#35f2a0","surface-container-lowest":"#090c25","background":"#0e112a","primary-fixed":"#51ffad","surface-container":"#1b1e37","surface-container-highest":"#30334d","surface-container-high":"#252842","secondary-fixed-dim":"#c1c4ec","error":"#ffb4ab"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-lg":"1.5rem","gutter-desktop":"1.5rem","space-xl":"2.5rem","margin-desktop":"2rem","space-xs":"0.25rem",gutter:"1rem","space-sm":"0.5rem",margin:"1rem","space-md":"1rem"},fontFamily:{"headline-xl-mobile":["Plus Jakarta Sans"],"body-md":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"label-sm":["JetBrains Mono"],"label-lg":["JetBrains Mono"],"headline-xl":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-md":["JetBrains Mono"],"body-lg":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"]},fontSize:{"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.015em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"500"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.02em",fontWeight:"500"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}]}}}};</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-[240px] bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="px-space-md py-space-lg border-b border-outline-variant/20 flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">JAGA</span><span class="h-2 w-2 rounded-full bg-primary-container shadow-[0_0_8px_#35f2a0]"></span></div><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider leading-tight">Jaringan Analitik Guard Anti-fraud</span></div><nav class="px-space-sm py-space-md flex flex-col gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">OVERVIEW</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span>Overview</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">INVESTIGATION</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="priority-queue" href="#"><span class="material-symbols-outlined text-[18px]">flaky</span><span>Priority Queue</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="networks" href="#"><span class="material-symbols-outlined text-[18px]">hub</span><span>Networks</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="claims" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Claims</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="cases" href="#"><span class="material-symbols-outlined text-[18px]">folder_supervised</span><span>Cases</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">ANALYTICS</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="risk-trends" href="#"><span class="material-symbols-outlined text-[18px]">trending_up</span><span>Risk Trends</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="model-performance" href="#"><span class="material-symbols-outlined text-[18px]">precision_manufacturing</span><span>Model Performance</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">DATA</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="data-quality" href="#"><span class="material-symbols-outlined text-[18px]">fact_check</span><span>Data Quality</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">SYSTEM</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="feedback" href="#"><span class="material-symbols-outlined text-[18px]">rate_review</span><span>Feedback</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-[18px]">history</span><span>Audit Trail</span></a></div></nav></div><div class="p-space-sm border-t border-outline-variant/20 bg-surface-container-low"><div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors"><div class="flex items-center gap-space-sm"><div class="relative"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute bottom-0 right-0 h-2 w-2 rounded-full bg-primary-container ring-1 ring-surface-container-lowest"></span></div><div class="flex flex-col"><span class="font-headline-sm text-body-sm text-on-surface font-semibold leading-tight">Moren</span><span class="font-label-sm text-label-sm text-primary-container leading-none">Risk Investigator</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md w-full max-w-xl"><div class="flex items-center gap-space-xs w-full bg-surface-container-low px-space-md py-space-xs rounded-lg border border-outline-variant/30 focus-within:border-primary-container transition-all"><span class="material-symbols-outlined text-outline text-[18px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search network, provider, NIK..." type="text"/></div></div><div class="flex items-center gap-space-lg"><div class="hidden lg:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-lg border border-outline-variant/30"><span class="h-2 w-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">JKN Graph Sync: <span class="text-primary-container font-semibold">Optimal</span></span></div><div class="relative flex items-center justify-center p-space-xs rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface cursor-pointer transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-error ring-1 ring-surface-container-lowest"></span></div><div class="h-4 w-[1px] bg-outline-variant/30"></div><div class="flex items-center gap-space-xs cursor-pointer"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">arrow_drop_down</span></div></div></header><main class="w-full pt-14 px-gutter-desktop min-h-screen bg-surface-container-lowest"><div class="flex flex-col w-full pb-space-xl">
+<!-- Command Header Area -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md py-space-md">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">SOVEREIGN HEALTH ANALYTICS // JKN INGESTION TELEMETRY</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">NODE CLUSTER: CGK-01A</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+        Data Quality, Graph Telemetry &amp; Cryptographic Audit
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Monitor real-time JKN data ingestion streams, entity resolution health, Apache AGE graph statistics, and immutable investigator audit logs.
+      </p>
+</div>
+<!-- Live Telemetry Status Pill -->
+<div class="flex items-center gap-space-sm bg-surface-container px-space-md py-space-sm rounded-lg shadow-sm">
+<div class="relative flex items-center justify-center">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-ping absolute opacity-75"></span>
+<span class="w-2 h-2 rounded-full bg-primary-container relative"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-primary font-semibold">INGESTION ENGINE: HEALTHY</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/</span>
+<span class="font-label-sm text-label-sm text-on-surface">14,200 events/sec</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Pipeline Latency: <span class="text-primary-container font-medium">42ms</span> • Packet Loss: 0.00%</span>
+</div>
+</div>
+</div>
+<!-- Metric Overview Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md my-space-md">
+<!-- Stat 1 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary-container/5 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Claims Ingested Today</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">cloud_sync</span>
+</div>
+<div class="my-space-sm">
+<div class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">4,821,904</div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[16px]">arrow_upward</span>
+<span class="font-label-sm text-label-sm text-primary-container font-semibold">+18.4%</span>
+<span class="font-label-sm text-label-sm text-outline">vs yesterday batch</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[88%]"></div>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-error/5 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Validation Errors / Quarantined</span>
+<span class="material-symbols-outlined text-error text-[20px]">crisis_alert</span>
+</div>
+<div class="my-space-sm">
+<div class="font-headline-lg text-headline-lg text-error font-bold tracking-tight">142 <span class="font-label-md text-body-md text-on-surface-variant font-normal">records</span></div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-error/10 text-error font-medium">0.003% anomaly rate</span>
+<span class="font-label-sm text-label-sm text-outline">below threshold (0.05%)</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-error h-full w-[4%]"></div>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-secondary/5 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Graph Nodes</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">hub</span>
+</div>
+<div class="my-space-sm">
+<div class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">1.24M</div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Participants • Doctors • Faskes</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[65%]"></div>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary-fixed/5 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Apache AGE Graph Edges</span>
+<span class="material-symbols-outlined text-primary text-[20px]">account_tree</span>
+</div>
+<div class="my-space-sm">
+<div class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">4.82M</div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<span class="font-label-sm text-label-sm text-primary font-medium">Visits • Referrals • Billing links</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[92%]"></div>
+</div>
+</div>
+</div>
+<!-- Ingestion Health & Quarantine Split Area -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg my-space-md">
+<!-- Left Column: Ingestion Feeds (5 cols) -->
+<div class="xl:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[20px]">sync_saved_locally</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Ingestion Feeds</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">AUTO-REFRESH: 5s</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Feed 1 -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Claims Feed (BPJS API Gateway)</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-primary-container/10 text-primary-container font-medium">100% OPERATIONAL</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-space-xs">
+<span>Throughput: <span class="text-on-surface">11,400 msg/s</span></span>
+<span>Packets Dropped: <span class="text-primary-container font-semibold">0</span></span>
+</div>
+</div>
+<!-- Feed 2 -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Healthcare Facility Master</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-primary-container/10 text-primary-container font-medium">100% OPERATIONAL</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-space-xs">
+<span>Catalog: <span class="text-on-surface">27,489 Faskes (TK1/TK2/TK3)</span></span>
+<span>Sync State: <span class="text-on-surface">Synced 2h ago</span></span>
+</div>
+</div>
+<!-- Feed 3 -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Doctor License (SIP / IDI Registry)</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-secondary-container/50 text-secondary font-medium">96.4% OPERATIONAL</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-space-xs">
+<span>Resolution: <span class="text-on-surface">188,401 Practicing</span></span>
+<span>Unverified: <span class="text-error font-semibold">18 unverified SIPs</span></span>
+</div>
+</div>
+<!-- Feed 4 -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Participant Demographics (Dukcapil)</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-primary-container/10 text-primary-container font-medium">100% OPERATIONAL</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-space-xs">
+<span>Anonymization: <span class="text-primary-container font-semibold">SHA-256 Validated</span></span>
+<span>UU PDP Clearance: <span class="text-on-surface">Compliant</span></span>
+</div>
+</div>
+</div>
+<!-- Telemetry Graph Vector Visual -->
+<div class="mt-space-xs bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>24h Ingestion Cadence</span>
+<span class="text-primary">Peak: 16.4k/s</span>
+</div>
+<svg class="w-full h-16 text-primary-container" fill="none" preserveaspectratio="none" viewbox="0 0 400 80">
+<defs>
+<lineargradient id="streamGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="currentColor" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="currentColor" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 60 Q 40 45, 80 50 T 160 30 T 240 40 T 320 15 T 400 25 L 400 80 L 0 80 Z" fill="url(#streamGrad)"></path>
+<path d="M0 60 Q 40 45, 80 50 T 160 30 T 240 40 T 320 15 T 400 25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Right Column: Quarantined Records Queue (Quick Fix Table) (7 cols) -->
+<div class="xl:col-span-7 flex flex-col">
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md h-full">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-error text-[20px]">filter_alt_off</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Quarantined Records Queue</span>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded-full bg-error/10 text-error font-medium">142 PENDING</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="bg-surface-container text-on-surface hover:bg-surface-container-high px-space-sm py-1.5 rounded text-label-sm font-label-sm transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span> Filter
+            </button>
+<button class="bg-primary-container text-on-primary-container font-semibold hover:opacity-90 px-space-sm py-1.5 rounded text-label-sm font-label-sm transition-all flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">restart_alt</span> Batch Re-ingest
+            </button>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Entities violating strict schema constraints, missing cryptographic references, or failing foreign-key constraints before injection into Apache AGE graph.
+        </p>
+<!-- Compact Ledger -->
+<div class="overflow-x-auto w-full mt-space-xs">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<tr>
+<th class="py-space-sm px-space-md">Error Classification</th>
+<th class="py-space-sm px-space-md">Volume</th>
+<th class="py-space-sm px-space-md">Affected Gateway</th>
+<th class="py-space-sm px-space-md">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-error text-[16px]">domain_disabled</span>
+<span class="text-on-surface font-medium">Missing Provider ID (Kode PPK)</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">FK constraint violation on `faskes_ref`</span>
+</td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface font-semibold">
+                  42 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">records</span>
+</td>
+<td class="py-space-md px-space-md font-label-sm text-label-sm text-on-surface-variant">
+                  API-GW-SUB-04
+                </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface px-space-xs py-1 rounded text-label-sm font-label-sm transition-colors">
+                      Resolve
+                    </button>
+<button class="bg-primary-container text-on-primary-container hover:opacity-90 px-space-xs py-1 rounded text-label-sm font-label-sm transition-colors">
+                      Re-ingest
+                    </button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">calendar_month</span>
+<span class="text-on-surface font-medium">Invalid Claim Date Format (ISO-8601)</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Datetime parse exception: UTC offset mismatch</span>
+</td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface font-semibold">
+                  31 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">records</span>
+</td>
+<td class="py-space-md px-space-md font-label-sm text-label-sm text-on-surface-variant">
+                  API-GW-SUM-01
+                </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface px-space-xs py-1 rounded text-label-sm font-label-sm transition-colors">
+                      Resolve
+                    </button>
+<button class="bg-primary-container text-on-primary-container hover:opacity-90 px-space-xs py-1 rounded text-label-sm font-label-sm transition-colors">
+                      Re-ingest
+                    </button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-error text-[16px]">lock_reset</span>
+<span class="text-on-surface font-medium">Unresolved NIK Hash (Salt Misalignment)</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">UU PDP identity-hash schema rejected node merge</span>
+</td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface font-semibold">
+                  42 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">records</span>
+</td>
+<td class="py-space-md px-space-md font-label-sm text-label-sm text-on-surface-variant">
+                  DUKCAPIL-BRIDGE-X
+                </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface px-space-xs py-1 rounded text-label-sm font-label-sm transition-colors">
+                      Resolve
+                    </button>
+<button class="bg-primary-container text-on-primary-container hover:opacity-90 px-space-xs py-1 rounded text-label-sm font-label-sm transition-colors">
+                      Re-ingest
+                    </button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">badge</span>
+<span class="text-on-surface font-medium">Unregistered SIP License ID</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Doctor code not indexed in KKI/IDI Master Table</span>
+</td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface font-semibold">
+                  27 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">records</span>
+</td>
+<td class="py-space-md px-space-md font-label-sm text-label-sm text-on-surface-variant">
+                  KKI-SYNC-SYNC02
+                </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface px-space-xs py-1 rounded text-label-sm font-label-sm transition-colors">
+                      Resolve
+                    </button>
+<button class="bg-primary-container text-on-primary-container hover:opacity-90 px-space-xs py-1 rounded text-label-sm font-label-sm transition-colors">
+                      Re-ingest
+                    </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-auto pt-space-sm flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>Auto-purge quarantined items older than 30 days</span>
+<span class="text-primary cursor-pointer hover:underline">Download Quarantined JSON Dump</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Cryptographic Audit Trail Section -->
+<div class="flex flex-col gap-space-md my-space-md">
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[22px]">verified_user</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Cryptographic Audit Trail</span>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-primary-container/10 text-primary-container font-medium">UU PDP COMPLIANCE (PASAL 35)</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+            Tamper-evident, forward-secure chain of custody logging for high-impact fraud interventions, evidence exports, and node mutations.
+          </span>
+</div>
+<!-- Ledger Action Tools -->
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center bg-surface-container px-space-sm py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-outline text-[16px] mr-1">search</span>
+<input class="bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none w-44" placeholder="Filter by hash, user..." type="text"/>
+</div>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-1.5 rounded-lg font-label-sm text-label-sm transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">file_download</span> Export Ledger
+          </button>
+<button class="bg-primary text-on-primary font-semibold hover:opacity-90 px-space-md py-1.5 rounded-lg font-label-sm text-label-sm transition-all flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">key</span> Verify Merkle Root
+          </button>
+</div>
+</div>
+<!-- Immutable Action Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<tr>
+<th class="py-space-sm px-space-md">Timestamp (WIB)</th>
+<th class="py-space-sm px-space-md">Operator Identity</th>
+<th class="py-space-sm px-space-md">Cryptographic Action</th>
+<th class="py-space-sm px-space-md">Network Ingress (IP)</th>
+<th class="py-space-sm px-space-md">SHA-256 Digest (Signature)</th>
+<th class="py-space-sm px-space-md text-right">Integrity</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">
+                02 Oct 2026 18:24:12 WIB
+              </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-sm text-label-sm font-bold">M</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold leading-tight">Moren</span>
+<span class="font-label-sm text-label-sm text-outline">Risk Investigator</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 text-on-surface font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  Confirmed Risk &amp; Locked <span class="font-label-md text-label-md text-primary">JAGA-0182</span>
+</span>
+</td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface-variant">
+                10.24.18.92
+              </td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-primary">
+                b94d27b9...3f12
+              </td>
+<td class="py-space-md px-space-md text-right">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-primary-container/10 text-primary-container font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">lock</span> VERIFIED
+                </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">
+                02 Oct 2026 17:50:01 WIB
+              </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-on-secondary font-label-sm text-label-sm font-bold">A</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold leading-tight">A. Rahman</span>
+<span class="font-label-sm text-label-sm text-outline">Supervisor</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 text-on-surface font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                  Approved Legal Brief <span class="font-label-md text-label-md text-primary">CASE-0241</span>
+</span>
+</td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface-variant">
+                10.24.18.10
+              </td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-primary">
+                8f23a101...99bc
+              </td>
+<td class="py-space-md px-space-md text-right">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-primary-container/10 text-primary-container font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">lock</span> VERIFIED
+                </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">
+                02 Oct 2026 16:30:15 WIB
+              </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-surface-bright flex items-center justify-center text-primary-container font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">smart_toy</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold leading-tight">Automated Engine</span>
+<span class="font-label-sm text-label-sm text-outline">Graph GNN Sentinel</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 text-on-surface font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  High-Risk Cluster Spike Detected (<span class="font-label-md text-label-md text-primary">JAGA-0241</span>)
+                </span>
+</td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface-variant">
+                System Daemon
+              </td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-primary">
+                3e8a912b...55d1
+              </td>
+<td class="py-space-md px-space-md text-right">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-primary-container/10 text-primary-container font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">lock</span> VERIFIED
+                </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface font-medium whitespace-nowrap">
+                02 Oct 2026 14:15:22 WIB
+              </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-on-secondary font-label-sm text-label-sm font-bold">S</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold leading-tight">S. Dewi</span>
+<span class="font-label-sm text-label-sm text-outline">Investigator</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 text-on-surface font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Exported Evidence Brief (PDF/AES-256)
+                </span>
+</td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-on-surface-variant">
+                10.24.18.44
+              </td>
+<td class="py-space-md px-space-md font-label-md text-label-md text-primary">
+                a418bc22...1102
+              </td>
+<td class="py-space-md px-space-md text-right">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-primary-container/10 text-primary-container font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">lock</span> VERIFIED
+                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Forensics Footer & Merkle State -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pt-space-sm text-on-surface-variant font-label-sm text-label-sm gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[16px]">security</span>
+<span>Current Epoch Merkle Root:</span>
+<span class="font-label-md text-label-md text-on-surface bg-surface-container px-space-xs py-0.5 rounded">0x7f20e54b684811a7a0b38031d2e956e18f</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span>Block Height: <span class="text-on-surface font-bold">#1,492,084</span></span>
+<span>Consensus Sync: <span class="text-primary-container font-semibold">100.0%</span></span>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

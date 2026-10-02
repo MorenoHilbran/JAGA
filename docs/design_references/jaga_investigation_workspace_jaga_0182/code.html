@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-primary":"#006d43","error-container":"#93000a","tertiary":"#ffeeed","on-secondary-fixed":"#151938","surface-dim":"#0e112a","primary-fixed-dim":"#0ee292","on-primary-fixed-variant":"#005232","secondary-fixed":"#dfe0ff","on-primary-fixed":"#002111","tertiary-fixed":"#ffdad9","on-surface-variant":"#bacbbd","on-primary-container":"#006a42","on-error":"#690005","surface-container-low":"#161933","on-tertiary-fixed":"#400009","secondary-container":"#414466","surface-bright":"#343752","surface-tint":"#0ee292","on-tertiary":"#680015","outline-variant":"#3b4a40","on-secondary-container":"#afb2da","on-secondary-fixed-variant":"#414466","inverse-on-surface":"#2b2e49","on-surface":"#dfe0ff","on-error-container":"#ffdad6","inverse-surface":"#dfe0ff","on-primary":"#003921","secondary":"#c1c4ec","tertiary-fixed-dim":"#ffb3b3","primary":"#c6ffda","on-secondary":"#2a2e4e","surface-variant":"#30334d","surface":"#0e112a","on-tertiary-container":"#b12134","on-tertiary-fixed-variant":"#920121","outline":"#859588","on-background":"#dfe0ff","tertiary-container":"#ffc8c7","primary-container":"#35f2a0","surface-container-lowest":"#090c25","background":"#0e112a","primary-fixed":"#51ffad","surface-container":"#1b1e37","surface-container-highest":"#30334d","surface-container-high":"#252842","secondary-fixed-dim":"#c1c4ec","error":"#ffb4ab"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-lg":"1.5rem","gutter-desktop":"1.5rem","space-xl":"2.5rem","margin-desktop":"2rem","space-xs":"0.25rem",gutter:"1rem","space-sm":"0.5rem",margin:"1rem","space-md":"1rem"},fontFamily:{"headline-xl-mobile":["Plus Jakarta Sans"],"body-md":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"label-sm":["JetBrains Mono"],"label-lg":["JetBrains Mono"],"headline-xl":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-md":["JetBrains Mono"],"body-lg":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"]},fontSize:{"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.015em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"500"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.02em",fontWeight:"500"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}]}}}};</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-[240px] bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="px-space-md py-space-lg border-b border-outline-variant/20 flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">JAGA</span><span class="h-2 w-2 rounded-full bg-primary-container shadow-[0_0_8px_#35f2a0]"></span></div><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider leading-tight">Jaringan Analitik Guard Anti-fraud</span></div><nav class="px-space-sm py-space-md flex flex-col gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">OVERVIEW</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span>Overview</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">INVESTIGATION</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="priority-queue" href="#"><span class="material-symbols-outlined text-[18px]">flaky</span><span>Priority Queue</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="networks" href="#"><span class="material-symbols-outlined text-[18px]">hub</span><span>Networks</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="claims" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Claims</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="cases" href="#"><span class="material-symbols-outlined text-[18px]">folder_supervised</span><span>Cases</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">ANALYTICS</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="risk-trends" href="#"><span class="material-symbols-outlined text-[18px]">trending_up</span><span>Risk Trends</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="model-performance" href="#"><span class="material-symbols-outlined text-[18px]">precision_manufacturing</span><span>Model Performance</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">DATA</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="data-quality" href="#"><span class="material-symbols-outlined text-[18px]">fact_check</span><span>Data Quality</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">SYSTEM</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="feedback" href="#"><span class="material-symbols-outlined text-[18px]">rate_review</span><span>Feedback</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-[18px]">history</span><span>Audit Trail</span></a></div></nav></div><div class="p-space-sm border-t border-outline-variant/20 bg-surface-container-low"><div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors"><div class="flex items-center gap-space-sm"><div class="relative"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute bottom-0 right-0 h-2 w-2 rounded-full bg-primary-container ring-1 ring-surface-container-lowest"></span></div><div class="flex flex-col"><span class="font-headline-sm text-body-sm text-on-surface font-semibold leading-tight">Moren</span><span class="font-label-sm text-label-sm text-primary-container leading-none">Risk Investigator</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md w-full max-w-xl"><div class="flex items-center gap-space-xs w-full bg-surface-container-low px-space-md py-space-xs rounded-lg border border-outline-variant/30 focus-within:border-primary-container transition-all"><span class="material-symbols-outlined text-outline text-[18px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search network, provider, NIK..." type="text"/></div></div><div class="flex items-center gap-space-lg"><div class="hidden lg:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-lg border border-outline-variant/30"><span class="h-2 w-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">JKN Graph Sync: <span class="text-primary-container font-semibold">Optimal</span></span></div><div class="relative flex items-center justify-center p-space-xs rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface cursor-pointer transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-error ring-1 ring-surface-container-lowest"></span></div><div class="h-4 w-[1px] bg-outline-variant/30"></div><div class="flex items-center gap-space-xs cursor-pointer"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">arrow_drop_down</span></div></div></header><main class="w-full pt-14 px-gutter-desktop min-h-screen bg-surface-container-lowest"><div class="flex flex-col w-full pb-28">
+<!-- ================= TOP INVESTIGATION HEADER ================= -->
+<header class="w-full bg-surface-container-low px-space-lg py-space-md rounded-xl shadow-lg mb-space-md">
+<!-- Top Row: Back breadcrumb & Main Actions -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-sm">
+<a class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Back to Priority Queue</span>
+</a>
+<div class="flex items-center gap-space-xs">
+<button class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all shadow-sm">
+<span class="material-symbols-outlined text-[15px]">person_add</span>
+<span>Assign Investigator</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all shadow-sm">
+<span class="material-symbols-outlined text-[15px]">picture_as_pdf</span>
+<span>Export Evidence Brief (PDF)</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-error-container text-tertiary hover:opacity-90 font-label-md text-label-md transition-all shadow-sm">
+<span class="material-symbols-outlined text-[15px]">report_problem</span>
+<span>Escalate Case</span>
+</button>
+</div>
+</div>
+<!-- Title & Entity Badges -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-ping"></span>
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Network JAGA-0182</h1>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+          Claim Cloning Network
+        </span>
+<span class="px-space-xs py-0.5 rounded bg-error-container text-tertiary font-label-sm text-label-sm font-semibold tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">warning</span> HIGH RISK
+        </span>
+</div>
+<!-- Telemetry Strip -->
+<div class="flex flex-wrap items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-2 bg-surface-container-lowest px-space-sm py-1 rounded-lg">
+<span class="text-outline uppercase">Risk Score</span>
+<span class="text-error font-bold font-label-md text-label-md">87 <span class="text-outline font-normal">/ 100</span></span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-space-sm py-1 rounded-lg">
+<span class="text-outline uppercase">Impact</span>
+<span class="text-primary-container font-bold font-label-md text-label-md">Rp 4.8B</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-space-sm py-1 rounded-lg">
+<span class="text-outline uppercase">Entities</span>
+<span class="text-on-surface font-medium">42 Claims • 3 Doctors • 1 Provider</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-space-sm py-1 rounded-lg">
+<span class="text-outline uppercase">Detected</span>
+<span class="text-on-surface font-medium">2 hours ago</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-space-sm py-1 rounded-lg">
+<span class="text-outline uppercase">Lead</span>
+<span class="text-primary-fixed-dim font-medium">Moren</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= MIDDLE SPLIT: GRAPH & INTELLIGENCE PANEL ================= -->
+<section class="grid grid-cols-1 xl:grid-cols-12 gap-space-md mb-space-md">
+<!-- LEFT: NETWORK GRAPH CANVAS (65% on XL) -->
+<div class="xl:col-span-8 flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-xl">
+<!-- Graph Control Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-xs px-space-md py-space-xs bg-surface-container-low">
+<div class="flex items-center gap-1">
+<button class="p-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-colors" title="Zoom In">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-colors" title="Zoom Out">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">
+            Fit View
+          </button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">
+            Reset Layout
+          </button>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline">Layout:</span>
+<select class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2 py-1 rounded focus:outline-none">
+<option>Concentric Relational</option>
+<option>Force-Directed</option>
+<option>Hierarchical Cluster</option>
+</select>
+<div class="h-4 w-px bg-surface-variant mx-1"></div>
+<label class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant cursor-pointer">
+<input checked="" class="rounded bg-surface-container text-primary-container focus:ring-0" type="checkbox"/>
+<span>Claims</span>
+</label>
+<label class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant cursor-pointer">
+<input checked="" class="rounded bg-surface-container text-primary-container focus:ring-0" type="checkbox"/>
+<span>Doctors</span>
+</label>
+<label class="inline-flex items-center gap-1 font-label-sm text-label-sm text-error cursor-pointer">
+<input checked="" class="rounded bg-surface-container text-error focus:ring-0" type="checkbox"/>
+<span>Flagged Edges</span>
+</label>
+</div>
+</div>
+<!-- Graph Surface Viewport -->
+<div class="relative w-full h-[520px] bg-surface-container-lowest overflow-hidden select-none">
+<!-- Background Grid Coordinates Overlay -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="graphGrid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3b4a40" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#graphGrid)" height="100%" width="100%"></rect>
+</svg>
+<!-- Network Edges SVG -->
+<svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<!-- Normal relational lines -->
+<line stroke="#414466" stroke-dasharray="3,3" stroke-width="1.5" x1="430" x2="230" y1="260" y2="170"></line>
+<line stroke="#414466" stroke-width="1.5" x1="430" x2="310" y1="260" y2="390"></line>
+<line stroke="#414466" stroke-width="1" x1="310" x2="190" y1="390" y2="440"></line>
+<line stroke="#414466" stroke-width="1" x1="310" x2="240" y1="390" y2="470"></line>
+<!-- Suspicious cloned claims cluster connecting to Dr Hendra -->
+<line opacity="0.9" stroke="#ffb4ab" stroke-width="3" x1="430" x2="620" y1="260" y2="210"></line>
+<line opacity="0.8" stroke="#ffb4ab" stroke-width="2.5" x1="620" x2="720" y1="210" y2="120"></line>
+<line opacity="0.8" stroke="#ffb4ab" stroke-width="2.5" x1="620" x2="770" y1="210" y2="170"></line>
+<line opacity="0.8" stroke="#ffb4ab" stroke-width="2.5" x1="620" x2="780" y1="210" y2="240"></line>
+<line opacity="0.8" stroke="#ffb4ab" stroke-width="2.5" x1="620" x2="740" y1="210" y2="310"></line>
+<line opacity="0.8" stroke="#ffb4ab" stroke-width="2.5" x1="620" x2="670" y1="210" y2="370"></line>
+<!-- Cloning Cross-links (High similarity syndication web) -->
+<line stroke="#ff5c67" stroke-dasharray="4,2" stroke-width="1.5" x1="720" x2="770" y1="120" y2="170"></line>
+<line stroke="#ff5c67" stroke-dasharray="4,2" stroke-width="1.5" x1="770" x2="780" y1="170" y2="240"></line>
+<line stroke="#ff5c67" stroke-dasharray="4,2" stroke-width="1.5" x1="780" x2="740" y1="240" y2="310"></line>
+<line stroke="#ff5c67" stroke-dasharray="4,2" stroke-width="1.5" x1="740" x2="670" y1="310" y2="370"></line>
+<!-- Animated pulse telemetry dot -->
+<circle cx="620" cy="210" fill="none" opacity="0.4" r="32" stroke="#ffb4ab" stroke-width="1">
+<animate attributename="r" dur="2.5s" repeatcount="indefinite" values="24;42;24"></animate>
+<animate attributename="opacity" dur="2.5s" repeatcount="indefinite" values="0.7;0;0.7"></animate>
+</circle>
+</svg>
+<!-- HTML Overlay Nodes -->
+<!-- Center: Provider Node -->
+<div class="absolute left-[370px] top-[215px] flex flex-col items-center group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-surface-container-high shadow-[0_0_25px_rgba(53,242,160,0.3)] flex items-center justify-center p-2 text-center transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-[32px] text-primary-container">local_hospital</span>
+</div>
+<span class="mt-1 px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-semibold text-primary text-center max-w-[150px] truncate shadow">
+            RS Citra Kasih X
+          </span>
+<span class="text-[9px] text-outline font-label-sm">PRIMARY PROVIDER</span>
+</div>
+<!-- Doctor Node 1: Dr Hendra (FLAGGED) -->
+<div class="absolute left-[590px] top-[175px] flex flex-col items-center group cursor-pointer z-10">
+<div class="relative w-16 h-16 rounded-full bg-surface-container-highest shadow-[0_0_20px_rgba(255,92,103,0.5)] flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px] text-error">medical_services</span>
+<span class="absolute -top-1 -right-1 px-1 py-0.2 rounded-full bg-error text-surface font-label-sm text-[9px] font-bold">95%</span>
+</div>
+<span class="mt-1 px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm font-semibold text-error text-center shadow">
+            dr. Hendra S., Sp.B
+          </span>
+<span class="text-[9px] text-error font-label-sm font-semibold uppercase">28 Cloned Claims</span>
+</div>
+<!-- Doctor Node 2: Dr Rian -->
+<div class="absolute left-[190px] top-[135px] flex flex-col items-center group cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[20px] text-secondary">stethoscope</span>
+</div>
+<span class="mt-1 px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant text-center">
+            dr. Rian K., Sp.A
+          </span>
+</div>
+<!-- Doctor Node 3: Dr Maya -->
+<div class="absolute left-[270px] top-[360px] flex flex-col items-center group cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[20px] text-secondary">stethoscope</span>
+</div>
+<span class="mt-1 px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant text-center">
+            dr. Maya T., Sp.PD
+          </span>
+</div>
+<!-- Clustered Claims & Patients -->
+<div class="absolute left-[720px] top-[100px] flex items-center gap-1 group cursor-pointer">
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container shadow"></span>
+<span class="font-label-sm text-[10px] text-primary-container font-mono">CL-10291 (P-001)</span>
+</div>
+<div class="absolute left-[770px] top-[150px] flex items-center gap-1 group cursor-pointer">
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container shadow"></span>
+<span class="font-label-sm text-[10px] text-primary-container font-mono">CL-10292 (P-017)</span>
+</div>
+<div class="absolute left-[780px] top-[220px] flex items-center gap-1 group cursor-pointer">
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container shadow"></span>
+<span class="font-label-sm text-[10px] text-primary-container font-mono">CL-10293 (P-031)</span>
+</div>
+<div class="absolute left-[740px] top-[290px] flex items-center gap-1 group cursor-pointer">
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container shadow"></span>
+<span class="font-label-sm text-[10px] text-primary-container font-mono">CL-10294 (P-044)</span>
+</div>
+<div class="absolute left-[670px] top-[350px] flex items-center gap-1 group cursor-pointer">
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container shadow"></span>
+<span class="font-label-sm text-[10px] text-primary-container font-mono">CL-10295 (P-052)</span>
+</div>
+<!-- Selected Node Inspector Callout -->
+<div class="absolute left-6 top-6 bg-surface-container-high/95 backdrop-blur-md px- space-md py- space-sm rounded-lg shadow-2xl max-w-xs z-20">
+<div class="flex items-center justify-between pb-1 mb-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Node Inspector</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-tertiary font-label-sm text-[10px]">CRIT OUTLIER</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-semibold">Selected: dr. Hendra S., Sp.B</p>
+<div class="mt-1 flex flex-col gap-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span>• 28 linked high-similarity claims</span>
+<span>• 95% identical billing motif across 5 patients</span>
+<span>• Procedure: Chemo IV (PR-21) / ICD-10 D45</span>
+</div>
+</div>
+<!-- Floating Graph Legend -->
+<div class="absolute bottom-3 left-4 right-4 bg-surface-container-low/90 backdrop-blur-sm px-space-md py-1.5 rounded-lg flex flex-wrap items-center justify-between gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-on-surface-variant"></span><span>Participant</span></div>
+<div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span><span>Doctor</span></div>
+<div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span><span>Provider</span></div>
+<div class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span><span>Claim</span></div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1"><span class="w-4 h-0.5 bg-outline"></span><span>Standard relation</span></div>
+<div class="flex items-center gap-1"><span class="w-4 h-1 bg-error"></span><span class="text-error font-medium">Suspicious relation (&gt;90% Sim)</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT: RISK EXPLANATION & PEER COMPARISON (35% on XL) -->
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- Card 1: Plain Language Intelligence Summary & Risk Breakdown -->
+<div class="bg-surface-container-low p-space-md rounded-xl shadow-lg flex flex-col">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">psychology</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Why was this network flagged?</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-mono font-bold">Consolidated: 87/100</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg mb-space-md">
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+            Network ini memiliki pola klaim yang <span class="text-error font-semibold">sangat mirip antar pasien (95% similarity)</span> dan menunjukkan konsentrasi hubungan referral serta pemanjangan hari rawat (LOS) yang tidak wajar pada dokter yang sama dalam tempo 24 hari.
+          </p>
+</div>
+<!-- Risk Signal Decomposition -->
+<h3 class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-space-xs">Risk Signal Decomposition</h3>
+<div class="flex flex-col gap-2.5">
+<!-- Item 1 -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">Referral Concentration</span>
+<span class="text-error font-bold">+24</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<!-- Item 2 -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">Claim Similarity (Cloning)</span>
+<span class="text-error font-bold">+21</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<!-- Item 3 -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">Procedure Anomaly (PR-21)</span>
+<span class="text-on-tertiary-container font-bold">+18</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full opacity-80" style="width: 70%"></div>
+</div>
+</div>
+<!-- Item 4 -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">ML Prediction (XGBoost Ensemble)</span>
+<span class="text-primary-container font-bold">+16</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 62%"></div>
+</div>
+</div>
+<!-- Item 5 -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">Graph Motif Structure</span>
+<span class="text-on-surface-variant font-bold">+9</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-outline h-full rounded-full" style="width: 38%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Provider vs Peer Comparison -->
+<div class="bg-surface-container-low p-space-md rounded-xl shadow-lg flex flex-col justify-between flex-1">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">query_stats</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Provider vs Peer Group</h2>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[10px] text-outline">Type-B Regional</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+            Length of Stay (LOS) anomaly benchmark for Oncology Daycare / Chemo IV protocols.
+          </p>
+<div class="grid grid-cols-2 gap-space-xs mb-space-sm">
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Provider Citra Kasih X</span>
+<span class="font-headline-sm text-headline-sm text-error font-bold">6.2 days</span>
+<span class="text-[10px] text-outline">Avg Chemotherapy LOS</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Peer Median</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">3.1 days</span>
+<span class="text-[10px] text-outline">Cluster Benchmark (N=84)</span>
+</div>
+</div>
+<div class="p-2 rounded bg-error-container/40 mb-space-sm flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary">Statistical Deviation:</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">+3.1 days (+2.8σ above peer group)</span>
+</div>
+<!-- Comparative Inline SVG Distribution Chart -->
+<div class="w-full bg-surface-container-lowest p-space-xs rounded-lg mb-space-xs">
+<svg class="w-full h-12" viewbox="0 0 340 50" xmlns="http://www.w3.org/2000/svg">
+<!-- Bell curve representation -->
+<path d="M 10 45 Q 60 45, 110 38 Q 150 10, 170 10 Q 190 10, 230 38 Q 280 45, 330 45" fill="none" stroke="#414466" stroke-width="2"></path>
+<!-- Peer Median Marker -->
+<line stroke="#35f2a0" stroke-dasharray="2,2" stroke-width="1.5" x1="170" x2="170" y1="5" y2="45"></line>
+<text fill="#35f2a0" font-family="JetBrains Mono" font-size="8" x="172" y="14">Peer μ (3.1d)</text>
+<!-- Provider Outlier Marker -->
+<line stroke="#ffb4ab" stroke-width="2" x1="285" x2="285" y1="5" y2="45"></line>
+<circle cx="285" cy="20" fill="#ffb4ab" r="4"></circle>
+<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="8" x="235" y="14">X (6.2d)</text>
+</svg>
+</div>
+</div>
+<a class="inline-flex items-center justify-between text-secondary hover:text-primary font-label-sm text-label-sm pt-2 transition-colors" href="#">
+<span>View Full Peer Cohort Analysis</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ================= LOWER SECTION: DRILL-DOWN TABS & FORENSIC TABLE ================= -->
+<section class="w-full bg-surface-container-low rounded-xl overflow-hidden shadow-xl mb-space-md">
+<!-- Tab Headers -->
+<div class="flex flex-wrap items-center justify-between border-b border-surface-container bg-surface-container-lowest px-space-md">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-3 font-headline-sm text-body-sm font-semibold border-b-2 border-primary-container text-primary-container flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+<span>Claims Drill-Down (42)</span>
+</button>
+<button class="px-space-md py-3 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface border-b-2 border-transparent transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">timeline</span>
+<span>Timeline (Escalating Pattern)</span>
+</button>
+<button class="px-space-md py-3 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface border-b-2 border-transparent transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+<span>AI Investigation Assistant</span>
+</button>
+<button class="px-space-md py-3 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface border-b-2 border-transparent transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">history_toggle_off</span>
+<span>Audit Trail</span>
+</button>
+</div>
+<div class="py-2">
+<button class="inline-flex items-center gap-1 px-3 py-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export Excel</span>
+</button>
+</div>
+</div>
+<!-- Active Tab Workspace Container -->
+<div class="p-space-md flex flex-col gap-space-md">
+<!-- Table Filter Strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-container p-space-xs rounded-lg">
+<div class="flex items-center gap-space-xs flex-1 max-w-md bg-surface-container-lowest px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-outline text-[16px]">search</span>
+<input class="bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none w-full" placeholder="Search claim ID, patient NIK, diagnosis..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2 py-1 rounded font-label-sm text-label-sm text-on-surface">
+<span class="text-outline">Similarity:</span>
+<span class="text-error font-semibold">&gt; 90%</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2 py-1 rounded font-label-sm text-label-sm text-on-surface">
+<span class="text-outline">Procedure:</span>
+<span class="text-primary font-semibold">PR-21 (Chemo IV)</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2 py-1 rounded font-label-sm text-label-sm text-on-surface">
+<span class="text-outline">Amount:</span>
+<span class="text-on-surface font-semibold">&gt; Rp 4.000.000</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</div>
+<button class="px-2 py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm underline">
+            Reset Filters
+          </button>
+</div>
+</div>
+<!-- Tabular Ledger -->
+<div class="w-full overflow-x-auto rounded-lg shadow-sm">
+<table class="w-full text-left font-body-sm text-body-sm border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-3">Claim ID</th>
+<th class="py-2.5 px-3">Patient Entity</th>
+<th class="py-2.5 px-3">Diagnosis (ICD-10)</th>
+<th class="py-2.5 px-3">Procedure</th>
+<th class="py-2.5 px-3 text-right">Claim Amount</th>
+<th class="py-2.5 px-3">Attending Doctor</th>
+<th class="py-2.5 px-3">Similarity Index</th>
+<th class="py-2.5 px-3 text-center">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container bg-surface-container-low font-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-2.5 px-3 font-label-md text-label-md text-primary-fixed-dim font-bold">CL-10291</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Tn. Joko W.</span>
+<span class="text-outline font-label-sm text-[10px]">NIK 3201••••4102 (P-001)</span>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">D45 — Neoplasm</span>
+</td>
+<td class="py-2.5 px-3 text-on-surface">PR-21 (Chemo IV)</td>
+<td class="py-2.5 px-3 text-right font-label-md text-label-md font-semibold text-on-surface">Rp 5.000.000</td>
+<td class="py-2.5 px-3 text-error font-medium">dr. Hendra S., Sp.B</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-error">95%</span>
+<span class="px-1.5 py-0.2 rounded bg-error-container text-tertiary font-label-sm text-[9px] uppercase">Critical Flag</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<button class="p-1 hover:bg-surface-bright rounded text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-2.5 px-3 font-label-md text-label-md text-primary-fixed-dim font-bold">CL-10292</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Ny. Siti R.</span>
+<span class="text-outline font-label-sm text-[10px]">NIK 3201••••1994 (P-017)</span>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">D45 — Neoplasm</span>
+</td>
+<td class="py-2.5 px-3 text-on-surface">PR-21 (Chemo IV)</td>
+<td class="py-2.5 px-3 text-right font-label-md text-label-md font-semibold text-on-surface">Rp 4.900.000</td>
+<td class="py-2.5 px-3 text-error font-medium">dr. Hendra S., Sp.B</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-error">94%</span>
+<span class="px-1.5 py-0.2 rounded bg-error-container text-tertiary font-label-sm text-[9px] uppercase">Critical Flag</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<button class="p-1 hover:bg-surface-bright rounded text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-2.5 px-3 font-label-md text-label-md text-primary-fixed-dim font-bold">CL-10293</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Tn. Ahmad B.</span>
+<span class="text-outline font-label-sm text-[10px]">NIK 3204••••5521 (P-031)</span>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">D45 — Neoplasm</span>
+</td>
+<td class="py-2.5 px-3 text-on-surface">PR-21 (Chemo IV)</td>
+<td class="py-2.5 px-3 text-right font-label-md text-label-md font-semibold text-on-surface">Rp 5.100.000</td>
+<td class="py-2.5 px-3 text-error font-medium">dr. Hendra S., Sp.B</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-on-tertiary-container">93%</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-[9px] uppercase">High Flag</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<button class="p-1 hover:bg-surface-bright rounded text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-2.5 px-3 font-label-md text-label-md text-primary-fixed-dim font-bold">CL-10294</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Ny. Dewi K.</span>
+<span class="text-outline font-label-sm text-[10px]">NIK 3204••••9810 (P-044)</span>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">D45 — Neoplasm</span>
+</td>
+<td class="py-2.5 px-3 text-on-surface">PR-21 (Chemo IV)</td>
+<td class="py-2.5 px-3 text-right font-label-md text-label-md font-semibold text-on-surface">Rp 4.800.000</td>
+<td class="py-2.5 px-3 text-error font-medium">dr. Hendra S., Sp.B</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-on-tertiary-container">92%</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-[9px] uppercase">High Flag</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<button class="p-1 hover:bg-surface-bright rounded text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-2.5 px-3 font-label-md text-label-md text-primary-fixed-dim font-bold">CL-10295</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Tn. Budi S.</span>
+<span class="text-outline font-label-sm text-[10px]">NIK 3202••••1120 (P-052)</span>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">D45 — Neoplasm</span>
+</td>
+<td class="py-2.5 px-3 text-on-surface">PR-21 (Chemo IV)</td>
+<td class="py-2.5 px-3 text-right font-label-md text-label-md font-semibold text-on-surface">Rp 5.050.000</td>
+<td class="py-2.5 px-3 text-error font-medium">dr. Hendra S., Sp.B</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-on-tertiary-container">91%</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-[9px] uppercase">High Flag</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<button class="p-1 hover:bg-surface-bright rounded text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- ================= TIMELINE SNAPSHOT & AI ASSISTANT PANEL ================= -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-md mb-space-md">
+<!-- Timeline (Escalating Pattern) -->
+<div class="lg:col-span-6 bg-surface-container-low p-space-md rounded-xl shadow-lg flex flex-col">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">access_time</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Escalating Formation Timeline</h3>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Aug — Sep 2024</span>
+</div>
+<div class="relative pl-6 space-y-4 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-variant">
+<!-- Milestone 1 -->
+<div class="relative group">
+<span class="absolute -left-[23px] top-1 w-3 h-3 rounded-full bg-outline"></span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold">01 Aug</span>
+<span class="font-label-sm text-[10px] text-outline">Normal Baseline</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Initial standard chemotherapy claims recorded at RS Citra Kasih X.</p>
+</div>
+<!-- Milestone 2 -->
+<div class="relative group">
+<span class="absolute -left-[23px] top-1 w-3 h-3 rounded-full bg-secondary"></span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-bold">05 Aug</span>
+<span class="font-label-sm text-[10px] text-outline">Volume Drift</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Sudden referral spike of Neoplasm D45 cases directed to dr. Hendra.</p>
+</div>
+<!-- Milestone 3 -->
+<div class="relative group">
+<span class="absolute -left-[23px] top-1 w-3 h-3 rounded-full bg-on-tertiary-container"></span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-sm text-label-sm text-on-tertiary-container font-bold">10 Aug</span>
+<span class="font-label-sm text-[10px] text-outline">Duplicate Trigger</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">12 identical billing packages submitted within 4 hours.</p>
+</div>
+<!-- Milestone 4 -->
+<div class="relative group">
+<span class="absolute -left-[23px] top-1 w-3 h-3 rounded-full bg-error animate-pulse"></span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-sm text-label-sm text-error font-bold">02 Sep (Today)</span>
+<span class="font-label-sm text-[10px] text-error font-bold">NETWORK DETECTED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">Automated high-confidence graph isolation triggered (Score 87).</p>
+</div>
+</div>
+</div>
+<!-- AI Investigation Assistant (JAGA AI) -->
+<div class="lg:col-span-6 bg-surface-container-low p-space-md rounded-xl shadow-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[20px]">psychology_alt</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">JAGA Forensic Copilot</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-container font-label-sm text-[10px]">Online</span>
+</div>
+<!-- Predefined query chips -->
+<div class="flex flex-wrap gap-1.5 mb-space-sm">
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors">
+            Why flagged?
+          </button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors">
+            Which claims are most similar?
+          </button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors">
+            Strongest evidence
+          </button>
+</div>
+<!-- Bot Response Balloon -->
+<div class="p-space-sm bg-surface-container rounded-lg mb-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary-container font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span> JAGA Agent Analysis
+            </span>
+<span class="font-label-sm text-[10px] text-outline">Just now</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+            Claims <strong class="text-primary font-mono">CL-10291</strong> through <strong class="text-primary font-mono">CL-10295</strong> share identical secondary diagnostics, verbatim procedure notes, and matching dosage timing for 5 separate patients. All authorized by dr. Hendra with a calculated similarity vector of <strong class="text-error font-mono">95.2%</strong>.
+          </p>
+</div>
+</div>
+<!-- Quick prompt input -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-3 py-1.5 rounded-lg border-transparent">
+<input class="bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none w-full" placeholder="Ask JAGA about this network..." type="text"/>
+<button class="p-1 rounded bg-primary-container text-on-primary-container hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ================= STICKY BOTTOM: LEVEL 3 DECISION BAR ================= -->
+<aside class="fixed bottom-0 left-[240px] right-0 bg-surface-container-low/95 backdrop-blur-md px-space-lg py-space-sm shadow-2xl z-40">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<!-- Status & Confidence Level -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold uppercase">Under Investigation</span>
+</div>
+<div class="h-4 w-px bg-surface-variant"></div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="text-outline">Confidence:</span>
+<label class="flex items-center gap-1 cursor-pointer">
+<input class="text-primary-container focus:ring-0" name="conf" type="radio"/>
+<span>High</span>
+</label>
+<label class="flex items-center gap-1 cursor-pointer">
+<input checked="" class="text-primary-container focus:ring-0" name="conf" type="radio"/>
+<span class="text-primary-container font-bold">Medium</span>
+</label>
+<label class="flex items-center gap-1 cursor-pointer">
+<input class="text-primary-container focus:ring-0" name="conf" type="radio"/>
+<span>Low</span>
+</label>
+</div>
+</div>
+<!-- Center Notes Preview / Human Reasoning -->
+<div class="flex-1 max-w-xl hidden md:block">
+<div class="bg-surface-container-lowest px-3 py-1.5 rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[16px]">edit_note</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface focus:outline-none" type="text" value="Terdapat indikasi kuat pola klaim duplikasi terkoordinasi pada dokter spesialis bedah..."/>
+</div>
+</div>
+<!-- Right Action Decision Buttons -->
+<div class="flex items-center gap-space-xs">
+<button class="px-3 py-2 rounded bg-surface-container hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-colors">
+          Dismiss Network
+        </button>
+<button class="px-3 py-2 rounded bg-surface-container-high hover:bg-surface-bright text-tertiary-fixed-dim font-label-md text-label-md transition-colors">
+          Need More Evidence
+        </button>
+<button class="px-3 py-2 rounded bg-surface-container-high hover:bg-surface-bright text-secondary font-label-md text-label-md transition-colors">
+          Escalate to Supervisor
+        </button>
+<button class="px-4 py-2 rounded bg-primary-container text-on-primary-container hover:opacity-90 font-label-md text-label-md font-bold transition-all shadow-[0_0_15px_rgba(53,242,160,0.3)]">
+          Confirm Risk &amp; Lock
+        </button>
+</div>
+</div>
+</aside>
+</div></main></div></body></html>

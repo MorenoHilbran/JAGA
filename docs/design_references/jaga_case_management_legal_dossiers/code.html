@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-primary":"#006d43","error-container":"#93000a","tertiary":"#ffeeed","on-secondary-fixed":"#151938","surface-dim":"#0e112a","primary-fixed-dim":"#0ee292","on-primary-fixed-variant":"#005232","secondary-fixed":"#dfe0ff","on-primary-fixed":"#002111","tertiary-fixed":"#ffdad9","on-surface-variant":"#bacbbd","on-primary-container":"#006a42","on-error":"#690005","surface-container-low":"#161933","on-tertiary-fixed":"#400009","secondary-container":"#414466","surface-bright":"#343752","surface-tint":"#0ee292","on-tertiary":"#680015","outline-variant":"#3b4a40","on-secondary-container":"#afb2da","on-secondary-fixed-variant":"#414466","inverse-on-surface":"#2b2e49","on-surface":"#dfe0ff","on-error-container":"#ffdad6","inverse-surface":"#dfe0ff","on-primary":"#003921","secondary":"#c1c4ec","tertiary-fixed-dim":"#ffb3b3","primary":"#c6ffda","on-secondary":"#2a2e4e","surface-variant":"#30334d","surface":"#0e112a","on-tertiary-container":"#b12134","on-tertiary-fixed-variant":"#920121","outline":"#859588","on-background":"#dfe0ff","tertiary-container":"#ffc8c7","primary-container":"#35f2a0","surface-container-lowest":"#090c25","background":"#0e112a","primary-fixed":"#51ffad","surface-container":"#1b1e37","surface-container-highest":"#30334d","surface-container-high":"#252842","secondary-fixed-dim":"#c1c4ec","error":"#ffb4ab"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-lg":"1.5rem","gutter-desktop":"1.5rem","space-xl":"2.5rem","margin-desktop":"2rem","space-xs":"0.25rem",gutter:"1rem","space-sm":"0.5rem",margin:"1rem","space-md":"1rem"},fontFamily:{"headline-xl-mobile":["Plus Jakarta Sans"],"body-md":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"label-sm":["JetBrains Mono"],"label-lg":["JetBrains Mono"],"headline-xl":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-md":["JetBrains Mono"],"body-lg":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"]},fontSize:{"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.015em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"500"}],"label-lg":["13px",{lineHeight:"18px",letterSpacing:"0.02em",fontWeight:"500"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"label-md":["11px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}]}}}};</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-[240px] bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="px-space-md py-space-lg border-b border-outline-variant/20 flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">JAGA</span><span class="h-2 w-2 rounded-full bg-primary-container shadow-[0_0_8px_#35f2a0]"></span></div><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider leading-tight">Jaringan Analitik Guard Anti-fraud</span></div><nav class="px-space-sm py-space-md flex flex-col gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">OVERVIEW</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span>Overview</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">INVESTIGATION</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="priority-queue" href="#"><span class="material-symbols-outlined text-[18px]">flaky</span><span>Priority Queue</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="networks" href="#"><span class="material-symbols-outlined text-[18px]">hub</span><span>Networks</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="claims" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Claims</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="cases" href="#"><span class="material-symbols-outlined text-[18px]">folder_supervised</span><span>Cases</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">ANALYTICS</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="risk-trends" href="#"><span class="material-symbols-outlined text-[18px]">trending_up</span><span>Risk Trends</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="model-performance" href="#"><span class="material-symbols-outlined text-[18px]">precision_manufacturing</span><span>Model Performance</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">DATA</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="data-quality" href="#"><span class="material-symbols-outlined text-[18px]">fact_check</span><span>Data Quality</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">SYSTEM</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="feedback" href="#"><span class="material-symbols-outlined text-[18px]">rate_review</span><span>Feedback</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-[18px]">history</span><span>Audit Trail</span></a></div></nav></div><div class="p-space-sm border-t border-outline-variant/20 bg-surface-container-low"><div class="flex items-center justify-between p-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors"><div class="flex items-center gap-space-sm"><div class="relative"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute bottom-0 right-0 h-2 w-2 rounded-full bg-primary-container ring-1 ring-surface-container-lowest"></span></div><div class="flex flex-col"><span class="font-headline-sm text-body-sm text-on-surface font-semibold leading-tight">Moren</span><span class="font-label-sm text-label-sm text-primary-container leading-none">Risk Investigator</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md w-full max-w-xl"><div class="flex items-center gap-space-xs w-full bg-surface-container-low px-space-md py-space-xs rounded-lg border border-outline-variant/30 focus-within:border-primary-container transition-all"><span class="material-symbols-outlined text-outline text-[18px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search network, provider, NIK..." type="text"/></div></div><div class="flex items-center gap-space-lg"><div class="hidden lg:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-lg border border-outline-variant/30"><span class="h-2 w-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">JKN Graph Sync: <span class="text-primary-container font-semibold">Optimal</span></span></div><div class="relative flex items-center justify-center p-space-xs rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface cursor-pointer transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-error ring-1 ring-surface-container-lowest"></span></div><div class="h-4 w-[1px] bg-outline-variant/30"></div><div class="flex items-center gap-space-xs cursor-pointer"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">arrow_drop_down</span></div></div></header><main class="w-full pt-14 px-gutter-desktop min-h-screen bg-surface-container-lowest"><div class="flex flex-col w-full pb-space-xl">
+<!-- Dynamic Sidebar Active Pill Injector -->
+<script>
+    (function syncSidebar() {
+      const activeLink = document.querySelector('nav a[data-path="cases"]');
+      if (activeLink) {
+        activeLink.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high', 'hover:text-on-surface');
+        activeLink.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-sm');
+      }
+    })();
+  </script>
+<!-- Section 1: Institutional Command Header -->
+<div class="w-full flex flex-col xl:flex-row xl:items-end justify-between gap-space-lg mb-space-lg">
+<div class="flex flex-col max-w-3xl">
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest px-space-xs py-0.5 rounded bg-surface-container-high">JKN Enforcement Docket</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider">FORENSICS DIVISION v4.19</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">Case Management &amp; Investigation Dossiers</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+        Track escalated fraud syndicates, maintain immutable chain-of-custody evidence dossiers, and collaborate on state-backed legal enforcement briefs.
+      </p>
+</div>
+<!-- Action Bar & Investigator Filter -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="relative flex items-center bg-surface-container-low px-space-md py-space-xs rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary-container mr-space-xs">shield_person</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-[9px] uppercase tracking-wider text-outline leading-none">Filter Personnel</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface cursor-pointer focus:outline-none pr-space-md" id="investigatorFilter">
+<option class="bg-surface-container" value="all">All Lead Investigators</option>
+<option class="bg-surface-container" selected="" value="moren">Lead: Moren (Risk Forensics)</option>
+<option class="bg-surface-container" value="dewi">Investigator: S. Dewi</option>
+<option class="bg-surface-container" value="supervisor">Supervisor: A. Rahman</option>
+</select>
+</div>
+</div>
+<button class="flex items-center gap-space-xs bg-surface-container-high hover:bg-surface-variant text-on-surface px-space-md py-space-sm rounded-lg transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-label-md text-label-md">Audit Integrity Check</span>
+</button>
+<button class="flex items-center gap-space-xs bg-primary-container text-on-primary-container hover:bg-primary-fixed-dim px-space-md py-space-sm rounded-lg font-semibold shadow-sm transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[20px]">add_box</span>
+<span class="font-label-md text-label-md tracking-tight">+ Initiate New Dossier</span>
+</button>
+</div>
+</div>
+<!-- Section 2: Pipeline Stage Overview (Bento Metric Ribbon) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-sm mb-space-lg">
+<!-- Stage 1 -->
+<div class="group relative flex flex-col justify-between p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase">01 / Under Review</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tabular-nums">14</span>
+<span class="font-label-sm text-label-sm text-outline">dossiers</span>
+</div>
+<div class="font-label-md text-label-md text-secondary mt-0.5 tabular-nums">Rp 24.200.000.000</div>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-space-sm overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 28%"></div>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="group relative flex flex-col justify-between p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase">02 / Evidence Gathering</span>
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tabular-nums">28</span>
+<span class="font-label-sm text-label-sm text-outline">dossiers</span>
+</div>
+<div class="font-label-md text-label-md text-primary mt-0.5 tabular-nums">Rp 41.500.000.000</div>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-space-sm overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 54%"></div>
+</div>
+</div>
+<!-- Stage 3 (Active Attention) -->
+<div class="group relative flex flex-col justify-between p-space-md rounded-lg bg-surface-container shadow-sm hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary-container tracking-wider uppercase">03 / Escalated to Supervisor</span>
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-md text-headline-md font-bold text-primary tabular-nums">8</span>
+<span class="font-label-sm text-label-sm text-primary-fixed">pending sign-off</span>
+</div>
+<div class="font-label-md text-label-md text-error mt-0.5 tabular-nums">Rp 19.800.000.000</div>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-space-sm overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<!-- Stage 4 -->
+<div class="group relative flex flex-col justify-between p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase">04 / Legal &amp; APH Handover</span>
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tabular-nums">6</span>
+<span class="font-label-sm text-label-sm text-outline">briefed</span>
+</div>
+<div class="font-label-md text-label-md text-secondary mt-0.5 tabular-nums">Rp 32.100.000.000</div>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-space-sm overflow-hidden">
+<div class="bg-secondary-fixed h-full rounded-full" style="width: 22%"></div>
+</div>
+</div>
+<!-- Stage 5 -->
+<div class="group relative flex flex-col justify-between p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase">05 / Recovered &amp; Closed</span>
+<span class="w-2 h-2 rounded-full bg-surface-tint"></span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tabular-nums">42</span>
+<span class="font-label-sm text-label-sm text-outline">settled</span>
+</div>
+<div class="font-label-md text-label-md text-primary-container mt-0.5 tabular-nums">Rp 64.000.000.000</div>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-space-sm overflow-hidden">
+<div class="bg-surface-tint h-full rounded-full" style="width: 89%"></div>
+</div>
+</div>
+</div>
+<!-- Section 3 & 4: Split Main Layout (Ledger Matrix + Chain of Custody Inspector) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Interactive Dossier Grid (7 Cols on large screens) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Docket Control & Live Telemetry Bar -->
+<div class="flex items-center justify-between px-space-md py-space-sm rounded-lg bg-surface-container-low text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Priority Queue Matrix</span>
+<span class="px-space-xs py-0.5 rounded font-label-sm text-[10px] bg-surface-container-high text-primary-container">Live Polling</span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span> 3 Escalated Today</span>
+<span class="text-outline">Total Exposure: <span class="text-on-surface font-semibold tabular-nums">Rp 181.6B</span></span>
+</div>
+</div>
+<!-- Dossier Card 1 (CRITICAL ACTIVE CASE) -->
+<div class="relative rounded-lg bg-surface-container p-space-lg shadow-md transition-all cursor-pointer" id="case-0241">
+<!-- Visual Accent Line -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error rounded-l"></div>
+<div class="flex flex-col gap-space-md pl-space-xs">
+<!-- Card Header & Badges -->
+<div class="flex flex-wrap items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-primary font-bold tracking-tight">CASE-2026-0241</span>
+<span class="font-label-sm text-[10px] text-outline font-medium px-space-xs py-0.5 rounded bg-surface-container-lowest">NET: JAGA-0241</span>
+<span class="px-space-xs py-0.5 rounded font-label-sm text-[10px] bg-error-container/40 text-error font-semibold uppercase tracking-wider">CRIT 94% CONFIDENCE</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold mt-1">Provider Cluster Anomaly: Phantom Inpatient Upcoding</h2>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded font-label-sm text-label-sm bg-surface-container-high text-tertiary-fixed font-medium">Stage: Escalated to Supervisor</span>
+</div>
+</div>
+<!-- Entity & Staffing Detail Matrix -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Investigation Target</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium mt-0.5">RS Citra Kasih X</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 Linked Specialists (Bedah)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Lead / Supervisor</span>
+<span class="font-body-sm text-body-sm text-primary-container font-medium mt-0.5">Moren (Risk Forensics)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Spv: A. Rahman</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Exposure &amp; Claims</span>
+<span class="font-headline-sm text-[16px] text-error font-bold tabular-nums mt-0.5">Rp 8.200.000.000</span>
+<span class="font-label-sm text-label-sm text-outline tabular-nums">42 synthetic claim bundles</span>
+</div>
+</div>
+<!-- Cryptographic & Evidence Ledger Tag -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary-container">lock</span>
+<span class="tabular-nums font-mono text-outline">SHA256: e3b0c442...98a0f</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface">8 Signed Evidence Briefs</span>
+<span class="text-outline-variant">•</span>
+<span class="text-primary">1 Graph Motif Snapshot</span>
+</div>
+<!-- Contextual CTA Buttons -->
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-variant text-primary font-label-md text-label-md font-semibold transition-colors" onclick="selectDossier('CASE-2026-0241')">
+                Open Dossier
+              </button>
+<button class="flex items-center gap-1 px-space-md py-space-xs rounded bg-surface-bright hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-label-md font-semibold transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+                Export Court-Ready PDF
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Dossier Card 2 (EVIDENCE GATHERING) -->
+<div class="relative rounded-lg bg-surface-container-low hover:bg-surface-container p-space-lg shadow-sm transition-all cursor-pointer" id="case-0182">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container rounded-l"></div>
+<div class="flex flex-col gap-space-md pl-space-xs">
+<!-- Card Header & Badges -->
+<div class="flex flex-wrap items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-primary font-bold tracking-tight">CASE-2026-0182</span>
+<span class="font-label-sm text-[10px] text-outline font-medium px-space-xs py-0.5 rounded bg-surface-container-lowest">NET: JAGA-0182</span>
+<span class="px-space-xs py-0.5 rounded font-label-sm text-[10px] bg-primary-container/20 text-primary-container font-semibold uppercase tracking-wider">HIGH 91% CONFIDENCE</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold mt-1">Claim Cloning Ring: Temporal Signature Collisions</h2>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded font-label-sm text-label-sm bg-surface-container-high text-primary-container font-medium">Stage: Evidence Gathering</span>
+</div>
+</div>
+<!-- Entity & Staffing Detail Matrix -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm p-space-sm rounded-lg bg-surface-container-lowest">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Investigation Target</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium mt-0.5">dr. Hendra S., Sp.B</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Oncology Daycare Wing Jkt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Lead / Supervisor</span>
+<span class="font-body-sm text-body-sm text-primary-container font-medium mt-0.5">Moren (Risk Forensics)</span>
+<span class="font-label-sm text-label-sm text-outline">Spv: Pending Assignment</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Exposure &amp; Claims</span>
+<span class="font-headline-sm text-[16px] text-primary-container font-bold tabular-nums mt-0.5">Rp 4.800.000.000</span>
+<span class="font-label-sm text-label-sm text-outline tabular-nums">28 verified clone pairs</span>
+</div>
+</div>
+<!-- Cryptographic & Evidence Ledger Tag -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">fingerprint</span>
+<span class="tabular-nums font-mono text-outline">SHA256: 7b21a811...df42c</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface">5 Witness Testimonies</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface">Electronic EHR Diff</span>
+</div>
+<!-- Contextual CTA Buttons -->
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-variant text-primary font-label-md text-label-md font-semibold transition-colors" onclick="selectDossier('CASE-2026-0182')">
+                Open Dossier
+              </button>
+<button class="flex items-center gap-1 px-space-md py-space-xs rounded bg-secondary-container hover:bg-secondary text-on-secondary font-label-md text-label-md font-semibold transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+                Escalate
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Dossier Card 3 (UNDER REVIEW) -->
+<div class="relative rounded-lg bg-surface-container-low hover:bg-surface-container p-space-lg shadow-sm transition-all cursor-pointer" id="case-0157">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l"></div>
+<div class="flex flex-col gap-space-md pl-space-xs">
+<!-- Card Header & Badges -->
+<div class="flex flex-wrap items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-primary font-bold tracking-tight">CASE-2026-0157</span>
+<span class="font-label-sm text-[10px] text-outline font-medium px-space-xs py-0.5 rounded bg-surface-container-lowest">NET: JAGA-0157</span>
+<span class="px-space-xs py-0.5 rounded font-label-sm text-[10px] bg-secondary-container text-on-secondary-container font-semibold uppercase tracking-wider">MED 79% CONFIDENCE</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold mt-1">Cross-District Referral Loop Syndicate</h2>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded font-label-sm text-label-sm bg-surface-container-high text-secondary font-medium">Stage: Under Review</span>
+</div>
+</div>
+<!-- Entity & Staffing Detail Matrix -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm p-space-sm rounded-lg bg-surface-container-lowest">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Investigation Target</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium mt-0.5">Puskesmas Cohort Surabaya</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">&amp; RS Medika Utama</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Lead / Supervisor</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium mt-0.5">S. Dewi (Investigator)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Spv: A. Rahman</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Exposure &amp; Claims</span>
+<span class="font-headline-sm text-[16px] text-secondary font-bold tabular-nums mt-0.5">Rp 3.200.000.000</span>
+<span class="font-label-sm text-label-sm text-outline tabular-nums">5 Participating Clinicians</span>
+</div>
+</div>
+<!-- Cryptographic & Evidence Ledger Tag -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">device_hub</span>
+<span class="tabular-nums font-mono text-outline">SHA256: 3a99cc12...ee891</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface">Referral Topology Matrix</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline">Pre-audit Phase</span>
+</div>
+<!-- Contextual CTA Buttons -->
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-variant text-primary font-label-md text-label-md font-semibold transition-colors" onclick="selectDossier('CASE-2026-0157')">
+                Open Dossier
+              </button>
+<button class="flex items-center gap-1 px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-semibold transition-colors">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+                Assign Co-Lead
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Active Dossier Snapshot & Chain-of-Custody Inspector (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md sticky top-16">
+<!-- Forensic Dossier Binder Head -->
+<div class="rounded-lg bg-surface-container p-space-lg shadow-xl relative overflow-hidden">
+<!-- Faint Topographic Visual Motif -->
+<div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-primary-container/5 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between pb-space-sm mb-space-md border-b border-surface-container-high">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold">Active Dossier Snapshot</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5" id="activeDossierCode">CASE-2026-0241</span>
+</div>
+<span class="px-space-sm py-0.5 rounded font-label-sm text-label-sm bg-error/20 text-error font-semibold">LEVEL 4 - CRITICAL</span>
+</div>
+<!-- Evidence Summary Matrix -->
+<div class="space-y-space-sm mb-space-md">
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container-low text-body-sm">
+<span class="text-outline font-label-sm uppercase tracking-wider">Syndicate Ring</span>
+<span class="text-on-surface font-medium font-label-sm">RS Citra Kasih X Cluster</span>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container-low text-body-sm">
+<span class="text-outline font-label-sm uppercase tracking-wider">Identified Exposure</span>
+<span class="text-error font-bold font-label-md tabular-nums">Rp 8.200.000.000</span>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container-low text-body-sm">
+<span class="text-outline font-label-sm uppercase tracking-wider">BPJS Integrity Seal</span>
+<span class="text-primary-container font-mono text-[11px]">VALID_SIGN_JKN#99201</span>
+</div>
+</div>
+<!-- Chain of Custody & Audit Trail -->
+<div class="mb-space-md">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">Forensic Chain of Custody</span>
+<span class="font-label-sm text-label-sm text-outline">Immutable Log (SHA-256)</span>
+</div>
+<div class="relative pl-space-md space-y-space-sm before:content-[''] before:absolute before:left-1.5 before:top-2 before:bottom-2 before:w-[1px] before:bg-outline-variant">
+<!-- Audit Entry 1 -->
+<div class="relative flex flex-col">
+<span class="absolute -left-[19px] top-1.5 w-2 h-2 rounded-full bg-error"></span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Supervisor Escalation Triggered</span>
+<span class="font-label-sm text-[10px] text-outline font-mono">02 Oct 17:45</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Investigator Moren requested immediate payout freeze &amp; legal docket assignment.</span>
+</div>
+<!-- Audit Entry 2 -->
+<div class="relative flex flex-col">
+<span class="absolute -left-[19px] top-1.5 w-2 h-2 rounded-full bg-primary-container"></span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Cryptographic Hash Sealed</span>
+<span class="font-label-sm text-[10px] text-outline font-mono">02 Oct 16:12</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono text-[11px] text-outline">Digest: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+</div>
+<!-- Audit Entry 3 -->
+<div class="relative flex flex-col">
+<span class="absolute -left-[19px] top-1.5 w-2 h-2 rounded-full bg-secondary"></span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Claim Similarity Graph Generated</span>
+<span class="font-label-sm text-[10px] text-outline font-mono">02 Oct 14:00</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Citra Kasih X claim similarity vector computed against 12.4M regional records.</span>
+</div>
+</div>
+</div>
+<!-- Supervisor Approval Checklist -->
+<div class="p-space-sm rounded-lg bg-surface-container-low mb-space-md">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface font-bold uppercase tracking-wider">Supervisor Legal Review Gate</span>
+<span class="font-label-sm text-label-sm text-primary-container">2 of 3 Verified</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="flex items-center gap-space-sm p-space-xs rounded hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-highest text-primary-container accent-primary-container focus:ring-0 cursor-default" disabled="" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">Claim duplication index exceeds 90% threshold</span>
+</label>
+<label class="flex items-center gap-space-sm p-space-xs rounded hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-highest text-primary-container accent-primary-container focus:ring-0 cursor-default" disabled="" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">Doctor billing schedule multi-hospital collision confirmed</span>
+</label>
+<label class="flex items-center gap-space-sm p-space-xs rounded hover:bg-surface-container transition-colors cursor-pointer">
+<input class="w-4 h-4 rounded bg-surface-container-highest text-primary-container accent-primary-container focus:ring-0 cursor-pointer" id="chkFinanceLock" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-primary-container font-medium">Authorize Intercept payout lock (BPJS Finance Node)</span>
+</label>
+</div>
+</div>
+<!-- Lead Investigator Live Notes -->
+<div class="flex flex-col gap-space-xs mb-space-lg">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Lead Forensic Notes</span>
+<span class="font-label-sm text-label-sm text-primary">Moren • 17:42</span>
+</div>
+<div class="w-full bg-surface-container-low rounded p-space-sm text-on-surface font-body-sm text-body-sm">
+<p>Multiple synchronized ICD-10 upcoding triggers for laparoscopy procedures. Doctor schedules prove physical presence 42km away at secondary clinic during reported incision timestamps. Payout lock required to prevent settlement liquidation.</p>
+</div>
+</div>
+<!-- Legal Enforcement Transmission Action Bar -->
+<div class="flex items-center gap-space-sm pt-space-xs border-t border-surface-container-high">
+<button class="w-1/3 py-space-sm rounded bg-surface-container-high hover:bg-error/20 hover:text-error text-on-surface-variant font-label-md text-label-md font-semibold transition-colors">
+            Reject / Return
+          </button>
+<button class="w-2/3 py-space-sm rounded bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-md text-label-md font-bold transition-all shadow-md flex items-center justify-center gap-space-xs" id="btnTransmit">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+<span>Sign &amp; Transmit to Compliance</span>
+</button>
+</div>
+</div>
+<!-- Quick Evidence Vault Micro-Card -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[20px]">folder_zip</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Forensic_Bundle_CASE_0241.tar.gz</span>
+<span class="font-label-sm text-[10px] text-outline font-mono">Size: 42.4 MB • SHA256 Verified</span>
+</div>
+</div>
+<button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-container text-primary font-label-sm text-label-sm transition-colors">
+          Verify Hash
+        </button>
+</div>
+</div>
+</div>
+<!-- Inline Interactive Logic -->
+<script>
+    function selectDossier(caseId) {
+      const codeSpan = document.getElementById('activeDossierCode');
+      if (codeSpan) {
+        codeSpan.innerText = caseId;
+      }
+      
+      // Visual state toggle
+      const cards = ['case-0241', 'case-0182', 'case-0157'];
+      cards.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          if (id === caseId.toLowerCase().replace('case-', 'case-')) {
+            el.classList.add('bg-surface-container');
+            el.classList.remove('bg-surface-container-low');
+          } else {
+            el.classList.remove('bg-surface-container');
+            el.classList.add('bg-surface-container-low');
+          }
+        }
+      });
+    }
+
+    // Interactive button feedback
+    const btnTransmit = document.getElementById('btnTransmit');
+    if (btnTransmit) {
+      btnTransmit.addEventListener('click', () => {
+        const chk = document.getElementById('chkFinanceLock');
+        if (chk && !chk.checked) {
+          alert('Please verify the supervisor payout lock checkbox before transmitting to BPJS Compliance.');
+          chk.focus();
+        } else {
+          btnTransmit.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span> <span>Transmitted to APH Docket</span>';
+          btnTransmit.classList.remove('bg-primary-container');
+          btnTransmit.classList.add('bg-surface-tint');
+          setTimeout(() => {
+            alert('Dossier CASE-2026-0241 cryptographically sealed and transmitted to BPJS Compliance & Legal Forensics Authority.');
+          }, 200);
+        }
+      });
+    }
+  </script>
+</div></main></div></body></html>

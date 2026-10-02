@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-variant": "#30334d", "surface-container-lowest": "#090c25", "primary-container": "#35f2a0", "inverse-surface": "#dfe0ff", "on-secondary": "#2a2e4e", "outline": "#859588", "on-primary-container": "#006a42", "error-container": "#93000a", "on-primary-fixed-variant": "#005232", "tertiary-container": "#ffc8c7", "tertiary-fixed": "#ffdad9", "primary-fixed-dim": "#0ee292", "secondary-fixed-dim": "#c1c4ec", "primary": "#c6ffda", "surface-container-low": "#161933", "on-surface-variant": "#bacbbd", "on-secondary-container": "#afb2da", "primary-fixed": "#51ffad", "surface-bright": "#343752", "secondary-container": "#414466", "outline-variant": "#3b4a40", "surface": "#0e112a", "surface-dim": "#0e112a", "inverse-primary": "#006d43", "secondary-fixed": "#dfe0ff", "surface-container-high": "#252842", "surface-container-highest": "#30334d", "on-tertiary-fixed-variant": "#920121", "on-background": "#dfe0ff", "secondary": "#c1c4ec", "on-surface": "#dfe0ff", "tertiary": "#ffeeed", "on-error-container": "#ffdad6", "inverse-on-surface": "#2b2e49", "tertiary-fixed-dim": "#ffb3b3", "on-primary-fixed": "#002111", "on-secondary-fixed": "#151938", "error": "#ffb4ab", "on-secondary-fixed-variant": "#414466", "surface-tint": "#0ee292", "on-primary": "#003921", "background": "#0e112a", "on-tertiary-container": "#b12134", "on-tertiary": "#680015", "surface-container": "#1b1e37", "on-tertiary-fixed": "#400009", "on-error": "#690005" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-desktop": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "gutter-desktop": "1.5rem", "space-xl": "2.5rem", "gutter": "1rem" }, "fontFamily": { "headline-sm": [ "Plus Jakarta Sans" ], "body-md": [ "Inter" ], "headline-md": [ "Plus Jakarta Sans" ], "headline-lg-mobile": [ "Plus Jakarta Sans" ], "label-sm": [ "JetBrains Mono" ], "headline-xl-mobile": [ "Plus Jakarta Sans" ], "label-md": [ "JetBrains Mono" ], "headline-lg": [ "Plus Jakarta Sans" ], "label-lg": [ "JetBrains Mono" ], "headline-xl": [ "Plus Jakarta Sans" ], "body-lg": [ "Inter" ], "body-sm": [ "Inter" ] }, "fontSize": { "headline-sm": [ "18px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" } ], "body-md": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "headline-md": [ "22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-lg-mobile": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "label-sm": [ "10px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "500" } ], "headline-xl-mobile": [ "30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "700" } ], "label-md": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "label-lg": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-xl": [ "40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "body-lg": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "body-sm": [ "12px", { "lineHeight": "18px", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30"><div class="h-16 w-full px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><div class="relative flex items-center justify-center"><div class="w-2.5 h-2.5 rounded-full bg-primary-container animate-pulse"></div><div class="absolute w-4 h-4 rounded-full bg-primary-container/30 animate-ping"></div></div><span class="font-headline-sm text-headline-sm text-on-surface font-extrabold tracking-tight uppercase">JAGA</span></div><div class="hidden lg:flex items-center pl-space-sm border-l border-outline-variant/40"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Jaringan Analitik Guard Anti-fraud</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-secondary-container text-on-surface font-semibold rounded-lg"><a aria-current="page" class="px-space-sm py-space-xs transition-colors bg-secondary-container text-on-surface font-semibold rounded-lg" data-path="platform" href="#">Platform</a><a class="px-space-sm py-space-xs rounded-lg font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" data-path="how-it-works" href="#">How It Works</a><a class="px-space-sm py-space-xs rounded-lg font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" data-path="detection" href="#">Detection</a><a class="px-space-sm py-space-xs rounded-lg font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" data-path="impact" href="#">Impact</a><a class="px-space-sm py-space-xs rounded-lg font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" data-path="security" href="#">Security</a><a class="px-space-sm py-space-xs rounded-lg font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" data-path="architecture" href="#">Architecture</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs rounded-full bg-primary-container text-surface-container-lowest font-headline-sm text-label-lg font-bold shadow-[0_0_16px_rgba(53,242,160,0.25)] hover:bg-primary-fixed-dim transition-all" data-path="overview-dashboard" href="#">View Dashboard →</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- ========================================== -->
+<!-- 01. HERO SECTION & HERO DATA PANEL         -->
+<!-- ========================================== -->
+<section class="relative w-full overflow-hidden bg-surface-container-lowest px-margin-desktop py-space-xl min-h-[92vh] flex items-center">
+<!-- Background Topology Grid & Canvas Simulation -->
+<div class="absolute inset-0 pointer-events-none opacity-40">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="48" id="heroGrid" patternunits="userSpaceOnUse" width="48">
+<circle cx="2" cy="2" fill="#859588" fill-opacity="0.25" r="1"></circle>
+<path d="M 48 0 L 0 0 0 48" fill="none" stroke="#3b4a40" stroke-opacity="0.2" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#heroGrid)" height="100%" width="100%"></rect>
+<!-- Floating Nodes & Relational Vectors -->
+<g stroke="#35f2a0" stroke-dasharray="3 3" stroke-opacity="0.3" stroke-width="1.2">
+<line x1="18%" x2="38%" y1="28%" y2="44%"></line>
+<line x1="38%" x2="52%" y1="44%" y2="24%"></line>
+<line x1="38%" x2="68%" y1="44%" y2="52%"></line>
+<line x1="68%" x2="84%" y1="52%" y2="36%"></line>
+<line x1="52%" x2="72%" y1="24%" y2="18%"></line>
+<line x1="38%" x2="30%" y1="44%" y2="76%"></line>
+</g>
+<!-- Node Circles -->
+<circle class="animate-pulse" cx="18%" cy="28%" fill="#35f2a0" r="5"></circle>
+<circle cx="38%" cy="44%" fill="#35f2a0" fill-opacity="0.8" r="8"></circle>
+<circle cx="52%" cy="24%" fill="#c1c4ec" r="4"></circle>
+<circle class="animate-ping" cx="68%" cy="52%" fill="#ffb4ab" r="10" style="animation-duration: 3s;"></circle>
+<circle cx="68%" cy="52%" fill="#ffb4ab" r="6"></circle>
+<circle cx="84%" cy="36%" fill="#35f2a0" r="5"></circle>
+<circle cx="30%" cy="76%" fill="#859588" r="4"></circle>
+</svg>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+<!-- Left Narrative Column (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Eyebrow Badge -->
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container w-fit">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase">JARINGAN ANALITIK GUARD ANTI-FRAUD</span>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight leading-none">
+          See The <span class="text-primary-container underline decoration-primary-container/40 underline-offset-8">Network</span> Behind Every Risk.
+        </h1>
+<!-- Supporting Copy -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+          JAGA is a sovereign risk intelligence platform engineered to detect coordinated anomalies across participants, physicians, healthcare facilities, and claims — exposing collusive rings that transaction-level auditing can never see.
+        </p>
+<!-- CTA Action Cluster -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+<a class="inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-full bg-primary-container text-surface-container-lowest font-headline-sm text-label-lg font-bold shadow-lg shadow-primary-container/20 hover:bg-primary-fixed-dim transition-all" href="#investigation-queue">
+<span>Explore JAGA</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-full bg-surface-container text-on-surface font-body-md text-label-lg font-medium hover:bg-surface-bright transition-all" href="#network-vis">
+<span class="material-symbols-outlined text-[18px] text-primary-container">hub</span>
+<span>View Graph Topology</span>
+</a>
+</div>
+<!-- Trust Anchor Tokens -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[18px]">shield</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Network Analytics</span>
+</div>
+<span class="text-surface-variant">•</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[18px]">psychology</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Explainable AI</span>
+</div>
+<span class="text-surface-variant">•</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[18px]">fingerprint</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Human-In-The-Loop</span>
+</div>
+</div>
+</div>
+<!-- Right HUD Panel Column (5 cols) -->
+<div class="lg:col-span-5 relative">
+<!-- Ambient Glow behind panel -->
+<div class="absolute -inset-1 bg-gradient-to-r from-primary-container/20 to-error/20 rounded-xl blur-xl opacity-50"></div>
+<div class="relative bg-surface-container-low rounded-xl p-space-lg shadow-2xl">
+<!-- Top Metadata Header -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-low">
+<div class="inline-flex items-center gap-space-xs px-space-xs py-0.5 rounded bg-surface-container">
+<span class="font-label-sm text-label-sm text-primary uppercase font-mono tracking-wider">NETWORK DOSSIER</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-error-container/40">
+<div class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-error font-mono font-bold tracking-wider">HIGH RISK SYNDICATE</span>
+</div>
+</div>
+<!-- Network Entity Profile -->
+<div class="py-space-md">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Target Facility</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Rumah Sakit Citra Kasih X</h3>
+</div>
+<div class="text-right">
+<span class="font-headline-xl text-headline-xl font-bold text-error font-mono">87</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/100</span>
+</div>
+</div>
+<!-- Connected Topology Metrics -->
+<div class="grid grid-cols-3 gap-space-xs mt-space-md py-space-sm px-space-md bg-surface-container rounded-lg">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Participants</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-mono font-bold">42 NIK</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Physicians</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-mono font-bold">3 SIP</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Claims At Risk</span>
+<span class="font-headline-sm text-headline-sm text-error font-mono font-bold">Rp 4.8B</span>
+</div>
+</div>
+</div>
+<!-- Risk Signal Breakdown Vector Bars -->
+<div class="space-y-space-xs pt-space-xs pb-space-md">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Referral Concentration Spikes</span>
+<span class="font-mono text-primary font-bold">+24 pts</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 82%;"></div>
+</div>
+<div class="flex items-center justify-between text-body-sm pt-space-xs">
+<span class="text-on-surface-variant">Cross-Claim Diagnostic Similarity</span>
+<span class="font-mono text-primary font-bold">+21 pts</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 74%;"></div>
+</div>
+<div class="flex items-center justify-between text-body-sm pt-space-xs">
+<span class="text-on-surface-variant">Graph Triadic Closure Anomaly</span>
+<span class="font-mono text-primary font-bold">+18 pts</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 62%;"></div>
+</div>
+<div class="flex items-center justify-between text-body-sm pt-space-xs">
+<span class="text-on-surface-variant">Supervised GBDT Inference</span>
+<span class="font-mono text-primary font-bold">+16 pts</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 58%;"></div>
+</div>
+</div>
+<!-- Bottom Action -->
+<a class="w-full py-space-sm px-space-md rounded bg-primary-container text-surface-container-lowest font-headline-sm text-body-md font-bold flex items-center justify-center gap-space-xs hover:bg-primary-fixed transition-colors" href="#investigation-queue">
+<span>Launch Triage Dossier</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 02. PROBLEM SECTION (ANALYTICAL LIGHT)    -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-bright text-surface-container-lowest px-margin-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<!-- Section Header -->
+<div class="max-w-3xl flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase font-mono tracking-widest text-on-surface-variant">STRUCTURAL BLIND SPOTS IN HEALTHCARE SURVEILLANCE</span>
+<h2 class="font-headline-xl text-headline-xl tracking-tight text-on-surface font-extrabold">
+          Fraud doesn’t look suspicious alone. <br/>
+<span class="text-primary-container">The pattern only appears in the network.</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant pt-space-xs">
+          Traditional rules-based auditing parses claims line-by-line in a vacuum. Dispersed fraud syndicates bypass transaction limits by dispersing thousands of individually spotless claims across collusive doctor-patient rings.
+        </p>
+</div>
+<!-- Comparative Side-by-Side Analysis Engine -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop">
+<!-- Left: Isolated Transaction Perspective (6 cols) -->
+<div class="lg:col-span-6 bg-surface-container rounded-xl p-space-lg flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-mono">ISOLATED TRANSACTION AUDIT</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-variant font-label-sm text-label-sm text-on-surface-variant font-mono">STATUS: BLIND PASS</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Every single claim checks out under standard tariff constraints. Diagnosis codes match procedures, patient eligibility verifies, and tariffs fit within regional ceilings.
+            </p>
+<!-- Mock Individual Claims -->
+<div class="space-y-space-sm pt-space-xs">
+<!-- Item 1 -->
+<div class="p-space-sm rounded bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px]">check_circle</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-mono font-bold block">CLAIM-ID #10291</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dr. S***, Sp.PD • Rawat Jalan</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-mono font-bold">Rp 5.000.000</span>
+<span class="font-label-sm text-label-sm text-primary-container block">Approved (100%)</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-space-sm rounded bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px]">check_circle</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-mono font-bold block">CLAIM-ID #10292</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dr. S***, Sp.PD • Rawat Jalan</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-mono font-bold">Rp 4.900.000</span>
+<span class="font-label-sm text-label-sm text-primary-container block">Approved (100%)</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-space-sm rounded bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px]">check_circle</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-mono font-bold block">CLAIM-ID #10293</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dr. R***, Sp.A • Rawat Jalan</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-mono font-bold">Rp 5.100.000</span>
+<span class="font-label-sm text-label-sm text-primary-container block">Approved (100%)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-sm bg-surface-container">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono block">OUTCOME: ZERO SYSTEMIC ANOMALY IDENTIFIED</span>
+</div>
+</div>
+<!-- Right: Connected Relational Reality (6 cols) -->
+<div class="lg:col-span-6 bg-surface-container-high rounded-xl p-space-lg flex flex-col justify-between relative overflow-hidden shadow-xl">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-error font-mono font-bold uppercase">JAGA GRAPH RECONSTRUCTION</span>
+<span class="px-space-xs py-0.5 rounded bg-error-container/60 font-label-sm text-label-sm text-error font-mono font-bold animate-pulse">COLLUSION CONFIRMED</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              When graph projections correlate identical IP addresses, billing timestamp synchronicity, and referral funnels, 42 seemingly disconnected claims resolve into an orchestrated ghost-billing ring.
+            </p>
+<!-- Vector Graph Diagram Visualization -->
+<div class="p-space-md rounded bg-surface-container-lowest relative h-48 flex items-center justify-center">
+<svg class="w-full h-full" viewbox="0 0 400 160">
+<!-- Edges -->
+<line stroke="#ffb4ab" stroke-opacity="0.8" stroke-width="2" x1="80" x2="200" y1="40" y2="80"></line>
+<line stroke="#ffb4ab" stroke-opacity="0.8" stroke-width="2" x1="80" x2="200" y1="80" y2="80"></line>
+<line stroke="#ffb4ab" stroke-opacity="0.8" stroke-width="2" x1="80" x2="200" y1="120" y2="80"></line>
+<line stroke="#ffb4ab" stroke-dasharray="4 2" stroke-width="2.5" x1="200" x2="320" y1="80" y2="50"></line>
+<line stroke="#ffb4ab" stroke-dasharray="4 2" stroke-width="2.5" x1="200" x2="320" y1="80" y2="110"></line>
+<!-- 42 Patients Cluster -->
+<circle cx="80" cy="40" fill="#30334d" r="7" stroke="#c1c4ec" stroke-width="1.5"></circle>
+<circle cx="80" cy="80" fill="#30334d" r="7" stroke="#c1c4ec" stroke-width="1.5"></circle>
+<circle cx="80" cy="120" fill="#30334d" r="7" stroke="#c1c4ec" stroke-width="1.5"></circle>
+<text fill="#dfe0ff" font-family="JetBrains Mono" font-size="9" x="35" y="85">42 Patients</text>
+<!-- Doctors Hub -->
+<circle cx="200" cy="80" fill="#93000a" r="14" stroke="#ffb4ab" stroke-width="2"></circle>
+<text fill="#ffffff" font-family="JetBrains Mono" font-size="10" font-weight="bold" x="188" y="84">3 Dr</text>
+<!-- Target Hospital & Pharmacy -->
+<circle cx="320" cy="50" fill="#ffb4ab" r="12"></circle>
+<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="10" x="340" y="54">Hospital X</text>
+<circle cx="320" cy="110" fill="#ffb4ab" r="10"></circle>
+<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="10" x="340" y="114">Pharm-09</text>
+</svg>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Similarity Index</span>
+<span class="font-label-md text-label-md text-error font-mono font-bold">87.4% Co-occurrence</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Cross-Provider Flow</span>
+<span class="font-label-md text-label-md text-error font-mono font-bold">3.8x Velocity Spike</span>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-sm bg-surface-container">
+<span class="font-label-sm text-label-sm text-error font-mono font-bold block">VERDICT: COORDINATED GHOST BILLING RING DETECTED</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 03. JAGA DIFFERENCE                        -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-container-lowest px-margin-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-mono tracking-widest">THE PARADIGM SHIFT</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mt-space-xs">
+          From isolated transactions to connected intelligence.
+        </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-desktop">
+<!-- Card 01 -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between hover:bg-surface-container transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-md text-headline-sm font-mono font-bold text-primary">01</span>
+<span class="material-symbols-outlined text-primary-container text-[24px]">account_tree</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Network-Level Topology</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              JAGA constructs dynamic heterogeneous graphs connecting patients, practitioners, facilities, and billing codes to expose coordinated collusion.
+            </p>
+</div>
+<div class="pt-space-md text-primary font-mono text-label-sm">DEEP RELATIONAL PROJECTION</div>
+</div>
+<!-- Card 02 -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between hover:bg-surface-container transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-md text-headline-sm font-mono font-bold text-primary">02</span>
+<span class="material-symbols-outlined text-primary-container text-[24px]">layers</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Multi-Layered AI Fusion</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Combines deterministic statutory rules, unsupervised statistical anomaly matrices, graph centrality, and supervised GBDT ensembles.
+            </p>
+</div>
+<div class="pt-space-md text-primary font-mono text-label-sm">4-TIER ENSEMBLE CONSENSUS</div>
+</div>
+<!-- Card 03 -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between hover:bg-surface-container transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-md text-headline-sm font-mono font-bold text-primary">03</span>
+<span class="material-symbols-outlined text-primary-container text-[24px]">visibility</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Explainable AI Attribution</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              No black-box opacity. Every flagged risk score is decomposed into explicit point attributions and regulatory violation citations.
+            </p>
+</div>
+<div class="pt-space-md text-primary font-mono text-label-sm">COURT-READY AUDIT EVIDENCE</div>
+</div>
+<!-- Card 04 -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between hover:bg-surface-container transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-md text-headline-sm font-mono font-bold text-primary">04</span>
+<span class="material-symbols-outlined text-primary-container text-[24px]">sync</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Continuous Active Learning</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Investigator resolutions feed directly into dynamic weights, recalibrating false positive filters without scheduled cold retraining.
+            </p>
+</div>
+<div class="pt-space-md text-primary font-mono text-label-sm">AUTONOMOUS FEEDBACK LOOPS</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 04. NETWORK VISUALIZATION SECTION          -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-container-low px-margin-desktop py-space-xl" id="network-vis">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-mono tracking-widest">HETEROGENEOUS HEALTHCARE GRAPH</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mt-space-xs">
+            See what transaction-level systems miss.
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs max-w-xl">
+            JAGA constructs high-dimensional relational meshes between clinical actors, exposing shadow referral funnels and identity cloning networks.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs font-mono text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> LIVE GRAPH RUNTIME v4.2
+        </div>
+</div>
+<!-- Main Graph Workspace Simulation -->
+<div class="relative w-full bg-surface-container-lowest rounded-xl p-space-md overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Graph Canvas Area (8 cols) -->
+<div class="lg:col-span-8 min-h-[460px] relative rounded-lg bg-surface-container flex items-center justify-center p-space-sm">
+<!-- Labeled Dynamic Graph Overlay -->
+<svg class="w-full h-full max-h-[440px]" viewbox="0 0 600 400">
+<defs>
+<marker id="arrow" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="5" refy="5" viewbox="0 0 10 10">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#859588"></path>
+</marker>
+<marker id="arrow-danger" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="5" refy="5" viewbox="0 0 10 10">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#ffb4ab"></path>
+</marker>
+</defs>
+<!-- Regular Relationship Lines -->
+<g stroke="#3b4a40" stroke-width="1.5">
+<line marker-end="url(#arrow)" x1="80" x2="220" y1="120" y2="80"></line>
+<line marker-end="url(#arrow)" x1="80" x2="220" y1="200" y2="80"></line>
+<line marker-end="url(#arrow)" x1="80" x2="220" y1="280" y2="80"></line>
+<line marker-end="url(#arrow)" x1="220" x2="420" y1="80" y2="120"></line>
+</g>
+<!-- Suspicious Coordinated Lines -->
+<g class="animate-pulse" stroke="#ffb4ab" stroke-dasharray="4 3" stroke-width="2">
+<line marker-end="url(#arrow-danger)" x1="220" x2="420" y1="260" y2="120"></line>
+<line marker-end="url(#arrow-danger)" x1="220" x2="420" y1="320" y2="120"></line>
+<line marker-end="url(#arrow-danger)" x1="420" x2="520" y1="120" y2="240"></line>
+<line marker-end="url(#arrow-danger)" x1="420" x2="520" y1="120" y2="320"></line>
+</g>
+<!-- Relationship Edge Labels -->
+<text fill="#859588" font-family="JetBrains Mono" font-size="9" x="140" y="90">VISITS</text>
+<text fill="#859588" font-family="JetBrains Mono" font-size="9" x="140" y="270">REFERS</text>
+<text fill="#859588" font-family="JetBrains Mono" font-size="9" x="310" y="85">WORKS_AT</text>
+<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="9" font-weight="bold" x="300" y="210">CONCURRENT_BILL</text>
+<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="9" x="450" y="210">GENERATES</text>
+<!-- Node: Participants Group -->
+<g transform="translate(80, 120)">
+<circle fill="#1b1e37" r="14" stroke="#35f2a0" stroke-width="2"></circle>
+<text dy="4" fill="#c6ffda" font-family="JetBrains Mono" font-size="9" text-anchor="middle">P-01</text>
+</g>
+<g transform="translate(80, 200)">
+<circle fill="#1b1e37" r="14" stroke="#35f2a0" stroke-width="2"></circle>
+<text dy="4" fill="#c6ffda" font-family="JetBrains Mono" font-size="9" text-anchor="middle">P-02</text>
+</g>
+<g transform="translate(80, 280)">
+<circle fill="#1b1e37" r="14" stroke="#35f2a0" stroke-width="2"></circle>
+<text dy="4" fill="#c6ffda" font-family="JetBrains Mono" font-size="9" text-anchor="middle">P-03</text>
+</g>
+<!-- Node: Doctors -->
+<g transform="translate(220, 80)">
+<circle fill="#1b1e37" r="18" stroke="#c1c4ec" stroke-width="2"></circle>
+<text dy="4" fill="#dfe0ff" font-family="JetBrains Mono" font-size="10" text-anchor="middle">Dr. A</text>
+</g>
+<g transform="translate(220, 260)">
+<circle fill="#93000a" r="18" stroke="#ffb4ab" stroke-width="2"></circle>
+<text dy="4" fill="#ffdad6" font-family="JetBrains Mono" font-size="10" font-weight="bold" text-anchor="middle">Dr. B*</text>
+</g>
+<g transform="translate(220, 320)">
+<circle fill="#93000a" r="18" stroke="#ffb4ab" stroke-width="2"></circle>
+<text dy="4" fill="#ffdad6" font-family="JetBrains Mono" font-size="10" font-weight="bold" text-anchor="middle">Dr. C*</text>
+</g>
+<!-- Node: Hub Provider (Hospital X) -->
+<g transform="translate(420, 120)">
+<circle fill="#1b1e37" r="28" stroke="#ffb4ab" stroke-width="3"></circle>
+<circle class="animate-spin" fill="none" r="34" stroke="#ffb4ab" stroke-dasharray="3 3" stroke-width="1" style="animation-duration: 20s;"></circle>
+<text dy="-3" fill="#ffffff" font-family="Plus Jakarta Sans" font-size="10" font-weight="bold" text-anchor="middle">RS CITRA</text>
+<text dy="10" fill="#ffb4ab" font-family="JetBrains Mono" font-size="8" text-anchor="middle">SCORE 87</text>
+</g>
+<!-- Node: Claims Outflow -->
+<g transform="translate(520, 240)">
+<rect fill="#30334d" height="24" rx="4" stroke="#ffb4ab" stroke-width="1.5" width="48" x="-24" y="-12"></rect>
+<text dy="4" fill="#ffb4ab" font-family="JetBrains Mono" font-size="9" text-anchor="middle">CLM-81</text>
+</g>
+<g transform="translate(520, 320)">
+<rect fill="#30334d" height="24" rx="4" stroke="#ffb4ab" stroke-width="1.5" width="48" x="-24" y="-12"></rect>
+<text dy="4" fill="#ffb4ab" font-family="JetBrains Mono" font-size="9" text-anchor="middle">CLM-82</text>
+</g>
+</svg>
+<!-- Graph Toolbar UI Overlay -->
+<div class="absolute bottom-space-sm left-space-sm flex items-center gap-space-xs bg-surface-container-lowest/80 backdrop-blur-md p-space-xs rounded">
+<button class="w-7 h-7 rounded bg-surface-variant text-on-surface flex items-center justify-center hover:bg-surface-bright"><span class="material-symbols-outlined text-[16px]">add</span></button>
+<button class="w-7 h-7 rounded bg-surface-variant text-on-surface flex items-center justify-center hover:bg-surface-bright"><span class="material-symbols-outlined text-[16px]">remove</span></button>
+<button class="w-7 h-7 rounded bg-surface-variant text-on-surface flex items-center justify-center hover:bg-surface-bright"><span class="material-symbols-outlined text-[16px]">center_focus_strong</span></button>
+<span class="text-surface-variant font-mono text-label-sm px-space-xs">FILTER: DANGER NODES ONLY</span>
+</div>
+</div>
+<!-- Telemetry Node Inspector HUD (4 cols) -->
+<div class="lg:col-span-4 bg-surface-container rounded-lg p-space-md flex flex-col justify-between">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase font-mono">SELECTED TOPOLOGY</span>
+<span class="text-error font-mono text-label-sm font-bold">[CRIT 87.4]</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Cluster Identity</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Ring Syndicate JKN-JKT-09</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Cross-referral loop between 2 surgeons and affiliated diagnostic lab with systemic phantom billing signatures.</p>
+</div>
+<div class="space-y-space-xs font-mono text-body-sm">
+<div class="flex justify-between py-1 bg-surface-container-high px-2 rounded">
+<span class="text-on-surface-variant">Connected Entities:</span>
+<span class="text-on-surface font-bold">46 Total</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-high px-2 rounded">
+<span class="text-on-surface-variant">Avg Diagnostic Match:</span>
+<span class="text-error font-bold">87.0%</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-high px-2 rounded">
+<span class="text-on-surface-variant">Window Span:</span>
+<span class="text-on-surface">30 Calendar Days</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-high px-2 rounded">
+<span class="text-on-surface-variant">Estimated Exposure:</span>
+<span class="text-primary font-bold">Rp 4.821.500.000</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md">
+<a class="w-full py-space-sm px-space-md rounded bg-primary-container text-surface-container-lowest font-headline-sm text-body-md font-bold flex items-center justify-center gap-space-xs hover:bg-primary-fixed-dim transition-colors" href="#investigation-queue">
+<span>Isolate Syndicate Node</span>
+<span class="material-symbols-outlined text-[16px]">troubleshoot</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 05. HOW JAGA DETECTS RISK - 4 LAYERS       -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-bright text-surface-container-lowest px-margin-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="max-w-3xl flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase font-mono tracking-widest text-on-surface-variant">SURVEILLANCE ARCHITECTURE</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-extrabold">
+          Four detection layers. <br/>
+<span class="text-primary-container">One unified, calibrated risk signal.</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant pt-space-xs">
+          JAGA bypasses the false-positive traps of standalone AI by fusing hard institutional statutory rules with unsupervised anomaly scoring and graph topology analytics.
+        </p>
+</div>
+<!-- 4 Structured Layer Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-desktop">
+<!-- Layer 01 -->
+<div class="bg-surface-container rounded-xl p-space-lg flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm font-mono font-bold px-2 py-0.5 rounded bg-surface-container-high text-primary">LAYER 01</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">gavel</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Deterministic Rule Engine</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+              Codifies JKN clinical protocols and statutory thresholds to trap explicit policy violations with zero ambiguity.
+            </p>
+<ul class="space-y-space-xs font-mono text-label-sm text-on-surface-variant">
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> NIK / Identity Cloning</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Duplicate Same-Day Billing</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Impossible Geographical Velocities</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Upcoding &amp; Unbundling Matrix</li>
+</ul>
+</div>
+<div class="pt-space-md bg-surface-container">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">CONFIDENCE: DETERMINISTIC</span>
+</div>
+</div>
+<!-- Layer 02 -->
+<div class="bg-surface-container rounded-xl p-space-lg flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm font-mono font-bold px-2 py-0.5 rounded bg-surface-container-high text-primary">LAYER 02</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">query_stats</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Statistical Anomaly Engine</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+              Continuously profiles clinical distributions against regional peer cohorts to flag significant deviations from baseline practice.
+            </p>
+<ul class="space-y-space-xs font-mono text-label-sm text-on-surface-variant">
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Isolation Forest Distributions</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Local Outlier Factors (LOF)</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Robust Z-Score / IQR Benchmarks</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Volume Acceleration Spikes</li>
+</ul>
+</div>
+<div class="pt-space-md bg-surface-container">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">PEER NORM ALIGNED</span>
+</div>
+</div>
+<!-- Layer 03 -->
+<div class="bg-surface-container rounded-xl p-space-lg flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm font-mono font-bold px-2 py-0.5 rounded bg-surface-container-high text-primary">LAYER 03</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">hub</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Graph Topology Analytics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+              Interrogates the sovereign healthcare knowledge graph for structural collusion patterns invisible in flat tables.
+            </p>
+<ul class="space-y-space-xs font-mono text-label-sm text-on-surface-variant">
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Louvain Community Detection</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Degree &amp; Betweenness Centrality</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Suspicious Cyclic Motifs</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Shared Parameter Graph Rings</li>
+</ul>
+</div>
+<div class="pt-space-md bg-surface-container">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">RELATIONAL PROJECTIONS</span>
+</div>
+</div>
+<!-- Layer 04 -->
+<div class="bg-surface-container rounded-xl p-space-lg flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm font-mono font-bold px-2 py-0.5 rounded bg-surface-container-high text-primary">LAYER 04</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">smart_toy</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Supervised Risk Scoring</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+              Gradient-boosted decision trees trained on historical investigator decisions score complex multivariate vectors.
+            </p>
+<ul class="space-y-space-xs font-mono text-label-sm text-on-surface-variant">
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> LightGBM / XGBoost Regressors</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> SHAP Contribution Explanations</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Active Investigator Feedback Loop</li>
+<li class="flex items-center gap-space-xs"><span class="text-primary-container">•</span> Drift-Calibrated Scoring</li>
+</ul>
+</div>
+<div class="pt-space-md bg-surface-container">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">CALIBRATED INFERENCE</span>
+</div>
+</div>
+</div>
+<!-- Fusion Ribbon Footer -->
+<div class="w-full bg-surface-container rounded-lg p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded bg-primary-container flex items-center justify-center text-surface-container-lowest font-bold">
+<span class="material-symbols-outlined">merge_type</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block font-bold">Consensus Risk Fusion</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Harmonizes all 4 layers into a tamper-evident prioritized investigation queue.</span>
+</div>
+</div>
+<div class="font-mono text-label-sm text-primary px-space-md py-space-xs rounded bg-surface-container-high">
+          FORMULA: R_final = w1*R_rule + w2*R_stat + w3*R_graph + w4*R_ml
+        </div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 06. RISK SCORE & INTELLIGENCE BRIEFING     -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-container-lowest px-margin-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<!-- Briefing Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm text-error uppercase font-mono tracking-widest">TACTICAL RISK DOSSIER</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mt-space-xs">
+            Explainable AI Attribution Matrix
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            Deconstructing synthetic risk values into explicit, prosecutable evidentiary vectors.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-space-xs rounded font-mono text-label-sm text-on-surface-variant">
+<span>CASE REF: JAGA-2026-JKT-9921</span>
+</div>
+</div>
+<!-- Dossier Breakdown Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop">
+<!-- Score & Peer Comparison Widget (4 cols) -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-mono">AGGREGATED RISK PROJECTION</span>
+<div class="flex items-baseline gap-space-xs my-space-sm">
+<span class="font-headline-xl text-[64px] font-mono font-bold text-error leading-none">87</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant font-mono">/100</span>
+</div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-error-container/40 text-error font-mono text-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+<span>PRIORITY 1: IMMEDIATE INTERVENTION</span>
+</div>
+<!-- Peer Comparison Distribution Graph -->
+<div class="mt-space-lg pt-space-md bg-surface-container">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-mono block mb-space-sm">Peer Benchmark (Type B Hospitals)</span>
+<div class="space-y-space-md">
+<div>
+<div class="flex justify-between text-body-sm font-mono mb-1">
+<span class="text-on-surface-variant">Average Inpatient LOS:</span>
+<span class="text-error font-bold">6.2 Days (+2.8σ)</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-error h-2 rounded-full" style="width: 86%;"></div>
+</div>
+<span class="text-on-surface-variant font-mono text-label-sm block mt-1">Peer Regional Median: 3.1 Days</span>
+</div>
+<div>
+<div class="flex justify-between text-body-sm font-mono mb-1">
+<span class="text-on-surface-variant">Re-admission Cycle (14-day):</span>
+<span class="text-error font-bold">34.2% (+3.1σ)</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-error h-2 rounded-full" style="width: 92%;"></div>
+</div>
+<span class="text-on-surface-variant font-mono text-label-sm block mt-1">Peer Regional Median: 4.8%</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-space-lg">
+<button class="w-full py-space-sm px-space-md rounded bg-surface-container text-on-surface hover:bg-surface-bright font-headline-sm text-body-md transition-colors flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export Court-Ready PDF</span>
+</button>
+</div>
+</div>
+<!-- Evidence Signal Attribution Ledger (8 cols) -->
+<div class="lg:col-span-8 bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-space-md bg-surface-container">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Signal Decomposition</h3>
+<span class="font-mono text-label-sm text-on-surface-variant">ALGORITHM: SHAPLEY ADDITIVE EXPLANATIONS</span>
+</div>
+<!-- Signal Table Rows -->
+<div class="divide-y divide-surface-container-high overflow-x-auto">
+<div class="py-space-md grid grid-cols-12 gap-space-sm items-center">
+<div class="col-span-1 text-center">
+<span class="material-symbols-outlined text-error text-[20px]">share</span>
+</div>
+<div class="col-span-6">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold block">Referral Funnel Concentration</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">89% of outpatient cardiology consults directed to single external clinic</span>
+</div>
+<div class="col-span-3 text-right">
+<span class="font-mono text-body-sm text-on-surface-variant">REGULATORY PROTOCOL 14.B</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="font-mono font-bold text-error text-body-md">+24.0 pts</span>
+</div>
+</div>
+<div class="py-space-md grid grid-cols-12 gap-space-sm items-center">
+<div class="col-span-1 text-center">
+<span class="material-symbols-outlined text-error text-[20px]">content_copy</span>
+</div>
+<div class="col-span-6">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold block">Diagnostic Lexical Clone Index</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">42 identical patient chart narratives with matched ICD-10 co-morbidities</span>
+</div>
+<div class="col-span-3 text-right">
+<span class="font-mono text-body-sm text-on-surface-variant">ICD-10 I50.9 • E11.9</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="font-mono font-bold text-error text-body-md">+21.4 pts</span>
+</div>
+</div>
+<div class="py-space-md grid grid-cols-12 gap-space-sm items-center">
+<div class="col-span-1 text-center">
+<span class="material-symbols-outlined text-error text-[20px]">grain</span>
+</div>
+<div class="col-span-6">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold block">Triadic Graph Centrality Anomaly</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">High-density cyclic graph cluster with zero external patient leakage</span>
+</div>
+<div class="col-span-3 text-right">
+<span class="font-mono text-body-sm text-on-surface-variant">LOUVAIN CLUSTER #41</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="font-mono font-bold text-error text-body-md">+18.2 pts</span>
+</div>
+</div>
+<div class="py-space-md grid grid-cols-12 gap-space-sm items-center">
+<div class="col-span-1 text-center">
+<span class="material-symbols-outlined text-primary-container text-[20px]">model_training</span>
+</div>
+<div class="col-span-6">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold block">Gradient Boosted Prior Match</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Matches behavioral profile of confirmed JKN-2024 phantom clinic syndicate</span>
+</div>
+<div class="col-span-3 text-right">
+<span class="font-mono text-body-sm text-on-surface-variant">LIGHTGBM INFERENCE</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="font-mono font-bold text-error text-body-md">+16.1 pts</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-space-lg flex items-center justify-between bg-surface-container p-space-sm rounded">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Statutory standard: Evidence satisfies threshold for immediate administrative audit.</span>
+<button class="px-space-md py-space-xs rounded bg-primary-container text-surface-container-lowest font-headline-sm text-body-md font-bold hover:bg-primary-fixed-dim transition-colors">
+              Review Evidentiary Docket →
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 07. INVESTIGATION DASHBOARD MOCKUP         -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-bright text-surface-container-lowest px-margin-desktop py-space-xl" id="investigation-queue">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<!-- Header -->
+<div class="max-w-3xl flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase font-mono tracking-widest text-on-surface-variant">WORKBENCH TELEMETRY</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-extrabold">
+          Built for investigators. <br/>
+<span class="text-primary-container">Not black-box automation.</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant pt-space-xs">
+          An operational triage cockpit combining global priority queues, interactive relationship trees, and plain-language analytical justifications.
+        </p>
+</div>
+<!-- Palantir-Style Realistic Operational Window Mockup -->
+<div class="w-full bg-surface-container rounded-xl shadow-2xl overflow-hidden text-on-surface">
+<!-- App Window Header Bar -->
+<div class="h-10 bg-surface-container-lowest px-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-error"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline"></div>
+<span class="ml-space-sm font-mono text-label-sm text-on-surface-variant font-semibold">JAGA // INVESTIGATION DESK • LIVE FEED</span>
+</div>
+<div class="flex items-center gap-space-md font-mono text-label-sm text-on-surface-variant">
+<span>OPERATOR: ID-JKN-8812</span>
+<span>CLEARANCE: LEVEL-4 TACTICAL</span>
+</div>
+</div>
+<!-- Dashboard Core Split Panel -->
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[580px]">
+<!-- Column A: Command Sidebar Navigation (2 cols) -->
+<div class="hidden lg:flex lg:col-span-2 bg-surface-container-low flex-col justify-between p-space-sm">
+<div class="space-y-1">
+<span class="font-mono text-label-sm text-on-surface-variant px-space-xs mb-space-xs block uppercase">Workspaces</span>
+<a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded bg-surface-container-high text-primary font-body-sm font-semibold" href="#">
+<span class="material-symbols-outlined text-[18px]">inbox</span>
+<span>Active Queue</span>
+</a>
+<a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded hover:bg-surface-container text-on-surface-variant font-body-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">account_tree</span>
+<span>Syndicate Maps</span>
+</a>
+<a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded hover:bg-surface-container text-on-surface-variant font-body-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Claims Ledger</span>
+</a>
+<a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded hover:bg-surface-container text-on-surface-variant font-body-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">policy</span>
+<span>Audit Dockets</span>
+</a>
+<a class="flex items-center gap-space-xs px-space-xs py-1.5 rounded hover:bg-surface-container text-on-surface-variant font-body-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+<span>AI Feedback</span>
+</a>
+</div>
+<div class="p-space-xs bg-surface-container rounded text-label-sm font-mono text-on-surface-variant">
+<span>SYNC LATENCY</span>
+<span class="text-primary-container block font-bold">14ms • REALTIME</span>
+</div>
+</div>
+<!-- Column B: Center Priority Queue (6 cols) -->
+<div class="lg:col-span-6 bg-surface-container flex flex-col justify-between p-space-md">
+<div>
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-high">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Triage Queue</span>
+<span class="font-mono text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-bold">3 CRITICAL</span>
+</div>
+<div class="flex items-center gap-space-xs font-mono text-label-sm text-on-surface-variant">
+<span>SORT: RISK DESC</span>
+</div>
+</div>
+<!-- Queued Networks List -->
+<div class="space-y-space-xs mt-space-sm">
+<!-- Queue Item 1 (Active/Selected) -->
+<div class="p-space-sm rounded bg-surface-container-high cursor-pointer shadow-md">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-space-xs mb-1">
+<span class="font-mono text-label-sm text-primary font-bold">#JAGA-0241</span>
+<span class="px-1.5 py-0.2 rounded bg-error/20 text-error font-mono text-label-sm font-bold">CRITICAL • 92/100</span>
+</div>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Klinik Pratama Medika Ring</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Phantom lab referrals across 12 general practitioners.</p>
+</div>
+<div class="text-right">
+<span class="font-mono font-bold text-primary text-body-md">Rp 8.2B</span>
+<span class="font-mono text-label-sm text-on-surface-variant block">12 Entities</span>
+</div>
+</div>
+</div>
+<!-- Queue Item 2 -->
+<div class="p-space-sm rounded bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-space-xs mb-1">
+<span class="font-mono text-label-sm text-on-surface-variant font-bold">#JAGA-0182</span>
+<span class="px-1.5 py-0.2 rounded bg-error-container/40 text-error font-mono text-label-sm font-bold">HIGH • 81/100</span>
+</div>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">RSIA Bunda Nusantara</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Repeated C-section unbundling clusters without clinical indication.</p>
+</div>
+<div class="text-right">
+<span class="font-mono font-bold text-on-surface text-body-md">Rp 3.4B</span>
+<span class="font-mono text-label-sm text-on-surface-variant block">8 Entities</span>
+</div>
+</div>
+</div>
+<!-- Queue Item 3 -->
+<div class="p-space-sm rounded bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-space-xs mb-1">
+<span class="font-mono text-label-sm text-on-surface-variant font-bold">#JAGA-0117</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-secondary font-mono text-label-sm font-bold">MED • 64/100</span>
+</div>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Apotek Sehat Sejahtera Group</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Prescription claim refills for deceased or inactive participant IDs.</p>
+</div>
+<div class="text-right">
+<span class="font-mono font-bold text-on-surface text-body-md">Rp 1.1B</span>
+<span class="font-mono text-label-sm text-on-surface-variant block">15 Entities</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Queue Meta -->
+<div class="pt-space-md flex items-center justify-between text-label-sm font-mono text-on-surface-variant">
+<span>DISPLAYING 3 OF 142 FLAGGED NETWORKS</span>
+<button class="text-primary hover:underline">BATCH REVIEW MODE →</button>
+</div>
+</div>
+<!-- Column C: Right Plain-Language AI Synthesis & Actions (4 cols) -->
+<div class="lg:col-span-4 bg-surface-container-low p-space-md flex flex-col justify-between">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs bg-surface-container">
+<span class="font-label-sm text-label-sm text-primary uppercase font-mono">EVIDENTIARY SYNTHESIS</span>
+<span class="font-mono text-label-sm text-primary-container bg-surface-container px-1 rounded">GENAI ASSISTANT</span>
+</div>
+<!-- AI Narrative Box -->
+<div class="p-space-sm rounded bg-surface-container text-body-sm text-on-surface space-y-2">
+<p class="font-semibold text-primary">Analisis Temuan Sistem:</p>
+<p class="text-on-surface-variant leading-relaxed">
+                  “Network #JAGA-0241 terdeteksi mencurigakan karena 12 dokter umum merujuk 91% pasien fisioterapi ke Klinik Pratama Medika dalam kurun waktu 14 hari. Terdapat 42 rekam medis dengan narasi dan diagnosis identik (ICD-10 M54.5) yang diajukan dalam jeda waktu 12 detik.”
+                </p>
+</div>
+<!-- Fast Verification Checkmarks -->
+<div class="space-y-1 font-mono text-label-sm">
+<div class="flex items-center gap-space-xs text-error">
+<span class="material-symbols-outlined text-[16px]">close</span>
+<span>IP Address Shared: 103.14.88.19 (100% Match)</span>
+</div>
+<div class="flex items-center gap-space-xs text-error">
+<span class="material-symbols-outlined text-[16px]">close</span>
+<span>Doctor Signature Timestamp Collusion</span>
+</div>
+<div class="flex items-center gap-space-xs text-primary-container">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Participant Physical SIP Geographic Mismatch</span>
+</div>
+</div>
+</div>
+<!-- Investigator Action Triage Array -->
+<div class="pt-space-md space-y-space-xs">
+<button class="w-full py-2 px-space-sm rounded bg-error-container text-on-error-container font-headline-sm text-body-md font-bold flex items-center justify-center gap-space-xs hover:bg-error transition-colors">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+<span>Freeze Provider Payout</span>
+</button>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="py-2 px-space-xs rounded bg-surface-container hover:bg-surface-bright text-on-surface text-body-sm font-medium">
+                  Request Evidence
+                </button>
+<button class="py-2 px-space-xs rounded bg-surface-container hover:bg-surface-bright text-on-surface-variant text-body-sm font-medium">
+                  Dismiss Alert
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 08. HUMAN-IN-THE-LOOP SECTION              -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-container-lowest px-margin-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<!-- Section Header -->
+<div class="text-center max-w-2xl mx-auto flex flex-col items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase font-mono tracking-widest">SOVEREIGN GOVERNANCE</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-extrabold">
+          AI finds the pattern. <br/>
+<span class="text-primary-container">Humans make the definitive decision.</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+          JAGA functions exclusively as a high-density decision support engine. Zero automated sanctions or fund seizures occur without credentialed human auditor sign-off.
+        </p>
+</div>
+<!-- 5-Step Pipeline Component -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-space-md relative">
+<!-- Step 1 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between">
+<div>
+<div class="font-mono text-label-sm text-primary font-bold mb-space-xs">STEP 01</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">AI Detects</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Surfaces relational clusters across millions of JKN transaction records.</p>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-label-sm font-mono text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary-container">troubleshoot</span>
+<span>Graph Mining</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between">
+<div>
+<div class="font-mono text-label-sm text-primary font-bold mb-space-xs">STEP 02</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">AI Explains</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Generates human-readable evidence synthesis and Shapley score factors.</p>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-label-sm font-mono text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary-container">description</span>
+<span>SHAP Synthesis</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between">
+<div>
+<div class="font-mono text-label-sm text-primary font-bold mb-space-xs">STEP 03</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Investigator Reviews</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Auditor inspects medical records, clinical charts, and facility history.</p>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-label-sm font-mono text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary-container">manage_accounts</span>
+<span>Human Audit</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-lg">
+<div>
+<div class="font-mono text-label-sm text-primary-container font-bold mb-space-xs">STEP 04</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Human Verdict</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Definitive triage: Freeze Payout, Dismiss False Flag, or Request Inquest.</p>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-label-sm font-mono text-primary font-bold">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Certified Action</span>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between">
+<div>
+<div class="font-mono text-label-sm text-primary font-bold mb-space-xs">STEP 05</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Active Feedback</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Model automatically updates dynamic graph weights from human decisions.</p>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-label-sm font-mono text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary-container">autorenew</span>
+<span>Weight Update</span>
+</div>
+</div>
+</div>
+<!-- Institutional Assurance Note -->
+<div class="bg-surface-container p-space-md rounded-lg flex items-center gap-space-md">
+<span class="material-symbols-outlined text-primary-container text-[28px]">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Strict Regulatory Guarantee: JAGA adheres to Indonesian administrative law frameworks. No algorithmic determination can trigger institutional punitive sanctions without certified human investigator validation.
+        </p>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 09. BENTO GRID FEATURES                    -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-container-low px-margin-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-mono tracking-widest">TACTICAL TOOLSET</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mt-space-xs">
+          Engineered for forensic healthcare investigation.
+        </h2>
+</div>
+<!-- Bento Grid Architecture (7 Distinct Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-desktop">
+<!-- Bento 01: Investigation Dashboard (8 cols) -->
+<div class="md:col-span-8 bg-surface-container rounded-xl p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-mono text-label-sm text-primary uppercase">SURVEILLANCE QUEUE</span>
+<span class="material-symbols-outlined text-primary-container">dashboard</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-xs">Prioritized Risk Triage Engine</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+              Eliminate alert fatigue. JAGA aggregates millions of raw data points into clear ranked clusters, allowing fraud investigation units to focus directly on highest-exposure syndicates.
+            </p>
+</div>
+<!-- Visual preview snippet -->
+<div class="mt-space-lg p-space-sm bg-surface-container-lowest rounded-lg grid grid-cols-3 gap-space-xs font-mono text-body-sm">
+<div>
+<span class="text-on-surface-variant text-label-sm block">Active Ring Alerts</span>
+<span class="font-bold text-on-surface">14 Pending</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-label-sm block">Prevented Loss</span>
+<span class="font-bold text-primary">Rp 48.2B</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-label-sm block">Avg Resolution</span>
+<span class="font-bold text-on-surface">3.2 Days</span>
+</div>
+</div>
+</div>
+<!-- Bento 02: Network Visualization (4 cols) -->
+<div class="md:col-span-4 bg-surface-container rounded-xl p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-mono text-label-sm text-primary uppercase">GRAPH LAB</span>
+<span class="material-symbols-outlined text-primary-container">hub</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-xs">500+ Node Subgraphs</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Interactive WebGL network topologies supporting pan, cluster grouping, and instant relationship slicing.
+            </p>
+</div>
+<div class="mt-space-md font-mono text-label-sm text-primary">
+            • APACHE AGE POWERED
+          </div>
+</div>
+<!-- Bento 03: Plain-Language AI Explanations (4 cols) -->
+<div class="md:col-span-4 bg-surface-container rounded-xl p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-mono text-label-sm text-primary uppercase">EXPLAINABLE AI</span>
+<span class="material-symbols-outlined text-primary-container">chat</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-xs">Natural Language Briefings</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Synthesizes complex multi-dimensional mathematical anomalies into clear narrative dossiers ready for legal scrutiny.
+            </p>
+</div>
+<div class="mt-space-md font-mono text-label-sm text-primary">
+            • SHAP SCORE INTEGRATION
+          </div>
+</div>
+<!-- Bento 04: Claims Drill-down & Similarity (4 cols) -->
+<div class="md:col-span-4 bg-surface-container rounded-xl p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-mono text-label-sm text-primary uppercase">CLAIMS COMPARISON</span>
+<span class="material-symbols-outlined text-primary-container">difference</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-xs">Similarity Vector Engine</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Embeds medical claim narratives to identify ghost clinic operations using identical text across unrelated beneficiaries.
+            </p>
+</div>
+<div class="mt-space-md font-mono text-label-sm text-primary">
+            • COSINE SIMILARITY &gt; 85%
+          </div>
+</div>
+<!-- Bento 05: Chronological Timeline Bursts (4 cols) -->
+<div class="md:col-span-4 bg-surface-container rounded-xl p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-mono text-label-sm text-primary uppercase">TEMPORAL AUDIT</span>
+<span class="material-symbols-outlined text-primary-container">timeline</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-xs">Timestamp Burst Radar</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Detects synchronized batch billing where thousands of clinical procedures are recorded during unfeasible timeframes.
+            </p>
+</div>
+<div class="mt-space-md font-mono text-label-sm text-primary">
+            • SUB-SECOND RESOLUTION
+          </div>
+</div>
+<!-- Bento 06: Natural Language Investigation Assistant (6 cols) -->
+<div class="md:col-span-6 bg-surface-container rounded-xl p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-mono text-label-sm text-primary uppercase">CONVERSATIONAL INTEL</span>
+<span class="material-symbols-outlined text-primary-container">terminal</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-xs">Natural Language Query Desk</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Ask in plain Bahasa Indonesia: “Tampilkan seluruh rujukan dokter spesialis paru di wilayah Surabaya Selatan dengan rasio re-admisi di atas 30%” and receive immediate graph visual responses.
+            </p>
+</div>
+<div class="mt-space-md font-mono text-label-sm text-primary">
+            • TEXT-TO-CYPHER INTERPRETER
+          </div>
+</div>
+<!-- Bento 07: Immutable Case Management & Audit Trail (6 cols) -->
+<div class="md:col-span-6 bg-surface-container rounded-xl p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-mono text-label-sm text-primary uppercase">COMPLIANCE LEDGER</span>
+<span class="material-symbols-outlined text-primary-container">verified</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-xs">Cryptographic Audit Trail</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Every investigator inquiry, evidentiary export, and case sign-off is indelibly registered in append-only cryptographic journals ensuring full judicial integrity.
+            </p>
+</div>
+<div class="mt-space-md font-mono text-label-sm text-primary">
+            • SHA-256 STATE HASHING
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 10. BEFORE / AFTER COMPARISON              -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-bright text-surface-container-lowest px-margin-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="max-w-3xl flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase font-mono tracking-widest text-on-surface-variant">OPERATIONAL PARADIGM COMPARISON</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-extrabold">
+          A radically superior way to defend sovereign healthcare funds.
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant pt-space-xs">
+          Transitioning institutional healthcare risk operations from slow retroactive claim sampling to proactive real-time network intelligence.
+        </p>
+</div>
+<!-- Comparative Table Panels -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-desktop">
+<!-- BEFORE PANEL -->
+<div class="bg-surface-container rounded-xl p-space-lg flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-high">
+<span class="font-mono text-label-sm text-on-surface-variant uppercase font-bold">TRADITIONAL POST-PAYMENT AUDIT</span>
+<span class="font-mono text-label-sm text-error font-bold">LEGACY STATE</span>
+</div>
+<div class="space-y-space-md mt-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">cancel</span>
+<div>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Transaction-Level Blindness</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Evaluates isolated claims against hard rule thresholds, completely oblivious to distributed ring fraud.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">cancel</span>
+<div>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Severe Alert Fatigue</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Floods investigators with hundreds of disconnected low-confidence flags, wasting human capacity.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">cancel</span>
+<div>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Retroactive &amp; Slow Recovery</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Investigations begin 6–18 months after payment settlement, when fraudulent entities have already dissolved.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">cancel</span>
+<div>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Opaque Discretionary Decisions</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Lacks standardized mathematical attributions, leading to contentious legal disputes and appeals.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-sm bg-surface-container-high text-label-sm font-mono text-on-surface-variant">
+            TYPICAL TIME TO RESOLUTION: 180+ CALENDAR DAYS
+          </div>
+</div>
+<!-- WITH JAGA PANEL -->
+<div class="bg-surface-container rounded-xl p-space-lg flex flex-col justify-between shadow-xl">
+<div>
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-high">
+<span class="font-mono text-label-sm text-primary uppercase font-bold">THE JAGA SURVEILLANCE PARADIGM</span>
+<span class="font-mono text-label-sm text-primary-container font-bold">TARGET STATE</span>
+</div>
+<div class="space-y-space-md mt-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+<div>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Graph Relational Intelligence</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Synthesizes millions of entities into dynamic topologies, exposing hidden syndicates immediately.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+<div>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Ranked Exposure Queue</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Concentrates investigator attention exclusively on calibrated high-value systemic fraud rings.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+<div>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Pre-Disbursement Interception</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Flags coordinated anomalies before batch settlement payments occur, preserving state funds.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+<div>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Court-Ready SHAP Explainability</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Every risk factor is linked to deterministic policy articles and transparent point attributions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-sm bg-surface-container-high text-label-sm font-mono text-primary font-bold">
+            TYPICAL TIME TO RESOLUTION: &lt; 14 CALENDAR DAYS
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 11. IMPACT METRICS                         -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-container-lowest px-margin-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="max-w-3xl flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase font-mono tracking-widest">SYSTEM SCALE &amp; IMPACT</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mt-space-xs">
+          Protecting more than financial integrity.
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Guarding sovereign healthcare liquidity to ensure life-saving care reaches genuine citizens.
+        </p>
+</div>
+<!-- 4 High-Impact Metric Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-desktop">
+<!-- Metric 1 -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-mono text-label-sm text-on-surface-variant">COVERAGE POPULATION</span>
+<div class="w-2 h-2 rounded-full bg-primary-container animate-ping"></div>
+</div>
+<div class="my-space-sm">
+<span class="font-headline-xl text-[48px] font-mono font-bold text-on-surface leading-none block">240M+</span>
+<span class="font-headline-sm text-headline-sm text-primary block mt-2">Citizens Protected</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Continuous identity shield defending Indonesian beneficiaries against clinical impersonation.
+          </p>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-mono text-label-sm text-on-surface-variant">ANNUAL FUND SURVEILLANCE</span>
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+</div>
+<div class="my-space-sm">
+<span class="font-headline-xl text-[48px] font-mono font-bold text-on-surface leading-none block">~Rp 150T</span>
+<span class="font-headline-sm text-headline-sm text-primary block mt-2">JKN Sovereign Capital</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Surveillance mesh defending annual healthcare disbursements across all 38 provinces.
+          </p>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-mono text-label-sm text-on-surface-variant">THROUGHPUT MULTIPLIER</span>
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+</div>
+<div class="my-space-sm">
+<span class="font-headline-xl text-[48px] font-mono font-bold text-on-surface leading-none block">2.0×</span>
+<span class="font-headline-sm text-headline-sm text-primary block mt-2">Investigator Capacity</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Doubles case resolution velocity by automating evidence extraction and relational graph generation.
+          </p>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-mono text-label-sm text-on-surface-variant">CASE VELOCITY</span>
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+</div>
+<div class="my-space-sm">
+<span class="font-headline-xl text-[48px] font-mono font-bold text-primary leading-none block">60–70%</span>
+<span class="font-headline-sm text-headline-sm text-primary block mt-2">Resolution Reduction*</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Projected cycle acceleration from anomaly surfacing to final interventional sanction.
+          </p>
+</div>
+</div>
+<!-- Footnote Disclaimer -->
+<div class="text-right">
+<span class="font-mono text-label-sm text-on-surface-variant">
+          *Projections based on JAGA benchmark simulations against standardized retrospective JKN claim sets.
+        </span>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 12. SECURITY & PRIVACY                     -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-bright text-surface-container-lowest px-margin-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="max-w-3xl flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase font-mono tracking-widest text-on-surface-variant">COMPLIANCE &amp; SOVEREIGN SECURITY</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-extrabold">
+          Built for sensitive sovereign healthcare intelligence.
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant pt-space-xs">
+          Engineered from first principles in strict compliance with UU No. 27/2022 (UU PDP), guaranteeing cryptographic citizen confidentiality at every computational layer.
+        </p>
+</div>
+<!-- 6 Security Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-desktop">
+<!-- Card 1 -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center gap-space-xs mb-space-sm text-primary">
+<span class="material-symbols-outlined text-[24px]">filter_alt</span>
+<span class="font-mono text-label-sm uppercase font-bold">DATA MINIMIZATION</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Strict Zero-Leakage Ingestion</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Only data vectors strictly essential for anomaly detection are ingested into graph memory. Unnecessary personal clinical notes are stripped at ingress.
+            </p>
+</div>
+<div class="pt-space-md text-label-sm font-mono text-on-surface">PRINCIPLE: UU PDP ART. 16</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center gap-space-xs mb-space-sm text-primary">
+<span class="material-symbols-outlined text-[24px]">key</span>
+<span class="font-mono text-label-sm uppercase font-bold">PSEUDONYMIZATION</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Irreversible SHA-256 Hashing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Participant NIKs and doctor SIPs are pseudonymized via salted key-derivation algorithms before graph ingestion. Re-identification requires multi-party authorization.
+            </p>
+</div>
+<div class="pt-space-md text-label-sm font-mono text-on-surface">CRYPTOGRAPHIC TOKENIZATION</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center gap-space-xs mb-space-sm text-primary">
+<span class="material-symbols-outlined text-[24px]">admin_panel_settings</span>
+<span class="font-mono text-label-sm uppercase font-bold">GOVERNANCE CONTROLS</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Granular Multi-Tier RBAC</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Role-based access boundaries strictly segregate regional field investigators from sovereign executive dashboards, preventing unauthorized horizontal visibility.
+            </p>
+</div>
+<div class="pt-space-md text-label-sm font-mono text-on-surface">LEAST PRIVILEGE MANDATE</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center gap-space-xs mb-space-sm text-primary">
+<span class="material-symbols-outlined text-[24px]">history_edu</span>
+<span class="font-mono text-label-sm uppercase font-bold">AUDIT INTEGRITY</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">Immutable Audit Log</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Every data query, evidentiary inspection, and dossier export is cryptographically signed and stored in append-only storage to prevent internal malfeasance.
+            </p>
+</div>
+<div class="pt-space-md text-label-sm font-mono text-on-surface">TAMPER-EVIDENT JOURNAL</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center gap-space-xs mb-space-sm text-primary">
+<span class="material-symbols-outlined text-[24px]">lock</span>
+<span class="font-mono text-label-sm uppercase font-bold">TRANSIT &amp; REST CIPHER</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">AES-256 &amp; TLS 1.3 Strict</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Defense-grade symmetric encryption for persistent storage databases combined with strictly enforced modern TLS 1.3 cipher suites for in-flight telemetry.
+            </p>
+</div>
+<div class="pt-space-md text-label-sm font-mono text-on-surface">FIPS 140-2 LEVEL 3 SECURED</div>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center gap-space-xs mb-space-sm text-primary">
+<span class="material-symbols-outlined text-[24px]">shield</span>
+<span class="font-mono text-label-sm uppercase font-bold">LEGAL FRAMEWORK</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">UU PDP Full Compliance</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Designed in absolute conformity with Republic of Indonesia Law No. 27 of 2022 on Personal Data Protection governing sovereign public healthcare datasets.
+            </p>
+</div>
+<div class="pt-space-md text-label-sm font-mono text-primary font-bold">CERTIFIED LEGAL COMPLIANCE</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 13. SYSTEM ARCHITECTURE                    -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-container-lowest px-margin-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="max-w-3xl flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase font-mono tracking-widest">TECHNICAL TOPOLOGY</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mt-space-xs">
+          From raw JKN data to actionable intelligence.
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          An end-to-end resilient sovereign telemetry pipeline engineered to scale across hundreds of millions of clinical records.
+        </p>
+</div>
+<!-- Horizontal Flowchart Container -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-lg">
+<div class="grid grid-cols-1 md:grid-cols-6 gap-space-sm relative">
+<!-- Architecture Node 1 -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between">
+<div class="space-y-space-xs">
+<span class="font-mono text-label-sm text-on-surface-variant">STAGE 01</span>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">JKN Data Sources</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Primary EMR feeds, claim submissions, pharmacy dispenses, and provider registries.</p>
+</div>
+<div class="mt-space-sm pt-space-xs text-label-sm font-mono text-primary">KAFKA INGEST</div>
+</div>
+<!-- Architecture Node 2 -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between">
+<div class="space-y-space-xs">
+<span class="font-mono text-label-sm text-on-surface-variant">STAGE 02</span>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Entity Resolution</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">SHA-256 de-identification, fuzzy entity matching, deduplication, and schema validation.</p>
+</div>
+<div class="mt-space-sm pt-space-xs text-label-sm font-mono text-primary">SPARK ETL</div>
+</div>
+<!-- Architecture Node 3 -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between">
+<div class="space-y-space-xs">
+<span class="font-mono text-label-sm text-on-surface-variant">STAGE 03</span>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Healthcare Graph</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Heterogeneous property graph linking clinical entities and relational transactions.</p>
+</div>
+<div class="mt-space-sm pt-space-xs text-label-sm font-mono text-primary">POSTGRES + AGE</div>
+</div>
+<!-- Architecture Node 4 -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between">
+<div class="space-y-space-xs">
+<span class="font-mono text-label-sm text-on-surface-variant">STAGE 04</span>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Risk Detection</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Distributed execution of rule engines, statistical baselines, graph metrics, and ML models.</p>
+</div>
+<div class="mt-space-sm pt-space-xs text-label-sm font-mono text-primary">RAY ENSEMBLE</div>
+</div>
+<!-- Architecture Node 5 -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between">
+<div class="space-y-space-xs">
+<span class="font-mono text-label-sm text-on-surface-variant">STAGE 05</span>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Risk Fusion</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Harmonizes signals, evaluates confidence thresholds, and calculates Shapley attributions.</p>
+</div>
+<div class="mt-space-sm pt-space-xs text-label-sm font-mono text-primary">FUSION CALIBRATOR</div>
+</div>
+<!-- Architecture Node 6 -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between">
+<div class="space-y-space-xs">
+<span class="font-mono text-label-sm text-on-surface-variant">STAGE 06</span>
+<h4 class="font-headline-sm text-body-md text-on-surface font-bold">Investigation Desk</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Prioritized investigator queue, visual graph workbench, and evidentiary dossier exports.</p>
+</div>
+<div class="mt-space-sm pt-space-xs text-label-sm font-mono text-primary">PALANTIR-STYLE UI</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 14. CONTINUOUS LEARNING LOOP               -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-bright text-surface-container-lowest px-margin-desktop py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="max-w-3xl flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase font-mono tracking-widest text-on-surface-variant">ACTIVE SURVEILLANCE FEEDBACK</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-extrabold">
+          Every completed investigation makes JAGA smarter.
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant pt-space-xs">
+          A closed-loop learning architecture ensuring new fraud typologies are instantly captured and deployed across the sovereign network.
+        </p>
+</div>
+<!-- Cyclical Diagram Layout -->
+<div class="bg-surface-container rounded-xl p-space-xl shadow-lg flex flex-col items-center">
+<div class="grid grid-cols-2 md:grid-cols-6 gap-space-md w-full items-center">
+<div class="text-center p-space-sm bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined text-primary text-[28px]">search</span>
+<span class="font-headline-sm text-body-md text-on-surface block font-bold mt-1">1. Detect</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">AI Graph Mining</span>
+</div>
+<div class="text-center p-space-sm bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined text-primary text-[28px]">troubleshoot</span>
+<span class="font-headline-sm text-body-md text-on-surface block font-bold mt-1">2. Investigate</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Auditor Evidence Triage</span>
+</div>
+<div class="text-center p-space-sm bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined text-primary text-[28px]">gavel</span>
+<span class="font-headline-sm text-body-md text-on-surface block font-bold mt-1">3. Decide</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Human Certified Verdict</span>
+</div>
+<div class="text-center p-space-sm bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined text-primary text-[28px]">rate_review</span>
+<span class="font-headline-sm text-body-md text-on-surface block font-bold mt-1">4. Feedback</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Confirmed Ground Truth</span>
+</div>
+<div class="text-center p-space-sm bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined text-primary text-[28px]">model_training</span>
+<span class="font-headline-sm text-body-md text-on-surface block font-bold mt-1">5. Retrain</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Recalibrate Model Weights</span>
+</div>
+<div class="text-center p-space-sm bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined text-primary text-[28px]">tune</span>
+<span class="font-headline-sm text-body-md text-on-surface block font-bold mt-1">6. Refine</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Deprecate False Signals</span>
+</div>
+</div>
+<div class="mt-space-lg text-center max-w-xl">
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Zero model degradation over time. As regional healthcare providers adapt billing behaviors, JAGA continuously ingests investigator feedback to maintain superior detection fidelity.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 15. FINAL CALL TO ACTION                   -->
+<!-- ========================================== -->
+<section class="relative w-full bg-surface-container-lowest px-margin-desktop py-space-xl overflow-hidden flex items-center justify-center">
+<!-- Background Ambient Light -->
+<div class="absolute inset-0 pointer-events-none opacity-25">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<circle class="animate-spin" cx="50%" cy="50%" fill="none" r="280" stroke="#35f2a0" stroke-dasharray="6 4" stroke-width="1" style="animation-duration: 40s;"></circle>
+<circle cx="50%" cy="50%" fill="none" r="420" stroke="#35f2a0" stroke-opacity="0.5" stroke-width="0.8"></circle>
+</svg>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-space-md py-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container w-fit">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase">SOVEREIGN HEALTHCARE INTEGRITY</span>
+</div>
+<h2 class="font-headline-xl text-[44px] md:text-[56px] text-on-surface tracking-tight leading-tight font-extrabold">
+        Fraud evolves. <br/>
+<span class="text-primary-container">Your detection system should too.</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+        Deploy defense-grade network risk intelligence to safeguard national health insurance resources, eliminate systemic leakage, and empower investigators with court-ready evidentiary clarity.
+      </p>
+<div class="flex flex-wrap items-center justify-center gap-space-md pt-space-sm">
+<a class="inline-flex items-center gap-space-xs px-space-xl py-space-sm rounded-full bg-primary-container text-surface-container-lowest font-headline-sm text-label-lg font-bold shadow-xl shadow-primary-container/25 hover:bg-primary-fixed-dim transition-all" href="#investigation-queue">
+<span>Explore JAGA Platform</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-space-xs px-space-xl py-space-sm rounded-full bg-surface-container text-on-surface font-body-md text-label-lg font-medium hover:bg-surface-bright transition-all" href="#network-vis">
+<span class="material-symbols-outlined text-[18px] text-primary-container">account_tree</span>
+<span>View Technical Architecture</span>
+</a>
+</div>
+<div class="pt-space-lg flex items-center gap-space-md font-mono text-label-sm text-on-surface-variant">
+<span>STRICT COMPLIANCE: UU PDP NO. 27/2022</span>
+<span>•</span>
+<span>ZERO SENSITIVE DATA LEAKAGE</span>
+<span>•</span>
+<span>HUMAN OVERSIGHT MANDATED</span>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Micro-interaction handlers for interactive queue inspection
+  document.addEventListener('DOMContentLoaded', () => {
+    const queueCards = document.querySelectorAll('#investigation-queue .cursor-pointer');
+    queueCards.forEach(card => {
+      card.addEventListener('click', () => {
+        queueCards.forEach(c => {
+          c.classList.remove('bg-surface-container-high', 'shadow-md');
+          c.classList.add('bg-surface-container-low');
+        });
+        card.classList.add('bg-surface-container-high', 'shadow-md');
+        card.classList.remove('bg-surface-container-low');
+      });
+    });
+  });
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-space-xl"><div class="w-full px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-gutter-desktop mb-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-xs"><div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div><span class="font-headline-sm text-headline-sm text-on-surface font-extrabold uppercase tracking-tight">JAGA</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Platform intelijen risiko untuk ekosistem JKN. Defense-grade analytical surveillance defending sovereign healthcare resources against systemic fraud.</p><div class="flex items-center gap-space-xs pt-space-xs"><span class="font-label-sm text-label-sm text-primary-container px-space-xs py-space-xs rounded bg-surface-container border border-outline-variant/40 font-mono">STRICT COMPLIANCE: UU PDP</span><span class="font-label-sm text-label-sm text-secondary px-space-xs py-space-xs rounded bg-surface-container border border-outline-variant/40 font-mono">GRAPH DE-ID v4.2</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md uppercase text-on-surface tracking-wider font-semibold">Platform</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="platform" href="#">Surveillance Core</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="detection" href="#">Anomaly Matrices</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="overview-dashboard" href="#">Realtime Telemetry</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="impact" href="#">Recovery Ledger</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md uppercase text-on-surface tracking-wider font-semibold">Investigation</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="graph-investigation" href="#">Graph Relational Lab</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="claims-audit" href="#">Claims Audit Dossier</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="provider-profiling" href="#">Provider Risk Profiles</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="syndicate-tracking" href="#">Syndicate Trackers</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md uppercase text-on-surface tracking-wider font-semibold">Security</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="security" href="#">Zero Trust Architecture</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="security" href="#">Differential Privacy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="security" href="#">Tamper-proof Audit</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="security" href="#">Role Key Escrow</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md uppercase text-on-surface tracking-wider font-semibold">Technical Architecture</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="architecture" href="#">Pseudonymized Graph</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="how-it-works" href="#">Inference Pipelines</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="architecture" href="#">Federated Nodes</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="architecture" href="#">API Interconnect</a></div></div><div class="pt-space-lg border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-col sm:flex-row sm:items-center gap-space-xs sm:gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2026 JAGA (Jaringan Analitik Guard Anti-fraud). All sovereign rights reserved.</p><span class="hidden sm:inline text-outline-variant">•</span><p class="font-label-sm text-label-sm text-on-surface-variant font-mono">Compliant with UU No. 27/2022 (UU PDP)</p></div><div class="flex items-center gap-space-md"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SYSTEM STATUS: OPTIMAL</span><div class="w-2 h-2 rounded-full bg-primary-container"></div></div></div></div></footer></body></html>
