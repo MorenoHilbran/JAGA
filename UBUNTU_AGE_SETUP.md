@@ -2,7 +2,7 @@
 
 **Project:** JAGA - Jaringan Analitik Guard Anti-fraud  
 **Component:** Apache AGE (Graph Database Extension for PostgreSQL 16)  
-**Environment:** Ubuntu 24.04.01 LTS in WSL2 + Windows PostgreSQL 16  
+**Environment:** Ubuntu 26.04 LTS in WSL2 + Windows PostgreSQL 16  
 **Date:** 2026-10-02  
 **Author:** Renggo (Backend Lead)
 
@@ -31,7 +31,7 @@ This guide walks you through compiling Apache AGE in Ubuntu WSL2 and integrating
 Before starting, verify you have:
 
 - [x] Windows 10/11 with WSL2 enabled
-- [x] Ubuntu 24.04.01 LTS installed in WSL2
+- [ ] **Ubuntu 26.04 LTS installed in WSL2** (we'll install this in Step 0)
 - [x] PostgreSQL 16 installed on Windows
 - [x] Internet connection
 - [x] Administrator rights (for copying files)
@@ -45,7 +45,7 @@ wsl --version
 
 # Check Ubuntu distribution
 wsl --list --verbose
-# Should show: Ubuntu-24.04 Running 2
+# Should show: Ubuntu or Ubuntu-26.04 Running 2
 
 # Check PostgreSQL version (from Windows CMD)
 psql --version
@@ -60,12 +60,66 @@ where pg_config
 
 ## 📋 Step-by-Step Installation
 
+### Step 0: Install Ubuntu 26.04 in WSL2 (If Not Already Installed)
+
+**Check if you already have Ubuntu installed:**
+
+```bash
+wsl --list --verbose
+```
+
+**If you only see `docker-desktop` and NO Ubuntu distribution:**
+
+**Option A: Install from Microsoft Store (Recommended)**
+
+1. Open **Microsoft Store** app
+2. Search for **"Ubuntu 26.04 LTS"** or just **"Ubuntu"**
+3. Click **Get** or **Install**
+4. Wait for download (~500MB-1GB)
+5. Click **Launch** or type `ubuntu` in Windows Terminal
+6. **First time setup:**
+   - Create UNIX username (e.g., `renggo`)
+   - Create UNIX password
+   - Remember this password! (needed for `sudo` commands)
+
+**Option B: Install via Command Line**
+
+From Windows PowerShell (as Administrator):
+
+```powershell
+# List available Ubuntu versions
+wsl --list --online
+
+# Install Ubuntu (latest LTS)
+wsl --install -d Ubuntu
+
+# Or install specific version
+wsl --install -d Ubuntu-26.04
+```
+
+Wait for installation to complete, then launch Ubuntu.
+
+**Verify Ubuntu is installed:**
+
+```bash
+wsl --list --verbose
+# Should now show: Ubuntu or Ubuntu-26.04 Running 2
+```
+
+**Set as default (optional):**
+
+```bash
+wsl --set-default Ubuntu
+```
+
+---
+
 ### Step 1: Access Ubuntu WSL2
 
 Open Windows Terminal or PowerShell and enter Ubuntu:
 
 ```bash
-wsl -d Ubuntu-24.04
+wsl -d Ubuntu
 ```
 
 Or simply:
@@ -77,6 +131,7 @@ wsl
 **Expected output:**
 ```
 renggo@Pandora:/mnt/c/Users/acer$
+# Or similar prompt with your username
 ```
 
 **Verify you're in Ubuntu:**
@@ -84,7 +139,14 @@ renggo@Pandora:/mnt/c/Users/acer$
 cat /etc/os-release
 ```
 
-Should show: `Ubuntu 24.04.1 LTS`
+Should show: `Ubuntu 26.04` or similar
+
+**Check kernel:**
+```bash
+uname -a
+```
+
+Should show: Linux kernel version (not MINGW64)
 
 ---
 
@@ -120,11 +182,17 @@ sudo apt install -y \
 **2.3: Add PostgreSQL 16 repository**
 
 ```bash
-# Import PostgreSQL GPG key
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+# Import PostgreSQL GPG key (new method for Ubuntu 26.04)
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /usr/share/keyrings/postgresql-archive-keyring.gpg
 
 # Add PostgreSQL repository
-echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+echo "deb [signed-by=/usr/share/keyrings/postgresql-archive-keyring.gpg] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+
+# If lsb_release not found, install it first:
+sudo apt install -y lsb-release
+
+# Or manually specify Ubuntu codename:
+# echo "deb [signed-by=/usr/share/keyrings/postgresql-archive-keyring.gpg] http://apt.postgresql.org/pub/repos/apt noble-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
 
 # Update package lists again
 sudo apt update
@@ -133,11 +201,13 @@ sudo apt update
 **Expected output:**
 ```
 OK
-deb http://apt.postgresql.org/pub/repos/apt noble-pgdg main
-Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+deb [signed-by=/usr/share/keyrings/postgresql-archive-keyring.gpg] http://apt.postgresql.org/pub/repos/apt noble-pgdg main
+Hit:1 http://archive.ubuntu.com/ubuntu oracular InRelease
 Get:2 http://apt.postgresql.org/pub/repos/apt noble-pgdg InRelease [117 kB]
 ...
 ```
+
+**Note:** Ubuntu 26.04 may use newer GPG key management. The above command uses the modern method.
 
 **2.4: Install PostgreSQL 16 development files**
 
