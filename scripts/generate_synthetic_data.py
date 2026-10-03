@@ -228,12 +228,14 @@ class SyntheticDataGenerator:
         # Prolonged LOS pattern
         for _ in range(fraud_patterns["prolonged_los"]):
             claim = self._generate_legitimate_claim(claim_id_counter, participants, providers, doctors)
-            claim["length_of_stay"] = random.randint(10, 20)  # Abnormally long
-            claim["discharge_date"] = (datetime.fromisoformat(claim["admission_date"]) + 
-                                      timedelta(days=claim["length_of_stay"])).date().isoformat()
-            claims.append(claim)
-            fraud_claims.append(claim["claim_id"])
-            claim_id_counter += 1
+            # Ensure this is an inpatient claim
+            if claim["admission_date"]:
+                claim["length_of_stay"] = random.randint(10, 20)  # Abnormally long
+                claim["discharge_date"] = (datetime.fromisoformat(claim["admission_date"]) + 
+                                          timedelta(days=claim["length_of_stay"])).isoformat()
+                claims.append(claim)
+                fraud_claims.append(claim["claim_id"])
+                claim_id_counter += 1
         
         print(f"  Injected prolonged LOS pattern: {fraud_patterns['prolonged_los']} claims")
         

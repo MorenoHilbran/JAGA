@@ -6,12 +6,13 @@ Creates tables, AGE graph, and initial setup.
 import sys
 import os
 
-# Add parent directory to path for imports
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+# Add backend directory to path for imports
+backend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'backend'))
+sys.path.insert(0, backend_path)
 
-from backend.src.database import init_database, engine, age_conn
-from backend.src.models import Base
-from backend.config import settings
+from src.database import init_database, engine, age_conn
+from src.models import Base
+from config import settings
 import logging
 
 logging.basicConfig(level=logging.INFO)

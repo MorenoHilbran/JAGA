@@ -81,11 +81,14 @@ async def health():
     }
 
 
-# TODO: Import and include routers
-# from src.api import networks, graph, stats, investigation
-# app.include_router(networks.router, prefix="/api/networks", tags=["networks"])
+# Import and include routers
+from src.api import networks, stats
+app.include_router(networks.router, prefix="/api/networks", tags=["networks"])
+app.include_router(stats.router, prefix="/api/stats", tags=["statistics"])
+
+# TODO: Add more routers later
+# from src.api import graph, investigation
 # app.include_router(graph.router, prefix="/api/graph", tags=["graph"])
-# app.include_router(stats.router, prefix="/api/stats", tags=["statistics"])
 # app.include_router(investigation.router, prefix="/api/investigation", tags=["investigation"])
 
 
