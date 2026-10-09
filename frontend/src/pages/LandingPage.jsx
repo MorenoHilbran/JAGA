@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Sun, Moon } from 'lucide-react'
+import { Sun, Moon, ShieldCheck, Sparkles, Activity } from 'lucide-react'
 import { useJagaTheme } from '../context/ThemeContext'
+import { Hero3DMotionBackground } from '../components'
 
 export default function LandingPage() {
   const navigate = useNavigate()
@@ -192,39 +193,26 @@ export default function LandingPage() {
         {/* ========================================== */}
         {/* 01. SEKSI HERO                             */}
         {/* ========================================== */}
-        <section className="relative w-full overflow-hidden px-4 md:px-8 pt-12 pb-16 lg:py-20 border-b border-outline-variant/20">
-          {/* Latar Belakang Vektor Grid & Graf */}
-          <div className="absolute inset-0 pointer-events-none opacity-40">
-            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="heroGrid" width="44" height="44" patternUnits="userSpaceOnUse">
-                  <circle cx="2" cy="2" r="1" fill="#859588" fillOpacity="0.25"></circle>
-                  <path d="M 44 0 L 0 0 0 44" fill="none" stroke="#2c345b" strokeWidth="0.5" strokeOpacity="0.3"></path>
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#heroGrid)"></rect>
-              <g stroke="#35f2a0" strokeWidth="1.2" strokeDasharray="3 3" strokeOpacity="0.35">
-                <line x1="20%" y1="22%" x2="42%" y2="40%"></line>
-                <line x1="42%" y1="40%" x2="58%" y2="20%"></line>
-                <line x1="42%" y1="40%" x2="68%" y2="58%"></line>
-                <line x1="68%" y1="58%" x2="88%" y2="35%"></line>
-              </g>
-              <circle cx="20%" cy="22%" r="4.5" fill="#35f2a0"></circle>
-              <circle cx="42%" cy="40%" r="7" fill="#35f2a0" fillOpacity="0.9"></circle>
-              <circle cx="58%" cy="20%" r="4" fill="#c1c4ec"></circle>
-              <circle cx="68%" cy="58%" r="6" fill="#FF5C67"></circle>
-              <circle cx="88%" cy="35%" r="4.5" fill="#35f2a0"></circle>
-            </svg>
-          </div>
+        <section className={`relative w-full overflow-hidden px-4 md:px-8 pt-12 pb-16 lg:py-20 border-b transition-colors duration-300 ${isDark ? 'border-outline-variant/20' : 'border-slate-200'}`}>
+          {/* 3D Motion Background - Topological Graph Constellation */}
+          <Hero3DMotionBackground />
 
           <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Teks Utama Hero */}
             <div className="lg:col-span-7 flex flex-col gap-4 animate-fade-in-up">
-              <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-[1.15] font-extrabold">
-                Lihat <span className="text-primary-container underline decoration-primary-container/40 underline-offset-8">Jaringan</span> di Balik Setiap Risiko Kesehatan.
+              {/* Sovereign HUD Tag */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[11px] font-mono tracking-wider w-fit shadow-xs backdrop-blur-md bg-white/5 border-white/10">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#35F2A0] animate-pulse" />
+                <span className={isDark ? 'text-[#35F2A0]' : 'text-emerald-700 font-semibold'}>
+                  SOVEREIGN FRAUD INTELLIGENCE // GRAPH-AI ACTIVATED
+                </span>
+              </div>
+
+              <h1 className={`font-headline text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[1.15] font-extrabold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                Lihat <span className="text-[#35F2A0] underline decoration-[#35F2A0]/40 underline-offset-8">Jaringan</span> di Balik Setiap Risiko Kesehatan.
               </h1>
-              
-              <p className="font-body text-base text-on-surface-variant max-w-2xl leading-relaxed">
+
+              <p className={`font-body text-base max-w-2xl leading-relaxed ${isDark ? 'text-on-surface-variant' : 'text-slate-600'}`}>
                 JAGA adalah platform intelijen berdaulat yang dirancang untuk mengungkap anomali terkoordinasi di antara peserta, dokter, fasilitas kesehatan, dan klaim — membongkar sindikat kecurangan kolusif yang tidak pernah bisa dideteksi oleh audit transaksi individu.
               </p>
 
@@ -232,7 +220,7 @@ export default function LandingPage() {
                 <a
                   href="#cockpit"
                   onClick={(e) => scrollToSection(e, 'cockpit')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-b from-[#48f7af] to-[#28d98b] text-[#080B24] font-headline text-xs font-bold border-t border-white/40 border-b-2 border-[#189b60] hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-b from-[#48f7af] to-[#28d98b] text-[#080B24] font-headline text-xs font-bold border-t border-white/40 border-b-2 border-[#189b60] hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer shadow-sm"
                 >
                   <span>Lihat Kokpit Langsung</span>
                   <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -240,69 +228,81 @@ export default function LandingPage() {
                 <a
                   href="#pillars"
                   onClick={(e) => scrollToSection(e, 'pillars')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-b from-[#1f254e] to-[#121636] border-t border-white/15 border-b-2 border-[#090c23] text-white font-body text-xs font-semibold hover:brightness-110 active:translate-y-0.5 transition-all cursor-pointer"
+                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full border text-xs font-semibold hover:brightness-110 active:translate-y-0.5 transition-all cursor-pointer shadow-2xs ${
+                    isDark
+                      ? 'bg-gradient-to-b from-[#1f254e] to-[#121636] border-white/15 text-white'
+                      : 'bg-white border-slate-300 text-slate-800 hover:bg-slate-50'
+                  }`}
                 >
-                  <span className="material-symbols-outlined text-[16px] text-primary-container">hub</span>
+                  <span className="material-symbols-outlined text-[16px] text-emerald-500">hub</span>
                   <span>Jelajahi 4 Layer AI</span>
                 </a>
               </div>
 
               {/* Lencana Kepercayaan */}
-              <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-outline-variant/30 text-xs">
+              <div className={`flex flex-wrap items-center gap-4 pt-4 border-t text-xs ${isDark ? 'border-outline-variant/30' : 'border-slate-200'}`}>
                 <div className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-primary-container text-[16px]">verified</span>
-                  <span className="font-mono text-on-surface-variant">Patuhi UU PDP</span>
+                  <span className="material-symbols-outlined text-[#35F2A0] text-[16px]">verified</span>
+                  <span className={`font-mono ${isDark ? 'text-on-surface-variant' : 'text-slate-600'}`}>Patuhi UU PDP</span>
                 </div>
-                <span className="text-outline-variant">•</span>
+                <span className={isDark ? 'text-outline-variant' : 'text-slate-300'}>•</span>
                 <div className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-primary-container text-[16px]">account_tree</span>
-                  <span className="font-mono text-on-surface-variant">AI Graf Relasional</span>
+                  <span className="material-symbols-outlined text-[#35F2A0] text-[16px]">account_tree</span>
+                  <span className={`font-mono ${isDark ? 'text-on-surface-variant' : 'text-slate-600'}`}>AI Graf Relasional</span>
                 </div>
-                <span className="text-outline-variant">•</span>
+                <span className={isDark ? 'text-outline-variant' : 'text-slate-300'}>•</span>
                 <div className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-primary-container text-[16px]">shield_person</span>
-                  <span className="font-mono text-on-surface-variant">Pengawasan Manusia</span>
+                  <span className="material-symbols-outlined text-[#35F2A0] text-[16px]">shield_person</span>
+                  <span className={`font-mono ${isDark ? 'text-on-surface-variant' : 'text-slate-600'}`}>Pengawasan Manusia</span>
                 </div>
               </div>
             </div>
 
             {/* Panel Melayang HUD Dossier */}
             <div className="lg:col-span-5 relative">
-              <div className="relative bg-surface-container-low border border-outline-variant/40 rounded-xl p-5 border-t border-white/10">
-                <div className="flex items-center justify-between pb-3 border-b border-outline-variant/30">
-                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container">
-                    <span className="font-mono text-[10px] text-primary-accent uppercase tracking-wider font-semibold">DOSIER JARINGAN</span>
+              <div className={`relative rounded-xl p-5 border backdrop-blur-md transition-all shadow-xl ${
+                isDark
+                  ? 'bg-[#0D1130]/90 border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]'
+                  : 'bg-white/95 border-slate-200 shadow-xl'
+              }`}>
+                <div className={`flex items-center justify-between pb-3 border-b ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
+                  <div className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded ${isDark ? 'bg-white/5' : 'bg-slate-100'}`}>
+                    <span className="font-mono text-[10px] text-[#35F2A0] uppercase tracking-wider font-semibold">DOSIER JARINGAN</span>
                   </div>
-                  <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-error-container/60 border border-error/30">
-                    <div className="w-1.5 h-1.5 rounded-full bg-error"></div>
-                    <span className="font-mono text-[10px] text-error font-bold tracking-wider">SINDIKAT KOLUSI TERINDIKASI</span>
+                  <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-red-500/10 border border-red-500/30">
+                    <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></div>
+                    <span className="font-mono text-[10px] text-red-500 font-bold tracking-wider">SINDIKAT KOLUSI TERINDIKASI</span>
                   </div>
                 </div>
 
                 <div className="py-3">
                   <div className="flex items-baseline justify-between">
                     <div>
-                      <span className="font-mono text-[10px] text-on-surface-variant uppercase">Nodus Faskes Target</span>
-                      <h3 className="font-headline text-lg text-white font-bold">Rumah Sakit Citra Kasih X</h3>
+                      <span className={`font-mono text-[10px] uppercase ${isDark ? 'text-on-surface-variant' : 'text-slate-500'}`}>Nodus Faskes Target</span>
+                      <h3 className={`font-headline text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Rumah Sakit Citra Kasih X</h3>
                     </div>
                     <div className="text-right">
-                      <span className="font-mono text-3xl font-bold text-error">87</span>
-                      <span className="font-mono text-xs text-on-surface-variant">/100</span>
+                      <span className="font-mono text-3xl font-bold text-red-500">87</span>
+                      <span className={`font-mono text-xs ${isDark ? 'text-on-surface-variant' : 'text-slate-400'}`}>/100</span>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-2 mt-3 p-2.5 bg-surface-container rounded-lg border border-outline-variant/20">
+                  <div className={`grid grid-cols-3 gap-2 mt-3 p-2.5 rounded-lg border ${
+                    isDark
+                      ? 'bg-white/[0.03] border-white/10'
+                      : 'bg-slate-50 border-slate-200'
+                  }`}>
                     <div>
-                      <span className="font-mono text-[10px] text-on-surface-variant block">Peserta</span>
-                      <span className="font-mono text-xs font-bold text-white">42 NIK</span>
+                      <span className={`font-mono text-[10px] block ${isDark ? 'text-on-surface-variant' : 'text-slate-500'}`}>Peserta</span>
+                      <span className={`font-mono text-xs font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>42 NIK</span>
                     </div>
                     <div>
-                      <span className="font-mono text-[10px] text-on-surface-variant block">Dokter</span>
-                      <span className="font-mono text-xs font-bold text-white">3 SIP</span>
+                      <span className={`font-mono text-[10px] block ${isDark ? 'text-on-surface-variant' : 'text-slate-500'}`}>Dokter</span>
+                      <span className={`font-mono text-xs font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>3 SIP</span>
                     </div>
                     <div>
-                      <span className="font-mono text-[10px] text-on-surface-variant block">Paparan Klaim</span>
-                      <span className="font-mono text-xs font-bold text-error">Rp 4,8 M</span>
+                      <span className={`font-mono text-[10px] block ${isDark ? 'text-on-surface-variant' : 'text-slate-500'}`}>Paparan Klaim</span>
+                      <span className="font-mono text-xs font-bold text-red-500">Rp 4,8 M</span>
                     </div>
                   </div>
                 </div>
@@ -311,29 +311,29 @@ export default function LandingPage() {
                 <div className="space-y-2 pt-1 pb-3 text-xs">
                   <div>
                     <div className="flex justify-between font-mono text-[11px] mb-1">
-                      <span className="text-on-surface-variant">Konsentrasi Corong Rujukan</span>
-                      <span className="text-primary-container font-bold">+24 poin</span>
+                      <span className={isDark ? 'text-on-surface-variant' : 'text-slate-600'}>Konsentrasi Corong Rujukan</span>
+                      <span className="text-[#35F2A0] font-bold">+24 poin</span>
                     </div>
-                    <div className="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-primary-container h-full rounded-full transition-all duration-1000" style={{ width: '82%' }}></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between font-mono text-[11px] mb-1">
-                      <span className="text-on-surface-variant">Duplikasi Leksikal Diagnosis Lintas Klaim</span>
-                      <span className="text-primary-container font-bold">+21 poin</span>
-                    </div>
-                    <div className="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-primary-container h-full rounded-full transition-all duration-1000" style={{ width: '74%' }}></div>
+                    <div className={`w-full h-1.5 rounded-full overflow-hidden ${isDark ? 'bg-white/10' : 'bg-slate-200'}`}>
+                      <div className="bg-[#35F2A0] h-full rounded-full transition-all duration-1000" style={{ width: '82%' }}></div>
                     </div>
                   </div>
                   <div>
                     <div className="flex justify-between font-mono text-[11px] mb-1">
-                      <span className="text-on-surface-variant">Anomali Motif Triadika Graf</span>
-                      <span className="text-primary-container font-bold">+18 poin</span>
+                      <span className={isDark ? 'text-on-surface-variant' : 'text-slate-600'}>Duplikasi Leksikal Diagnosis Lintas Klaim</span>
+                      <span className="text-[#35F2A0] font-bold">+21 poin</span>
                     </div>
-                    <div className="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-primary-container h-full rounded-full transition-all duration-1000" style={{ width: '62%' }}></div>
+                    <div className={`w-full h-1.5 rounded-full overflow-hidden ${isDark ? 'bg-white/10' : 'bg-slate-200'}`}>
+                      <div className="bg-[#35F2A0] h-full rounded-full transition-all duration-1000" style={{ width: '74%' }}></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between font-mono text-[11px] mb-1">
+                      <span className={isDark ? 'text-on-surface-variant' : 'text-slate-600'}>Anomali Motif Triadika Graf</span>
+                      <span className="text-[#35F2A0] font-bold">+18 poin</span>
+                    </div>
+                    <div className={`w-full h-1.5 rounded-full overflow-hidden ${isDark ? 'bg-white/10' : 'bg-slate-200'}`}>
+                      <div className="bg-[#35F2A0] h-full rounded-full transition-all duration-1000" style={{ width: '62%' }}></div>
                     </div>
                   </div>
                 </div>
@@ -341,7 +341,7 @@ export default function LandingPage() {
                 <a
                   href="#cockpit"
                   onClick={(e) => scrollToSection(e, 'cockpit')}
-                  className="w-full py-2.5 px-3 rounded-lg bg-gradient-to-b from-[#48f7af] to-[#28d98b] text-[#080B24] font-headline text-xs font-bold border-t border-white/40 border-b-2 border-[#189b60] flex items-center justify-center gap-1.5 hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer"
+                  className="w-full py-2.5 px-3 rounded-lg bg-gradient-to-b from-[#48f7af] to-[#28d98b] text-[#080B24] font-headline text-xs font-bold border-t border-white/40 border-b-2 border-[#189b60] flex items-center justify-center gap-1.5 hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer shadow-sm"
                 >
                   <span>Inspeksi Topologi Sindikat</span>
                   <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
