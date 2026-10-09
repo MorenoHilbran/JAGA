@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { ThemeProvider } from '@mui/material/styles'
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-import jagaTheme from './theme/jaga-theme'
+import { ThemeProvider, useJagaTheme } from './context/ThemeContext'
+import { getJagaTheme } from './theme/jaga-theme'
 import Layout from './components/Layout'
 import LandingPage from './pages/LandingPage'
 import Dashboard from './pages/Dashboard'
@@ -9,9 +10,12 @@ import NetworkDetail from './pages/NetworkDetail'
 import Analytics from './pages/Analytics'
 import './App.css'
 
-function App() {
+function AppContent() {
+  const { theme } = useJagaTheme()
+  const muiTheme = getJagaTheme(theme)
+
   return (
-    <ThemeProvider theme={jagaTheme}>
+    <MuiThemeProvider theme={muiTheme}>
       <CssBaseline />
       <Router>
         <Layout>
@@ -23,6 +27,14 @@ function App() {
           </Routes>
         </Layout>
       </Router>
+    </MuiThemeProvider>
+  )
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
     </ThemeProvider>
   )
 }

@@ -1,37 +1,6 @@
-@import "tailwindcss";
-
-@theme {
-  --color-surface: #080B24;
-  --color-surface-container-lowest: #080B24;
-  --color-surface-container-low: #0D1130;
-  --color-surface-container: #131735;
-  --color-surface-container-high: #1C2248;
-  --color-surface-container-highest: #283060;
-  --color-surface-variant: #222749;
-  --color-surface-bright: #22274c;
-  --color-primary: #c6ffda;
-  --color-primary-container: #35F2A0;
-  --color-primary-accent: #8BFFCE;
-  --color-primary-fixed: #51ffad;
-  --color-on-primary-container: #00472b;
-  --color-secondary: #c1c4ec;
-  --color-secondary-container: #2f3559;
-  --color-on-secondary: #2a2e4e;
-  --color-on-secondary-container: #afb2da;
-  --color-error: #FF5C67;
-  --color-error-container: #481016;
-  --color-error-accent: #FF5C67;
-  --color-on-surface: #dfe0ff;
-  --color-on-surface-variant: #9ca7c5;
-  --color-outline: #859588;
-  --color-outline-variant: #2c345b;
-  --color-inverse-surface: #dfe0ff;
-  
-  --font-sans: Inter, sans-serif;
-  --font-headline: "Plus Jakarta Sans", sans-serif;
-  --font-body: Inter, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   html {
@@ -59,10 +28,10 @@
   }
 }
 
-/* Custom Sleek Dark Telemetry Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -71,30 +40,9 @@
 
 ::-webkit-scrollbar-thumb {
   background: #1C2248;
-  border-radius: 4px;
-  border: 1px solid rgba(53, 242, 160, 0.2);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #35F2A0;
-}
-
-.isometric-tilt {
-  transform: perspective(1000px) rotateX(16deg) rotateY(-14deg) rotateZ(3deg);
-}
-
-/* Scroll Fade In Animation Utilities */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  background: #283060;
 }

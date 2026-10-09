@@ -3,7 +3,7 @@
 **Project**: JAGA - Jaringan Analitik Guard Anti-fraud  
 **Team**: Renggo (Backend), Moreno (Frontend), Paundra (Detection Engine)  
 **Start Date**: 2026-10-02  
-**Last Updated**: 2026-10-09T16:03:00Z by RENGGO
+**Last Updated**: 2026-10-10T08:30:00Z by MORENO (Frontend Lead)
 
 ---
 
@@ -1152,40 +1152,44 @@ git commit -m "update"
 ---
 
 ### PHASE 6: Charts & Additional Visualizations (Week 3)
-**Status**: 🔴 Not Started  
+**Status**: ✅ Completed  
 **Priority**: 🟢 LOW - Enhancement
 
 #### Task 6.1: Risk Trend Chart
-**Status**: ⏳ Pending
+**Status**: ✅ Completed
 
-**CREATE NEW COMPONENT**: `frontend/src/components/RiskTrendChart.jsx`
+**CREATED NEW COMPONENT**: `frontend/src/components/RiskTrendChart.jsx`
 
-- [ ] Line chart with Recharts
-- [ ] X-axis: Time (past 30 days)
-- [ ] Y-axis: Risk detection count
-- [ ] Multiple lines (by risk type)
-- [ ] Hover tooltips
-- [ ] Legend
-- [ ] Export as image button
+- [x] Vector longitudinal trend chart compliant with Palantir sovereign design system
+- [x] X-axis: Time (past 30 days)
+- [x] Y-axis: Risk detection count & financial exposure (Rp Miliar)
+- [x] Multi-series toggle (Cloning, Referral Graph, Repeat Billing, Nominal)
+- [x] Interactive crosshair & hover HUD tooltips with exact case counts
+- [x] Filterable series legend & CSV data export trigger
+- [x] Full Dark / Light mode accessibility styling
 
 **Estimated Time**: 3-4 hours  
 **Files**: `frontend/src/components/RiskTrendChart.jsx` (NEW)
 
 ---
 
-#### Task 6.2: Signal Breakdown Chart
-**Status**: ⏳ Pending
+#### Task 6.2: Signal Breakdown Chart & Analytics Workbench
+**Status**: ✅ Completed
 
-**CREATE NEW COMPONENT**: `frontend/src/components/SignalBreakdownChart.jsx`
+**CREATED NEW COMPONENT**: `frontend/src/components/SignalBreakdownChart.jsx`  
+**ENHANCED PAGE**: `frontend/src/pages/Analytics.jsx`
 
-- [ ] Horizontal bar chart with Recharts
-- [ ] Shows contribution of each detection method
-- [ ] Color-coded bars
-- [ ] Percentage labels
-- [ ] Used in Risk Explanation Panel
+- [x] Proportional composition bar & horizontal attribution cards
+- [x] Shows contribution of 4 detection methods (Cloning, Referral, LOS, Repeat)
+- [x] Color-coded metrics, percentage indicators & estimated financial loss
+- [x] Complete build of `frontend/src/pages/Analytics.jsx` workbench:
+  - [x] Macro system telemetry cards (67 Networks, Rp 548.2B, 184 Faskes, 97.2% Precision)
+  - [x] Timeframe filter controls (7D, 30D, 90D, YTD)
+  - [x] Multi-tab views: Overview, Cytoscape Graph Sandbox, Peer Benchmarking
+- [x] Light Mode (Mode Terang) & Dark Mode (Mode Gelap) toggle implementation via `ThemeContext.jsx` & Top Navbar switcher
 
 **Estimated Time**: 2-3 hours  
-**Files**: `frontend/src/components/SignalBreakdownChart.jsx` (NEW)
+**Files**: `frontend/src/components/SignalBreakdownChart.jsx` (NEW), `frontend/src/pages/Analytics.jsx` (enhanced), `frontend/src/context/ThemeContext.jsx` (NEW)
 
 ---
 

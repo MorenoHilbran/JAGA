@@ -68,11 +68,17 @@ export const getNetworkClaims = async (networkId) => {
 /**
  * Get graph data for visualization
  */
-export const getGraphData = async (networkId) => {
-  const response = await api.get(`/api/graph/query`, {
-    params: { network_id: networkId }
-  })
-  return response.data
+export const getGraphData = async (networkId, params = {}) => {
+  try {
+    const response = await api.get(`/api/graph/network/${networkId}`, { params })
+    return response.data
+  } catch (err) {
+    // Fallback to legacy query endpoint if available
+    const fallbackResponse = await api.get(`/api/graph/query`, {
+      params: { network_id: networkId, ...params }
+    })
+    return fallbackResponse.data
+  }
 }
 
 /**

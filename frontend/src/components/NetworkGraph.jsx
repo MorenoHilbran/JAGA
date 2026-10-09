@@ -318,20 +318,34 @@ const NetworkGraph = ({
 
   // Initialize and update Cytoscape
   useEffect(() => {
-    if (!containerRef.current) return
+    let isMounted = true
 
-    setLoading(true)
+    const initGraph = async () => {
+      if (!containerRef.current) return
+      setLoading(true)
 
-    // Destroy existing instance if any
-    if (cyRef.current) {
-      cyRef.current.destroy()
-    }
+      let elements = FALLBACK_GRAPH_ELEMENTS
 
-    try {
-      const cy = cytoscape({
-        container: containerRef.current,
-        elements: FALLBACK_GRAPH_ELEMENTS,
-        style: [
+      try {
+        const liveData = await getGraphData(networkId)
+        if (liveData && Array.isArray(liveData.nodes) && liveData.nodes.length > 0) {
+          elements = [...liveData.nodes, ...(liveData.edges || [])]
+        }
+      } catch (e) {
+        // Use high-fidelity fallback elements seamlessly
+      }
+
+      if (!isMounted || !containerRef.current) return
+
+      if (cyRef.current) {
+        cyRef.current.destroy()
+      }
+
+      try {
+        const cy = cytoscape({
+          container: containerRef.current,
+          elements: elements,
+          style: [
           // BASE NODE STYLE
           {
             selector: 'node',
@@ -504,15 +518,19 @@ const NetworkGraph = ({
     } catch (err) {
       console.error('Failed to initialize cytoscape:', err)
     } finally {
-      setLoading(false)
+      if (isMounted) setLoading(false)
     }
+  }
 
-    return () => {
-      if (cyRef.current) {
-        cyRef.current.destroy()
-      }
+  initGraph()
+
+  return () => {
+    isMounted = false
+    if (cyRef.current) {
+      cyRef.current.destroy()
     }
-  }, [networkId])
+  }
+}, [networkId])
 
   // Change layout
   const handleLayoutChange = (layoutName) => {
