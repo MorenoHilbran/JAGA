@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Sun, Moon } from 'lucide-react'
+import { useJagaTheme } from '../context/ThemeContext'
 
 export default function LandingPage() {
   const navigate = useNavigate()
+  const { theme, isDark, toggleTheme } = useJagaTheme()
   const [selectedCase, setSelectedCase] = useState('0241')
   const [activeSection, setActiveSection] = useState('')
 
@@ -78,19 +81,19 @@ export default function LandingPage() {
   }, [])
 
   return (
-    <div className="w-full bg-[#080B24] min-h-screen text-on-surface font-sans antialiased overflow-x-hidden">
+    <div className={`w-full min-h-screen font-sans antialiased overflow-x-hidden ${isDark ? 'bg-[#080B24] text-on-surface' : 'bg-[#F4F6FB] text-slate-800'}`}>
       {/* ========================================== */}
       {/* BILAH NAVIGASI                             */}
       {/* ========================================== */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-[#080B24]/90 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300">
+      <header className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b transition-all duration-300 ${isDark ? 'bg-[#080B24]/90 border-outline-variant/30' : 'bg-white/90 border-slate-200 shadow-xs'}`}>
         <div className="h-16 w-full max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
-              <span className="font-headline text-lg text-white font-extrabold tracking-tight uppercase">JAGA</span>
+              <span className={`w-2.5 h-2.5 rounded-full ${isDark ? 'bg-primary-container' : 'bg-emerald-500'}`}></span>
+              <span className={`font-headline text-lg font-extrabold tracking-tight uppercase ${isDark ? 'text-white' : 'text-slate-900'}`}>JAGA</span>
             </Link>
-            <div className="hidden lg:flex items-center pl-3 border-l border-outline-variant/40">
-              <span className="font-mono text-[11px] text-on-surface-variant uppercase tracking-wider">Jaringan Analitik Guard Anti-fraud</span>
+            <div className={`hidden lg:flex items-center pl-3 border-l ${isDark ? 'border-outline-variant/40 text-on-surface-variant' : 'border-slate-300 text-slate-500'}`}>
+              <span className="font-mono text-[11px] uppercase tracking-wider">Jaringan Analitik Guard Anti-fraud</span>
             </div>
           </div>
 
@@ -100,8 +103,12 @@ export default function LandingPage() {
               onClick={(e) => scrollToSection(e, 'paradigm')}
               className={`px-3 py-1.5 rounded-lg text-xs tracking-wide transition-all ${
                 activeSection === 'paradigm'
-                  ? 'bg-surface-container-high text-primary-container font-semibold border border-primary-container/30'
-                  : 'text-on-surface-variant hover:text-white hover:bg-surface-container'
+                  ? isDark
+                    ? 'bg-surface-container-high text-primary-container font-semibold border border-primary-container/30'
+                    : 'bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200'
+                  : isDark
+                  ? 'text-on-surface-variant hover:text-white hover:bg-surface-container'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
               Ringkasan
@@ -111,8 +118,12 @@ export default function LandingPage() {
               onClick={(e) => scrollToSection(e, 'pillars')}
               className={`px-3 py-1.5 rounded-lg text-xs tracking-wide transition-all ${
                 activeSection === 'pillars'
-                  ? 'bg-surface-container-high text-primary-container font-semibold border border-primary-container/30'
-                  : 'text-on-surface-variant hover:text-white hover:bg-surface-container'
+                  ? isDark
+                    ? 'bg-surface-container-high text-primary-container font-semibold border border-primary-container/30'
+                    : 'bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200'
+                  : isDark
+                  ? 'text-on-surface-variant hover:text-white hover:bg-surface-container'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
               Arsitektur
@@ -122,8 +133,12 @@ export default function LandingPage() {
               onClick={(e) => scrollToSection(e, 'cockpit')}
               className={`px-3 py-1.5 rounded-lg text-xs tracking-wide transition-all ${
                 activeSection === 'cockpit'
-                  ? 'bg-surface-container-high text-primary-container font-semibold border border-primary-container/30'
-                  : 'text-on-surface-variant hover:text-white hover:bg-surface-container'
+                  ? isDark
+                    ? 'bg-surface-container-high text-primary-container font-semibold border border-primary-container/30'
+                    : 'bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200'
+                  : isDark
+                  ? 'text-on-surface-variant hover:text-white hover:bg-surface-container'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
               Pratinjau Kokpit
@@ -133,8 +148,12 @@ export default function LandingPage() {
               onClick={(e) => scrollToSection(e, 'security')}
               className={`px-3 py-1.5 rounded-lg text-xs tracking-wide transition-all ${
                 activeSection === 'security'
-                  ? 'bg-surface-container-high text-primary-container font-semibold border border-primary-container/30'
-                  : 'text-on-surface-variant hover:text-white hover:bg-surface-container'
+                  ? isDark
+                    ? 'bg-surface-container-high text-primary-container font-semibold border border-primary-container/30'
+                    : 'bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200'
+                  : isDark
+                  ? 'text-on-surface-variant hover:text-white hover:bg-surface-container'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
               Tata Kelola & Teknologi
@@ -142,6 +161,30 @@ export default function LandingPage() {
           </nav>
 
           <div className="flex items-center gap-3">
+            {/* Theme Toggle Button */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-mono transition-all ${
+                isDark
+                  ? 'bg-[#131735] border-white/10 text-[#DFE0FF] hover:border-[#35F2A0] hover:text-[#35F2A0]'
+                  : 'bg-slate-100 border-slate-200 text-slate-700 hover:border-emerald-600 hover:text-emerald-700'
+              }`}
+              title={isDark ? 'Beralih ke Mode Terang' : 'Beralih ke Mode Gelap'}
+            >
+              {isDark ? (
+                <>
+                  <Sun className="w-3.5 h-3.5 text-[#FCD34D]" />
+                  <span className="hidden sm:inline">TERANG</span>
+                </>
+              ) : (
+                <>
+                  <Moon className="w-3.5 h-3.5 text-indigo-600" />
+                  <span className="hidden sm:inline">GELAP</span>
+                </>
+              )}
+            </button>
+
             <Link
               to="/dashboard"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-b from-[#48f7af] to-[#28d98b] text-[#080B24] font-headline text-xs font-bold border-t border-white/40 border-b-2 border-[#189b60] hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer"
@@ -153,7 +196,7 @@ export default function LandingPage() {
         </div>
       </header>
 
-      <main className="w-full pt-16 bg-[#080B24]">
+      <main className={`w-full pt-16 ${isDark ? 'bg-[#080B24]' : 'bg-[#F4F6FB]'}`}>
         {/* ========================================== */}
         {/* 01. SEKSI HERO                             */}
         {/* ========================================== */}

@@ -20,6 +20,20 @@
     overscroll-behavior-y: auto;
   }
 
+  html.light body {
+    background-color: #F4F6FB;
+    color: #0F172A;
+  }
+
+  /* Light mode theme color overrides */
+  html.light {
+    --color-surface-container-low: #FFFFFF;
+    --color-surface-container: #F1F4F9;
+    --color-surface-container-high: #E2E8F0;
+    --color-on-surface: #0F172A;
+    --color-on-surface-variant: #475569;
+  }
+
   #root {
     width: 100%;
     min-height: 100vh;
@@ -27,6 +41,59 @@
     overflow-y: visible;
   }
 }
+
+  html.light .landing-dark-surface,
+  html.light section[id="paradigm"],
+  html.light section[id="pillars"],
+  html.light section[id="cockpit"],
+  html.light section[id="security"],
+  html.light footer {
+    background-color: #F8FAFC !important;
+  }
+
+  html.light .bg-\[\#080B24\] {
+    background-color: #F8FAFC !important;
+  }
+
+  html.light .bg-\[\#0D1130\] {
+    background-color: #EEF2F6 !important;
+  }
+
+  html.light .bg-surface-container {
+    background-color: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  html.light .bg-surface-container-low {
+    background-color: #F8FAFC !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  html.light .bg-surface-container-high {
+    background-color: #EDF2F7 !important;
+  }
+
+  html.light .text-white {
+    color: #0F172A !important;
+  }
+
+  html.light .text-\[\#DFE0FF\] {
+    color: #1E293B !important;
+  }
+
+  html.light .text-\[\#9CA7C5\] {
+    color: #64748B !important;
+  }
+
+  html.light .text-on-surface-variant {
+    color: #475569 !important;
+  }
+
+  html.light .border-outline-variant\/20,
+  html.light .border-outline-variant\/30,
+  html.light .border-outline-variant\/40 {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+  }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
@@ -38,11 +105,23 @@
   background: #080B24;
 }
 
+html.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #1C2248;
   border-radius: 3px;
 }
 
+html.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: #283060;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }
