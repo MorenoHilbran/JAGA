@@ -126,27 +126,19 @@ const Layout = ({ children }) => {
           </div>
 
           <div className="flex items-center gap-3 text-xs font-mono">
-            {/* Theme Toggle Button */}
+            {/* Theme Toggle Button - Matching Pill Gradient Style */}
             <button
               type="button"
               onClick={toggleTheme}
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-[2px] border text-[11px] transition-all ${
-                isDark
-                  ? 'bg-[#131735] border-white/10 text-[#DFE0FF] hover:border-[#35F2A0] hover:text-[#35F2A0]'
-                  : 'bg-slate-100 border-slate-200 text-slate-700 hover:border-[#0B945B] hover:text-[#0B945B]'
-              }`}
+              style={{ width: '32px', height: '32px' }}
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-b from-[#48f7af] to-[#28d98b] text-[#080B24] border-t border-white/40 border-b-2 border-[#189b60] hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer shadow-xs flex-shrink-0"
               title={isDark ? 'Beralih ke Mode Terang (Light Mode)' : 'Beralih ke Mode Gelap (Dark Mode)'}
+              aria-label="Ganti Tema"
             >
               {isDark ? (
-                <>
-                  <Sun className="w-3.5 h-3.5 text-[#FCD34D]" />
-                  <span className="hidden sm:inline">MODE TERANG</span>
-                </>
+                <Sun className="w-3.5 h-3.5 text-[#080B24]" />
               ) : (
-                <>
-                  <Moon className="w-3.5 h-3.5 text-indigo-600" />
-                  <span className="hidden sm:inline">MODE GELAP</span>
-                </>
+                <Moon className="w-3.5 h-3.5 text-[#080B24]" />
               )}
             </button>
 

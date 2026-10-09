@@ -73,8 +73,53 @@
     background-color: #EDF2F7 !important;
   }
 
-  html.light .text-white {
+  /* Light mode global text override: default all .text-white and .text-[#FFFFFF] to dark slate */
+  html.light .text-white,
+  html.light .text-\[\#FFFFFF\],
+  html.light .text-\[\#ffffff\] {
     color: #0F172A !important;
+  }
+
+  /* Specific exceptions: ONLY buttons and badges with dark/colored backgrounds keep white text */
+  html.light button.bg-\[\#0D1130\],
+  html.light button.bg-\[\#131735\],
+  html.light button.bg-\[\#1C2248\],
+  html.light button[class*="from-\[\#1f254e\]"],
+  html.light button[class*="from-\[\#222852\]"],
+  html.light button[class*="from-\[\#1c2146\]"],
+  html.light a[class*="from-\[\#1f254e\]"],
+  html.light a[class*="from-\[\#222852\]"],
+  html.light button[class*="from-\[\#ff6b75\]"],
+  html.light a[class*="from-\[\#ff6b75\]"],
+  html.light button.bg-slate-900,
+  html.light button.bg-slate-800,
+  html.light button.bg-indigo-900,
+  html.light button.bg-indigo-950,
+  html.light button.bg-red-600,
+  html.light button.bg-emerald-700,
+  html.light button.bg-emerald-800 {
+    color: #FFFFFF !important;
+  }
+
+  html.light button.bg-\[\#0D1130\] *,
+  html.light button.bg-\[\#131735\] *,
+  html.light button.bg-\[\#1C2248\] *,
+  html.light button[class*="from-\[\#1f254e\]"] *,
+  html.light button[class*="from-\[\#222852\]"] *,
+  html.light button[class*="from-\[\#1c2146\]"] *,
+  html.light a[class*="from-\[\#1f254e\]"] *,
+  html.light a[class*="from-\[\#222852\]"] *,
+  html.light button[class*="from-\[\#ff6b75\]"] *,
+  html.light a[class*="from-\[\#ff6b75\]"] * {
+    color: #FFFFFF !important;
+  }
+
+  /* Primary green button text: dark defense text */
+  html.light button[class*="bg-\[\#35F2A0\]"],
+  html.light button[class*="bg-\[\#35F2A0\]"] *,
+  html.light a[class*="from-\[\#48f7af\]"],
+  html.light a[class*="from-\[\#48f7af\]"] * {
+    color: #080B24 !important;
   }
 
   html.light .text-\[\#DFE0FF\] {
@@ -95,7 +140,33 @@
     border-color: rgba(0, 0, 0, 0.08) !important;
   }
 
-/* Custom Scrollbar */
+  /* Modal / Dialog Light Mode Overrides */
+  html.light .fixed.inset-0 .bg-\[\#0D1130\],
+  html.light .fixed.inset-0 .bg-\[\#080B24\],
+  html.light .fixed.inset-0 .bg-\[\#131735\] {
+    background-color: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  html.light .fixed.inset-0 .border-white\/10,
+  html.light .fixed.inset-0 .border-white\/8,
+  html.light .fixed.inset-0 .border-white\/6 {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  html.light textarea,
+  html.light input[type="text"] {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+    border-color: #CBD5E1 !important;
+  }
+
+  html.light textarea::placeholder,
+  html.light input[type="text"]::placeholder {
+    color: #94A3B8 !important;
+  }
+
+  /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

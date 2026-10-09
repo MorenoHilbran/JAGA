@@ -37,9 +37,9 @@ const JagaButton = ({
     primary:
       'bg-[#35F2A0] text-[#080B24] font-bold shadow-[0_0_14px_rgba(53,242,160,0.25)] hover:bg-[#51FFAD] hover:shadow-[0_0_20px_rgba(53,242,160,0.4)] active:scale-[0.99] border border-transparent',
     secondary:
-      'bg-[#0D1130] text-[#DFE0FF] border border-white/12 hover:bg-white/[0.06] hover:border-white/20 hover:text-white active:bg-white/[0.08]',
+      'bg-[#0D1130] text-white border border-white/12 hover:bg-white/[0.06] hover:border-white/20 hover:text-white active:bg-white/[0.08] shadow-xs',
     tactical:
-      'bg-[#131735]/80 backdrop-blur-sm text-[#DFE0FF] border border-white/10 hover:border-[#35F2A0]/50 hover:text-[#35F2A0] hover:bg-[#131735]',
+      'bg-[#131735] text-white border border-white/10 hover:border-[#35F2A0]/50 hover:text-[#35F2A0] hover:bg-[#131735] shadow-xs',
     danger:
       'bg-[#FF5C67] text-[#080B24] font-bold shadow-[0_0_14px_rgba(255,92,103,0.3)] hover:bg-[#FF737C] hover:shadow-[0_0_20px_rgba(255,92,103,0.5)] active:scale-[0.99] border border-transparent',
     'danger-ghost':

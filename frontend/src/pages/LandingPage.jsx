@@ -161,33 +161,25 @@ export default function LandingPage() {
           </nav>
 
           <div className="flex items-center gap-3">
-            {/* Theme Toggle Button */}
+            {/* Theme Toggle Button - Matching Jelajahi Platform Pill Style */}
             <button
               type="button"
               onClick={toggleTheme}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-mono transition-all ${
-                isDark
-                  ? 'bg-[#131735] border-white/10 text-[#DFE0FF] hover:border-[#35F2A0] hover:text-[#35F2A0]'
-                  : 'bg-slate-100 border-slate-200 text-slate-700 hover:border-emerald-600 hover:text-emerald-700'
-              }`}
+              style={{ width: '36px', height: '36px' }}
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-b from-[#48f7af] to-[#28d98b] text-[#080B24] border-t border-white/40 border-b-2 border-[#189b60] hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer shadow-xs flex-shrink-0"
               title={isDark ? 'Beralih ke Mode Terang' : 'Beralih ke Mode Gelap'}
+              aria-label="Ganti Tema"
             >
               {isDark ? (
-                <>
-                  <Sun className="w-3.5 h-3.5 text-[#FCD34D]" />
-                  <span className="hidden sm:inline">TERANG</span>
-                </>
+                <Sun className="w-4 h-4 text-[#080B24]" />
               ) : (
-                <>
-                  <Moon className="w-3.5 h-3.5 text-indigo-600" />
-                  <span className="hidden sm:inline">GELAP</span>
-                </>
+                <Moon className="w-4 h-4 text-[#080B24]" />
               )}
             </button>
 
             <Link
               to="/dashboard"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-b from-[#48f7af] to-[#28d98b] text-[#080B24] font-headline text-xs font-bold border-t border-white/40 border-b-2 border-[#189b60] hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-b from-[#48f7af] to-[#28d98b] text-[#080B24] font-headline text-xs font-bold border-t border-white/40 border-b-2 border-[#189b60] hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer shadow-xs"
             >
               <span>Jelajahi Platform</span>
               <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
@@ -890,7 +882,11 @@ export default function LandingPage() {
                       </button>
                       <button
                         onClick={() => navigate('/dashboard')}
-                        className="py-1.5 px-2 rounded-lg bg-gradient-to-b from-[#1c2146] to-[#0f1330] border-t border-white/10 border-b-2 border-[#080b20] text-on-surface-variant hover:text-white text-[11px] font-semibold hover:brightness-110 active:translate-y-0.5 transition-all cursor-pointer"
+                        className={`py-1.5 px-2 rounded-lg border-t border-b-2 text-[11px] font-semibold hover:brightness-110 active:translate-y-0.5 transition-all cursor-pointer ${
+                          isDark
+                            ? 'bg-gradient-to-b from-[#1c2146] to-[#0f1330] border-t-white/10 border-b-[#080b20] text-on-surface-variant hover:text-white'
+                            : 'bg-slate-200 border-t-white border-b-slate-300 text-slate-700 hover:text-slate-900'
+                        }`}
                       >
                         Abaikan Peringatan
                       </button>

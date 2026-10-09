@@ -11,6 +11,7 @@ import {
 import JagaCard from './JagaCard'
 import JagaButton from './JagaButton'
 import { submitInvestigationDecision } from '../services/api'
+import { useJagaTheme } from '../context/ThemeContext'
 
 /**
  * DecisionPanel - Human-in-the-Loop Triage Decision Cockpit
@@ -20,6 +21,7 @@ const DecisionPanel = ({
   networkId,
   onDecisionSubmitted = null,
 }) => {
+  const { isDark } = useJagaTheme()
   const [selectedAction, setSelectedAction] = useState('freeze')
   const [notes, setNotes] = useState('')
   const [loading, setLoading] = useState(false)
@@ -116,8 +118,12 @@ const DecisionPanel = ({
                   p-3 rounded-sm border cursor-pointer transition-all select-none
                   ${
                     isSelected
-                      ? 'bg-[#131735] shadow-[0_0_12px_rgba(255,255,255,0.06)]'
-                      : 'bg-[#080B24] border-white/6 hover:border-white/15'
+                      ? isDark
+                        ? 'bg-[#131735] shadow-[0_0_12px_rgba(255,255,255,0.06)]'
+                        : 'bg-emerald-50/70 shadow-xs'
+                      : isDark
+                      ? 'bg-[#080B24] border-white/6 hover:border-white/15'
+                      : 'bg-white border-slate-200 hover:border-slate-300'
                   }
                 `}
                 style={{
@@ -127,7 +133,7 @@ const DecisionPanel = ({
                 <div className="flex items-center justify-between mb-1">
                   <span
                     className="text-xs font-bold font-sans"
-                    style={{ color: isSelected ? act.color : '#DFE0FF' }}
+                    style={{ color: isSelected ? act.color : isDark ? '#DFE0FF' : '#0F172A' }}
                   >
                     {act.title}
                   </span>
@@ -142,7 +148,7 @@ const DecisionPanel = ({
                     {act.badge}
                   </span>
                 </div>
-                <p className="text-[11px] text-[#9CA7C5] leading-relaxed font-sans">
+                <p className={`text-[11px] leading-relaxed font-sans ${isDark ? 'text-[#9CA7C5]' : 'text-slate-600'}`}>
                   {act.desc}
                 </p>
               </div>
@@ -161,7 +167,11 @@ const DecisionPanel = ({
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           placeholder="Tuliskan alasan teknis pembekuan atau temuan spesifik (contoh: 'Ditemukan kesamaan rekam medis 42 pasien tanpa indikasi medis sah...')."
-          className="w-full bg-[#080B24] text-xs text-[#DFE0FF] border border-white/10 rounded-sm p-3 focus:outline-none focus:border-[#35F2A0] font-sans placeholder-[#859588]"
+          className={`w-full text-xs border rounded-sm p-3 focus:outline-none focus:border-[#35F2A0] font-sans ${
+            isDark
+              ? 'bg-[#080B24] text-[#DFE0FF] border-white/10 placeholder-[#859588]'
+              : 'bg-white text-slate-900 border-slate-300 placeholder-slate-400'
+          }`}
         />
       </div>
 

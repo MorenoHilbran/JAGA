@@ -30,6 +30,7 @@ import {
   InvestigationDialog,
 } from '../components'
 import { getNetworkDetail } from '../services/api'
+import { useJagaTheme } from '../context/ThemeContext'
 
 // Fallback high-fidelity dossier dataset
 const FALLBACK_DOSSIER = {
@@ -59,6 +60,7 @@ Tiga dokter spesialis terindikasi menandatangani rekam medis di dua fasilitas be
 const NetworkDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()
+  const { isDark } = useJagaTheme()
 
   const [activeTab, setActiveTab] = useState(0)
   const [network, setNetwork] = useState(FALLBACK_DOSSIER)
@@ -232,7 +234,7 @@ const NetworkDetail = () => {
       </div>
 
       {/* 3. Navigation Tabs */}
-      <div className="border-b border-white/8 flex items-center gap-1 overflow-x-auto">
+      <div className={`border-b flex items-center gap-1 overflow-x-auto ${isDark ? 'border-white/8' : 'border-slate-200'}`}>
         {tabs.map((tab, idx) => {
           const isActive = activeTab === idx
           return (
@@ -244,12 +246,16 @@ const NetworkDetail = () => {
                 flex items-center gap-2 px-4 py-3 text-xs font-mono tracking-wider uppercase border-b-2 transition-all whitespace-nowrap
                 ${
                   isActive
-                    ? 'border-[#35F2A0] text-white font-bold bg-white/[0.03]'
-                    : 'border-transparent text-[#859588] hover:text-[#DFE0FF] hover:bg-white/[0.01]'
+                    ? isDark
+                      ? 'border-[#35F2A0] text-white font-bold bg-white/[0.03]'
+                      : 'border-[#0B945B] text-slate-900 font-bold bg-emerald-50/50'
+                    : isDark
+                    ? 'border-transparent text-[#859588] hover:text-[#DFE0FF] hover:bg-white/[0.01]'
+                    : 'border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50'
                 }
               `}
             >
-              <span className={isActive ? 'text-[#35F2A0]' : 'text-[#859588]'}>
+              <span className={isActive ? (isDark ? 'text-[#35F2A0]' : 'text-emerald-700') : (isDark ? 'text-[#859588]' : 'text-slate-400')}>
                 {tab.icon}
               </span>
               <span>{tab.label}</span>
