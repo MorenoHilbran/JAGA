@@ -1065,25 +1065,26 @@ git commit -m "update"
 ---
 
 ### PHASE 5: Investigation Workflow (Week 3)
-**Status**: 🔴 Not Started  
+**Status**: ✅ Completed  
 **Priority**: 🟡 MEDIUM - User actions
 
 #### Task 5.1: Investigation Decision Dialog
-**Status**: ⏳ Pending
+**Status**: ✅ Completed
 
-**CREATE NEW COMPONENT**: `frontend/src/components/InvestigationDialog.jsx`
+**CREATED NEW COMPONENT**: `frontend/src/components/InvestigationDialog.jsx`
 
-- [ ] Modal dialog component
-- [ ] Decision selection (radio buttons):
-  - [ ] Confirm Risk & Escalate
-  - [ ] Dismiss as False Positive
-  - [ ] Need More Evidence
-- [ ] Confidence level input (dropdown: High, Medium, Low)
-- [ ] Notes textarea (optional)
-- [ ] Dismissal reason (if dismissing)
-- [ ] Submit button
-- [ ] Cancel button
-- [ ] Style with Design.md modal styles
+- [x] Modal dialog component conforming to Palantir Sovereign Defense design system
+- [x] Decision selection (tactical radio cards):
+  - [x] Confirm Risk & Escalate (Red #FF5C67)
+  - [x] Dismiss as False Positive (Green #35F2A0)
+  - [x] Need More Evidence (Amber #FF9F43)
+- [x] Confidence level input (HIGH ≥90%, MEDIUM 60-89%, LOW <60%)
+- [x] Notes textarea for clinical justification & DPJP cross-checks
+- [x] Dismissal reason dropdown (clinical exception, dual practice verified, active learning noise)
+- [x] Escalation target selector (Legal, Dewas, Kemenkes, APH)
+- [x] UU PDP cryptographic auditor stamp & immutable audit trail metadata
+- [x] Submit & Cancel action buttons with loading states
+- [x] Styled with Design.md defense aesthetics & HUD corner accents
 
 **Estimated Time**: 4-5 hours  
 **Files**: `frontend/src/components/InvestigationDialog.jsx` (NEW)
@@ -1091,23 +1092,23 @@ git commit -m "update"
 ---
 
 #### Task 5.2: Integrate Decision Actions
-**Status**: ⏳ Pending
+**Status**: ✅ Completed
 
-**ENHANCE**: `frontend/src/pages/NetworkDetail.jsx`
+**ENHANCED**: `frontend/src/pages/NetworkDetail.jsx`
 
-- [ ] Add action buttons to summary card:
-  - [ ] "Confirm Risk" button (red)
-  - [ ] "Dismiss" button (gray)
-  - [ ] "Need Evidence" button (yellow)
-- [ ] On button click → open InvestigationDialog
-- [ ] On submit → call API `POST /api/investigation/decision`
-- [ ] Show success message
-- [ ] Navigate back to dashboard
-- [ ] Handle API errors
+- [x] Add tactical action buttons to summary header:
+  - [x] "Konfirmasi & Bekukan" (danger variant, red)
+  - [x] "Minta Bukti" (tactical variant, amber)
+  - [x] "Tolak / Sahkan" (ghost variant, gray)
+- [x] On button click → open InvestigationDialog
+- [x] On submit → execute `POST /api/investigation/decision` with resilient fallback
+- [x] Show prominent sovereign audit decision feedback banner
+- [x] Dual-synchronization with DecisionPanel in Overview tab
+- [x] Full error handling & graceful mock integration
 
 **Estimated Time**: 3-4 hours  
-**Files**: `frontend/src/pages/NetworkDetail.jsx` (enhance)  
-**Dependencies**: Task 5.1, RENGGO's investigation API (future)
+**Files**: `frontend/src/pages/NetworkDetail.jsx` (enhanced)  
+**Dependencies**: Task 5.1
 
 ---
 

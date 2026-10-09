@@ -27,6 +27,7 @@ import {
   ActivityTimeline,
   DecisionPanel,
   NetworkGraph,
+  InvestigationDialog,
 } from '../components'
 import { getNetworkDetail } from '../services/api'
 
@@ -62,6 +63,8 @@ const NetworkDetail = () => {
   const [activeTab, setActiveTab] = useState(0)
   const [network, setNetwork] = useState(FALLBACK_DOSSIER)
   const [loading, setLoading] = useState(false)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [auditDecisionResult, setAuditDecisionResult] = useState(null)
 
   useEffect(() => {
     loadDetail()
@@ -128,28 +131,65 @@ const NetworkDetail = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-wrap">
+          <JagaButton
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsDialogOpen(true)}
+            icon={<AlertTriangle className="w-3.5 h-3.5 text-[#FCD34D]" />}
+          >
+            Tolak / Sahkan
+          </JagaButton>
           <JagaButton
             variant="tactical"
             size="sm"
-            onClick={() => alert(`Dossier ${network.network_id} berhasil diekspor.`)}
-            icon={<Download className="w-3.5 h-3.5" />}
+            onClick={() => setIsDialogOpen(true)}
+            icon={<FileText className="w-3.5 h-3.5" />}
           >
-            Ekspor Dossier Lengkap
+            Minta Bukti
           </JagaButton>
           <JagaButton
             variant="danger"
             size="sm"
-            onClick={() => {
-              setActiveTab(0)
-              window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
-            }}
+            onClick={() => setIsDialogOpen(true)}
             icon={<ShieldAlert className="w-3.5 h-3.5 text-[#080B24]" />}
           >
-            Otorisasi Pembekuan
+            Konfirmasi & Bekukan
+          </JagaButton>
+          <JagaButton
+            variant="ghost"
+            size="sm"
+            onClick={() => alert(`Dossier ${network.network_id} berhasil diekspor.`)}
+            icon={<Download className="w-3.5 h-3.5" />}
+          >
+            Ekspor
           </JagaButton>
         </div>
       </div>
+
+      {/* Audit Decision Feedback Banner */}
+      {auditDecisionResult && (
+        <div className="p-3.5 bg-[#35F2A0]/10 border border-[#35F2A0]/40 rounded-sm flex items-center justify-between text-xs font-mono text-[#35F2A0] animate-in fade-in">
+          <div className="flex items-center gap-2.5">
+            <ShieldAlert className="w-4 h-4 text-[#35F2A0]" />
+            <div>
+              <span className="font-bold uppercase tracking-wide">
+                STATUS AUDIT TERBARU: [{auditDecisionResult.decision.toUpperCase()}]
+              </span>
+              <span className="text-white/70 ml-2">
+                Otorisasi oleh {auditDecisionResult.auditor_id} • Sig: {auditDecisionResult.digital_signature}
+              </span>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => navigate('/dashboard')}
+            className="text-[11px] underline hover:text-white"
+          >
+            Kembali ke Antrean Triage →
+          </button>
+        </div>
+      )}
 
       {/* 2. Key Metrics Telemetry Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
@@ -227,8 +267,12 @@ const NetworkDetail = () => {
             <PeerComparisonChart />
             <DecisionPanel
               networkId={network.network_id}
-              onDecisionSubmitted={() => {
-                // refresh or notification
+              onDecisionSubmitted={(res) => {
+                setAuditDecisionResult({
+                  decision: 'freeze',
+                  auditor_id: 'AUDITOR-MORENO-01',
+                  digital_signature: `JAGA-DSIG-${Date.now().toString(36).toUpperCase()}-V4`,
+                })
               }}
             />
           </div>
@@ -268,6 +312,18 @@ const NetworkDetail = () => {
           </div>
         )}
       </div>
+
+      {/* Investigation Decision Modal Dialog */}
+      <InvestigationDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        networkId={network.network_id}
+        networkName={network.name}
+        currentScore={network.risk_score}
+        onDecisionSubmitted={(result) => {
+          setAuditDecisionResult(result)
+        }}
+      />
     </div>
   )
 }
