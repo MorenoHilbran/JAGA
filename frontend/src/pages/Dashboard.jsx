@@ -26,6 +26,7 @@ import {
   DataTable,
   RiskScoreGauge,
   FilterPanel,
+  GlobalNetwork3DWidget,
 } from '../components'
 import { getRiskNetworks, getDashboardStats } from '../services/api'
 
@@ -430,7 +431,7 @@ const Dashboard = () => {
             </span>
           </div>
           <h1 className="text-2xl font-bold font-headline text-white tracking-tight">
-            Dasbor Triage Investigasi Kecurangan
+            Dasbor Utama Triage Investigasi Kecurangan
           </h1>
           <p className="text-xs text-[#9CA7C5] font-sans mt-0.5">
             Deteksi otomatis pola sindikat terorganisir menggunakan rekonstruksi graf relasional Apache AGE dan Multi-Layer AI Consensus.
@@ -498,6 +499,13 @@ const Dashboard = () => {
           icon={<CheckCircle2 className="w-4 h-4 text-[#35F2A0]" />}
         />
       </div>
+
+      {/* 3D Global Network Topology Widget */}
+      <GlobalNetwork3DWidget
+        networks={networks}
+        onSelectNetwork={(netId) => navigate(`/network/${netId}`)}
+        height={340}
+      />
 
       {/* 3. Search and Quick Filters Bar */}
       <div className="space-y-2.5">

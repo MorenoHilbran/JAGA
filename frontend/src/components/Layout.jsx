@@ -1,13 +1,11 @@
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import {
-  Home,
   LayoutDashboard,
   Network,
   ShieldCheck,
   Activity,
-  Terminal,
-  ExternalLink,
+  LogOut,
   Sun,
   Moon,
 } from 'lucide-react'
@@ -19,8 +17,7 @@ const Layout = ({ children }) => {
   const { theme, isDark, toggleTheme } = useJagaTheme()
 
   const menuItems = [
-    { text: 'Beranda Sistem', icon: <Home className="w-4 h-4" />, path: '/' },
-    { text: 'Dasbor Triage', icon: <LayoutDashboard className="w-4 h-4" />, path: '/dashboard' },
+    { text: 'Dasbor Utama', icon: <LayoutDashboard className="w-4 h-4" />, path: '/dashboard' },
     { text: 'Analitik RiskGraph', icon: <Network className="w-4 h-4" />, path: '/analytics' },
   ]
 
@@ -96,8 +93,8 @@ const Layout = ({ children }) => {
           </nav>
         </div>
 
-        {/* Sidebar Footer info */}
-        <div className={`p-3 border-t text-[10px] font-mono space-y-1 ${isDark ? 'border-white/8 bg-[#090C25]/80 text-[#859588]' : 'border-slate-200 bg-slate-50 text-slate-500'}`}>
+        {/* Sidebar Footer info & Exit/Keluar Button */}
+        <div className={`p-3 border-t text-[10px] font-mono space-y-2.5 ${isDark ? 'border-white/8 bg-[#090C25]/80 text-[#859588]' : 'border-slate-200 bg-slate-50 text-slate-500'}`}>
           <div className="flex items-center justify-between">
             <span className={isDark ? 'text-[#DFE0FF]' : 'text-slate-700'}>AUDITOR: MORENO</span>
             <span className={isDark ? 'text-[#35F2A0]' : 'text-[#0B945B]'}>LEVEL 3</span>
@@ -105,6 +102,21 @@ const Layout = ({ children }) => {
           <div className="text-[9px]">
             UU PDP • PRIVASI TERJAGA
           </div>
+
+          {/* Button Keluar ke Landing Page */}
+          <button
+            type="button"
+            onClick={() => navigate('/')}
+            className={`w-full flex items-center justify-center gap-2 py-2 px-3 rounded-sm border text-xs font-mono font-medium transition-all cursor-pointer ${
+              isDark
+                ? 'bg-white/5 border-white/10 text-[#DFE0FF] hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-400'
+                : 'bg-white border-slate-200 text-slate-700 hover:bg-red-50 hover:border-red-200 hover:text-red-600 shadow-2xs'
+            }`}
+            title="Keluar ke Landing Page"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            <span>Keluar</span>
+          </button>
         </div>
       </aside>
 
@@ -148,13 +160,20 @@ const Layout = ({ children }) => {
               <span className={`text-[11px] font-bold ${isDark ? 'text-[#35F2A0]' : 'text-[#0B945B]'}`}>97.2% PRESISI</span>
             </div>
 
+            {/* Exit Button Icon Only */}
             <button
               type="button"
               onClick={() => navigate('/')}
-              className={`flex items-center gap-1 text-[11px] transition-colors ${isDark ? 'text-[#9CA7C5] hover:text-[#35F2A0]' : 'text-slate-500 hover:text-[#0B945B]'}`}
+              style={{ width: '32px', height: '32px' }}
+              className={`inline-flex items-center justify-center rounded-full border transition-all cursor-pointer flex-shrink-0 ${
+                isDark
+                  ? 'bg-white/5 border-white/10 text-[#9CA7C5] hover:text-red-400 hover:border-red-400/40 hover:bg-red-400/10'
+                  : 'bg-white border-slate-200 text-slate-600 hover:text-red-600 hover:border-red-200 hover:bg-red-50 shadow-2xs'
+              }`}
+              title="Keluar"
+              aria-label="Keluar"
             >
-              <span>Landing Page</span>
-              <ExternalLink className="w-3 h-3" />
+              <LogOut className="w-3.5 h-3.5" />
             </button>
           </div>
         </header>
