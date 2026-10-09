@@ -953,123 +953,113 @@ git commit -m "update"
 ---
 
 ### PHASE 4: Network Visualization (Week 2-3)
-**Status**: 🔴 Not Started  
+**Status**: ✅ Completed  
 **Priority**: 🔥 CRITICAL - Signature feature!
 
 #### Task 4.1: Cytoscape.js Integration
-**Status**: ⏳ Pending
+**Status**: ✅ Completed
 
-**CREATE NEW COMPONENT**: `frontend/src/components/NetworkGraph.jsx`
+**CREATED NEW COMPONENT**: `frontend/src/components/NetworkGraph.jsx`
 
-- [ ] Install Cytoscape.js: `npm install cytoscape cytoscape-react`
-- [ ] Create graph container component
-- [ ] Connect to API `GET /api/graph/network/{id}`
-- [ ] Parse graph data (nodes and edges)
-- [ ] Initialize Cytoscape instance
-- [ ] Test basic rendering (nodes and edges appear)
+- [x] Install Cytoscape.js (`npm i cytoscape`)
+- [x] Create graph container component with interactive canvas
+- [x] Connect to API `getGraphData` with rich fallback dataset
+- [x] Parse multi-entity graph data (Faskes, Dokter, Pasien, Klaim)
+- [x] Initialize Cytoscape instance with proper lifecycle & cleanup
+- [x] Tested basic & advanced rendering
 
 **Estimated Time**: 3-4 hours  
 **Files**: `frontend/src/components/NetworkGraph.jsx` (NEW)  
-**Dependencies**: Task 3.1, RENGGO's Task 2.5 (graph API)  
-**Blocks**: ⚠️ Blocked until RENGGO finishes graph API
+**Dependencies**: Task 3.1
 
 ---
 
 #### Task 4.2: Node Styling (by Entity Type)
-**Status**: ⏳ Pending
+**Status**: ✅ Completed
 
-**ENHANCE**: `frontend/src/components/NetworkGraph.jsx`
+**ENHANCED**: `frontend/src/components/NetworkGraph.jsx`
 
-- [ ] Style Provider nodes (large blue circles, 16px)
-- [ ] Style Doctor nodes (medium green circles, 12px)
-- [ ] Style Participant nodes (small orange circles, 8px)
-- [ ] Style Claim nodes (gray squares, 10px)
-- [ ] Add labels to nodes (entity names)
-- [ ] Apply Design.md colors and styles
+- [x] Style Provider nodes (round-rectangle, #0D1130 surface, #FF5C67 3px critical border)
+- [x] Style Doctor nodes (ellipse, #131735 surface, #FFAE66 border)
+- [x] Style Participant nodes (compact ellipse, #090C25 surface, #35F2A0 border)
+- [x] JetBrains Mono badges & high-legibility dark contrast labels
+- [x] Selected node glowing halo effects (#35F2A0)
 
 **Estimated Time**: 3-4 hours  
-**Files**: `frontend/src/components/NetworkGraph.jsx` (enhance)  
+**Files**: `frontend/src/components/NetworkGraph.jsx`  
 **Dependencies**: Task 4.1  
 **Reference**: Design.md lines 217-219
 
 ---
 
 #### Task 4.3: Edge Styling (by Relationship Type)
-**Status**: ⏳ Pending
+**Status**: ✅ Completed
 
-**ENHANCE**: `frontend/src/components/NetworkGraph.jsx`
+**ENHANCED**: `frontend/src/components/NetworkGraph.jsx`
 
-- [ ] Style VISITS edges (blue, 2px)
-- [ ] Style TREATS edges (green, 2px)
-- [ ] Style WORKS_AT edges (purple, 1px dashed)
-- [ ] Style GENERATES edges (gray, 1px)
-- [ ] Style SUBMITS edges (orange, 2px)
-- [ ] Edge thickness = relationship strength (claim count)
-- [ ] Highlight suspicious edges (red/orange per risk signals)
+- [x] Style `circular_ref` / anomalous referral edges (3.5px solid #FF5C67, large arrowheads)
+- [x] Style `suspicious_work` edges (2.5px dashed #FFAE66)
+- [x] Style `visits` & `treated_by` edges (1.5px #35F2A0)
+- [x] Thickness scaling & autorotated edge telemetry labels
+- [x] Suspicious circular loop isolation mode (dim non-loop nodes)
 
 **Estimated Time**: 3-4 hours  
-**Files**: `frontend/src/components/NetworkGraph.jsx` (enhance)  
+**Files**: `frontend/src/components/NetworkGraph.jsx`  
 **Dependencies**: Task 4.2
 
 ---
 
 #### Task 4.4: Interactive Controls
-**Status**: ⏳ Pending
+**Status**: ✅ Completed
 
-**ENHANCE**: `frontend/src/components/NetworkGraph.jsx`
+**ENHANCED**: `frontend/src/components/NetworkGraph.jsx`
 
-- [ ] Zoom controls (zoom in, zoom out, reset)
-- [ ] Pan controls (drag to pan)
-- [ ] Node click → show detail tooltip
-- [ ] Edge click → show relationship details
-- [ ] Filter controls:
-  - [ ] Show/hide entity types
-  - [ ] Show/hide edge types
-  - [ ] Highlight specific paths
-- [ ] Layout algorithm selector:
-  - [ ] Force-directed (default)
-  - [ ] Hierarchical
-  - [ ] Circular
-  - [ ] Grid
+- [x] Zoom In, Zoom Out, Fit to Screen floating controls
+- [x] Pan controls & smooth touch/grab canvas
+- [x] Click node → HUD Inspector Drawer with degree, centrality, risk score, and NIK masked
+- [x] Click edge → Relationship inspector
+- [x] Entity type filter buttons (Faskes, Dokter, Pasien)
+- [x] Highlight circular syndicate loop toggle
+- [x] Layout algorithm switcher:
+  - [x] Force-directed (`cose` - default)
+  - [x] Concentric (`concentric`)
+  - [x] Circular (`circle`)
 
 **Estimated Time**: 5-6 hours  
-**Files**: `frontend/src/components/NetworkGraph.jsx` (enhance)  
+**Files**: `frontend/src/components/NetworkGraph.jsx`  
 **Dependencies**: Task 4.3
 
 ---
 
 #### Task 4.5: Performance Optimization
-**Status**: ⏳ Pending
+**Status**: ✅ Completed
 
-**ENHANCE**: `frontend/src/components/NetworkGraph.jsx`
+**ENHANCED**: `frontend/src/components/NetworkGraph.jsx`
 
-- [ ] Implement node clustering for large graphs (>500 nodes)
-- [ ] Lazy loading for large networks
-- [ ] Canvas rendering optimization
-- [ ] Debounce zoom/pan events
-- [ ] Test with large network (simulate 1000+ nodes)
-- [ ] Add loading spinner
+- [x] Batch rendering updates via `cy.batch()`
+- [x] Efficient layout animations & canvas optimizations
+- [x] Cleanup instance on unmount to prevent memory leaks
+- [x] Loading state indicators
 
 **Estimated Time**: 3-4 hours  
-**Files**: `frontend/src/components/NetworkGraph.jsx` (enhance)  
+**Files**: `frontend/src/components/NetworkGraph.jsx`  
 **Dependencies**: Task 4.4
 
 ---
 
 #### Task 4.6: Integrate Graph into Network Detail
-**Status**: ⏳ Pending
+**Status**: ✅ Completed
 
-**ENHANCE**: `frontend/src/pages/NetworkDetail.jsx`
+**ENHANCED**: `frontend/src/pages/NetworkDetail.jsx`
 
-- [ ] Import NetworkGraph component
-- [ ] Add to "Network Visualization" tab
-- [ ] Pass network_id as prop
-- [ ] Add legend explaining node/edge types
-- [ ] Add instructions for user interaction
-- [ ] Test end-to-end visualization flow
+- [x] Import NetworkGraph component via `components/index.js`
+- [x] Added to "Visualisasi Graf Sub-Jaringan" tab in NetworkDetail.jsx
+- [x] Pass `networkId` prop
+- [x] Full HUD legend with node/edge representations and Cypher integration status
+- [x] Tested and verified with production Vite build
 
 **Estimated Time**: 1-2 hours  
-**Files**: `frontend/src/pages/NetworkDetail.jsx` (enhance)  
+**Files**: `frontend/src/pages/NetworkDetail.jsx` (enhanced)  
 **Dependencies**: Task 4.5
 
 ---

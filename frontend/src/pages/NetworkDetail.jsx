@@ -26,6 +26,7 @@ import {
   ClaimsTable,
   ActivityTimeline,
   DecisionPanel,
+  NetworkGraph,
 } from '../components'
 import { getNetworkDetail } from '../services/api'
 
@@ -238,7 +239,7 @@ const NetworkDetail = () => {
           <div className="space-y-4">
             <JagaCard
               elevation="low"
-              title="Rekonstruksi Sub-Graf Relasional Sindikat (Apache AGE Cypher)"
+              title="Rekonstruksi Sub-Graf Relasional Sindikat (Cytoscape.js & Apache AGE)"
               subtitle="Hubungan multi-entitas: Faskes (RSUD/Klinik), Dokter Penanggung Jawab, dan Berkas Klaim Pasien"
               badge={
                 <span className="px-2 py-0.5 rounded-[2px] bg-[#35F2A0]/10 border border-[#35F2A0]/30 font-mono text-[10px] text-[#35F2A0]">
@@ -246,149 +247,9 @@ const NetworkDetail = () => {
                 </span>
               }
               hudAccents={true}
-              bodyClassName="p-4 space-y-4"
+              bodyClassName="p-4"
             >
-              {/* Interactive Graph HUD Mockup */}
-              <div className="relative w-full h-[460px] bg-[#080B24] border border-white/8 rounded-sm overflow-hidden flex flex-col justify-between p-4">
-                {/* HUD Top Bar Overlay */}
-                <div className="flex items-center justify-between text-[11px] font-mono text-[#859588] z-10 pointer-events-none">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[#35F2A0] font-bold">MODE: SUBGRAPH INSPECTOR</span>
-                    <span>•</span>
-                    <span>4 Faskes</span>
-                    <span>•</span>
-                    <span>9 Dokter</span>
-                    <span>•</span>
-                    <span>412 Pasien</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#FF5C67] animate-ping" />
-                    <span className="text-[#FF7A85] font-bold">SIKLUS SIRKULAR TERKUNCI</span>
-                  </div>
-                </div>
-
-                {/* SVG Graph Canvas Representation */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg className="w-full h-full" viewBox="0 0 800 460">
-                    <defs>
-                      <linearGradient id="edgeGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#35F2A0" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#FF5C67" stopOpacity="0.8" />
-                      </linearGradient>
-                      <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                        <feMerge>
-                          <feMergeNode in="coloredBlur" />
-                          <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                      </filter>
-                    </defs>
-
-                    {/* Background Grid Pattern */}
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-                    </pattern>
-                    <rect width="800" height="460" fill="url(#grid)" />
-
-                    {/* Circular Referral Loop Edges */}
-                    <path
-                      d="M 280 180 Q 400 90 520 180"
-                      fill="none"
-                      stroke="#FF5C67"
-                      strokeWidth="2.5"
-                      strokeDasharray="6,4"
-                      className="animate-pulse"
-                    />
-                    <path
-                      d="M 520 180 Q 400 320 280 180"
-                      fill="none"
-                      stroke="#FF5C67"
-                      strokeWidth="2.5"
-                      strokeDasharray="6,4"
-                      className="animate-pulse"
-                    />
-                    <path
-                      d="M 280 180 L 400 280"
-                      fill="none"
-                      stroke="#FFAE66"
-                      strokeWidth="1.5"
-                    />
-                    <path
-                      d="M 520 180 L 400 280"
-                      fill="none"
-                      stroke="#FFAE66"
-                      strokeWidth="1.5"
-                    />
-
-                    {/* Sub Nodes Edges to Patients */}
-                    <line x1="280" y1="180" x2="160" y2="120" stroke="rgba(53,242,160,0.3)" strokeWidth="1" />
-                    <line x1="280" y1="180" x2="160" y2="240" stroke="rgba(53,242,160,0.3)" strokeWidth="1" />
-                    <line x1="520" y1="180" x2="640" y2="120" stroke="rgba(53,242,160,0.3)" strokeWidth="1" />
-                    <line x1="520" y1="180" x2="640" y2="240" stroke="rgba(53,242,160,0.3)" strokeWidth="1" />
-
-                    {/* Central Doctor Node */}
-                    <g transform="translate(400, 280)">
-                      <circle r="22" fill="#131735" stroke="#FFAE66" strokeWidth="2" filter="url(#glow)" />
-                      <text textAnchor="middle" y="4" fill="#FFAE66" fontSize="10" fontFamily="JetBrains Mono" fontWeight="bold">DR. A</text>
-                      <text textAnchor="middle" y="36" fill="#DFE0FF" fontSize="9" fontFamily="Inter">dr. Ahmad (98 Klaim)</text>
-                    </g>
-
-                    {/* Faskes 1 Node (RSUD T) */}
-                    <g transform="translate(280, 180)">
-                      <circle r="30" fill="#0D1130" stroke="#FF5C67" strokeWidth="2.5" filter="url(#glow)" />
-                      <text textAnchor="middle" y="4" fill="#FF7A85" fontSize="11" fontFamily="JetBrains Mono" fontWeight="bold">RSUD T</text>
-                      <text textAnchor="middle" y="44" fill="#DFE0FF" fontSize="9" fontFamily="Inter">Faskes Rujukan Utama</text>
-                    </g>
-
-                    {/* Faskes 2 Node (Klinik P) */}
-                    <g transform="translate(520, 180)">
-                      <circle r="26" fill="#0D1130" stroke="#FF5C67" strokeWidth="2.5" filter="url(#glow)" />
-                      <text textAnchor="middle" y="4" fill="#FF7A85" fontSize="11" fontFamily="JetBrains Mono" fontWeight="bold">KLINIK P</text>
-                      <text textAnchor="middle" y="40" fill="#DFE0FF" fontSize="9" fontFamily="Inter">Faskes Pengirim Berulang</text>
-                    </g>
-
-                    {/* Satellite Patient Nodes */}
-                    <g transform="translate(160, 120)">
-                      <circle r="12" fill="#131735" stroke="#35F2A0" strokeWidth="1.5" />
-                      <text textAnchor="middle" y="3" fill="#35F2A0" fontSize="8" fontFamily="JetBrains Mono">P01</text>
-                    </g>
-                    <g transform="translate(160, 240)">
-                      <circle r="12" fill="#131735" stroke="#35F2A0" strokeWidth="1.5" />
-                      <text textAnchor="middle" y="3" fill="#35F2A0" fontSize="8" fontFamily="JetBrains Mono">P02</text>
-                    </g>
-                    <g transform="translate(640, 120)">
-                      <circle r="12" fill="#131735" stroke="#35F2A0" strokeWidth="1.5" />
-                      <text textAnchor="middle" y="3" fill="#35F2A0" fontSize="8" fontFamily="JetBrains Mono">P03</text>
-                    </g>
-                    <g transform="translate(640, 240)">
-                      <circle r="12" fill="#131735" stroke="#35F2A0" strokeWidth="1.5" />
-                      <text textAnchor="middle" y="3" fill="#35F2A0" fontSize="8" fontFamily="JetBrains Mono">P04</text>
-                    </g>
-                  </svg>
-                </div>
-
-                {/* HUD Bottom Legend */}
-                <div className="flex items-center justify-between text-[10px] font-mono bg-[#0D1130]/90 border border-white/10 p-2.5 rounded-sm z-10 backdrop-blur-sm">
-                  <div className="flex items-center gap-4">
-                    <span className="flex items-center gap-1.5 text-[#DFE0FF]">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#FF5C67]" />
-                      Faskes Terindikasi
-                    </span>
-                    <span className="flex items-center gap-1.5 text-[#DFE0FF]">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#FFAE66]" />
-                      Dokter Terkoordinasi
-                    </span>
-                    <span className="flex items-center gap-1.5 text-[#DFE0FF]">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#35F2A0]" />
-                      Pasien / Klaim Identik
-                    </span>
-                  </div>
-
-                  <span className="text-[#35F2A0] font-semibold">
-                    ALGORITMA DETEKSI: CYCLIC_PATH(k=3)
-                  </span>
-                </div>
-              </div>
+              <NetworkGraph networkId={network.network_id} />
             </JagaCard>
           </div>
         )}
