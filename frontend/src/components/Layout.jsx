@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import {
   LayoutDashboard,
-  Network,
+  Search,
+  TrendingUp,
+  History,
   ShieldCheck,
   Activity,
   LogOut,
   Sun,
   Moon,
+  ChevronDown,
+  ChevronRight,
+  ShieldAlert,
+  Network,
+  FileCheck,
+  Sparkles,
 } from 'lucide-react'
 import { useJagaTheme } from '../context/ThemeContext'
 
@@ -16,9 +24,46 @@ const Layout = ({ children }) => {
   const location = useLocation()
   const { theme, isDark, toggleTheme } = useJagaTheme()
 
+  // Collapsible submenus state
+  const [openSubmenus, setOpenSubmenus] = useState({
+    investigation: true,
+    analytics: false,
+  })
+
+  const toggleSubmenu = (key) => {
+    setOpenSubmenus((prev) => ({ ...prev, [key]: !prev[key] }))
+  }
+
   const menuItems = [
-    { text: 'Dasbor Utama', icon: <LayoutDashboard className="w-4 h-4" />, path: '/dashboard' },
-    { text: 'Analitik RiskGraph', icon: <Network className="w-4 h-4" />, path: '/analytics' },
+    {
+      id: 'dashboard',
+      text: 'Dashboard',
+      icon: <LayoutDashboard className="w-4 h-4" />,
+      path: '/dashboard',
+    },
+    {
+      id: 'investigation',
+      text: 'Investigasi',
+      icon: <Search className="w-4 h-4" />,
+      path: '/investigation',
+      hasSubmenu: true,
+      subItems: [
+        { text: 'Daftar Berkas', path: '/investigation' },
+        { text: 'Pemeriksaan Graf', path: '/network/NET-2026-JKN-089' },
+      ],
+    },
+    {
+      id: 'analytics',
+      text: 'Analitik',
+      icon: <TrendingUp className="w-4 h-4" />,
+      path: '/analytics',
+    },
+    {
+      id: 'history',
+      text: 'Riwayat',
+      icon: <History className="w-4 h-4" />,
+      path: '/history',
+    },
   ]
 
   // Sembunyikan sidebar/header di landing page untuk tampilan full-bleed
@@ -64,30 +109,82 @@ const Layout = ({ children }) => {
           {/* Navigation Items */}
           <nav className="p-2 space-y-1">
             {menuItems.map((item) => {
-              const active = location.pathname === item.path
+              const active = location.pathname === item.path || (item.hasSubmenu && location.pathname.startsWith('/network/'))
+              const isOpen = openSubmenus[item.id]
+
               return (
-                <button
-                  key={item.text}
-                  type="button"
-                  onClick={() => navigate(item.path)}
-                  className={`
-                    w-full flex items-center gap-3 px-3 py-2 rounded-sm text-xs font-medium transition-all
-                    ${
-                      active
-                        ? isDark
-                          ? 'bg-[#35F2A0]/10 text-white border-l-2 border-[#35F2A0] font-semibold'
-                          : 'bg-[#0B945B]/10 text-[#0B945B] border-l-2 border-[#0B945B] font-semibold'
-                        : isDark
-                        ? 'text-[#9CA7C5] hover:bg-white/[0.04] hover:text-[#DFE0FF]'
-                        : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
-                    }
-                  `}
-                >
-                  <span className={active ? (isDark ? 'text-[#35F2A0]' : 'text-[#0B945B]') : (isDark ? 'text-[#859588]' : 'text-slate-400')}>
-                    {item.icon}
-                  </span>
-                  <span>{item.text}</span>
-                </button>
+                <div key={item.id} className="space-y-0.5">
+                  <div className="flex items-center">
+                    <button
+                      type="button"
+                      onClick={() => navigate(item.path)}
+                      className={`
+                        flex-1 flex items-center gap-3 px-3 py-2 rounded-sm text-xs font-medium transition-all text-left
+                        ${
+                          active
+                            ? isDark
+                              ? 'bg-[#35F2A0]/10 text-white border-l-2 border-[#35F2A0] font-semibold'
+                              : 'bg-[#0B945B]/10 text-[#0B945B] border-l-2 border-[#0B945B] font-semibold'
+                            : isDark
+                            ? 'text-[#9CA7C5] hover:bg-white/[0.04] hover:text-[#DFE0FF]'
+                            : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                        }
+                      `}
+                    >
+                      <span className={active ? (isDark ? 'text-[#35F2A0]' : 'text-[#0B945B]') : (isDark ? 'text-[#859588]' : 'text-slate-400')}>
+                        {item.icon}
+                      </span>
+                      <span>{item.text}</span>
+                    </button>
+
+                    {item.hasSubmenu && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          toggleSubmenu(item.id)
+                        }}
+                        className={`p-1.5 rounded-sm hover:bg-white/5 transition-colors cursor-pointer ${
+                          isDark ? 'text-[#859588] hover:text-white' : 'text-slate-400 hover:text-slate-700'
+                        }`}
+                        title="Toggle Sub-menu"
+                      >
+                        {isOpen ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Render Submenu if available and open */}
+                  {item.hasSubmenu && isOpen && (
+                    <div className={`pl-8 pr-1 py-1 space-y-1 border-l ml-4 my-0.5 ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
+                      {item.subItems.map((sub) => {
+                        const isSubActive = location.pathname === sub.path
+                        return (
+                          <button
+                            key={sub.text}
+                            type="button"
+                            onClick={() => navigate(sub.path)}
+                            className={`
+                              w-full flex items-center justify-between px-2 py-1.5 rounded-sm text-[11px] font-mono transition-all text-left
+                              ${
+                                isSubActive
+                                  ? isDark
+                                    ? 'text-[#35F2A0] font-bold bg-[#35F2A0]/10'
+                                    : 'text-[#0B945B] font-bold bg-emerald-50'
+                                  : isDark
+                                  ? 'text-[#859588] hover:text-[#DFE0FF] hover:bg-white/[0.02]'
+                                  : 'text-slate-500 hover:text-slate-800 hover:bg-slate-100'
+                              }
+                            `}
+                          >
+                            <span>{sub.text}</span>
+                            {isSubActive && <span className="w-1.5 h-1.5 rounded-full bg-[#35F2A0]" />}
+                          </button>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
               )
             })}
           </nav>
@@ -130,10 +227,14 @@ const Layout = ({ children }) => {
             </span>
             <span className={`text-xs font-mono font-semibold ${isDark ? 'text-[#DFE0FF]' : 'text-slate-800'}`}>
               {location.pathname === '/dashboard'
-                ? 'TRIAGE KASUS FRAUD JKN'
+                ? 'DASBOR COMMAND CENTER JKN'
+                : location.pathname === '/investigation'
+                ? 'RUANG KERJA INVESTIGASI BERKAS'
                 : location.pathname === '/analytics'
-                ? 'ANALITIK GRAF JARINGAN'
-                : 'BERKAS INVESTIGASI'}
+                ? 'ANALITIK MODEL & TREN GRAF'
+                : location.pathname === '/history'
+                ? 'RIWAYAT AUDIT TRAIL UU PDP'
+                : 'BERKAS INVESTIGASI SPESIFIK'}
             </span>
           </div>
 

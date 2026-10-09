@@ -6,8 +6,10 @@ import { getJagaTheme } from './theme/jaga-theme'
 import Layout from './components/Layout'
 import LandingPage from './pages/LandingPage'
 import Dashboard from './pages/Dashboard'
+import Investigation from './pages/Investigation'
 import NetworkDetail from './pages/NetworkDetail'
 import Analytics from './pages/Analytics'
+import History from './pages/History'
 import './App.css'
 
 function AppContent() {
@@ -22,8 +24,10 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/investigation" element={<Investigation />} />
             <Route path="/network/:id" element={<NetworkDetail />} />
             <Route path="/analytics" element={<Analytics />} />
+            <Route path="/history" element={<History />} />
           </Routes>
         </Layout>
       </Router>
