@@ -119,3 +119,22 @@ site/
 # package-lock.json
 # yarn.lock
 # poetry.lock
+
+# Temporary debugging and analysis files
+CORS_FIX.md
+DATA_LOADING_FIX.md
+FRONTEND_BACKEND_DATA_ANALYSIS.md
+FRONTEND_TESTING_GUIDE.md
+SESSION_SUMMARY.md
+SETUP_COMPLETE.md
+LANDINGPAGE.md
+CLEANUP_PLAN.md
+analyze_duplicates.py
+check_duplicates.py
+load_data.py
+test_connection.py
+test_frontend.bat
+monitor_loading.bat
+scripts/fast_load_claims.py
+scripts/quick_load_claims.py
+

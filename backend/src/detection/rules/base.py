@@ -212,7 +212,7 @@ class RuleEngine:
             rule: Instance of a BaseRule subclass
         """
         self.rules[rule.rule_name] = rule
-        print(f"✓ Registered rule: {rule.rule_name}")
+        print(f"[OK] Registered rule: {rule.rule_name}")
     
     def register_rules(self, rules: List[BaseRule]) -> None:
         """
@@ -239,7 +239,7 @@ class RuleEngine:
             raise ValueError(f"Rule '{rule_name}' is not registered")
         
         rule = self.rules[rule_name]
-        print(f"\n▶ Executing rule: {rule.rule_name}")
+        print(f"\n>> Executing rule: {rule.rule_name}")
         
         start_time = datetime.now()
         try:
@@ -259,7 +259,7 @@ class RuleEngine:
                 "status": "success"
             }
             
-            print(f"  ✓ Generated {len(signals)} signals in {execution_time:.2f}s")
+            print(f"  [OK] Generated {len(signals)} signals in {execution_time:.2f}s")
             return signals
             
         except Exception as e:
@@ -271,7 +271,7 @@ class RuleEngine:
                 "status": "error",
                 "error": str(e)
             }
-            print(f"  ✗ Error executing rule: {e}")
+            print(f"  [ERROR] Error executing rule: {e}")
             raise
     
     def execute_all(self, detection_run_id: Optional[str] = None) -> List[RiskSignal]:
@@ -296,7 +296,7 @@ class RuleEngine:
                 signals = self.execute_rule(rule_name, detection_run_id)
                 all_signals.extend(signals)
             except Exception as e:
-                print(f"  ⚠ Continuing despite error in {rule_name}: {e}")
+                print(f"  [WARNING] Continuing despite error in {rule_name}: {e}")
         
         print(f"\n{'='*60}")
         print(f"Detection run complete")

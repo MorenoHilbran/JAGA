@@ -45,7 +45,8 @@ api.interceptors.response.use(
  */
 export const getRiskNetworks = async (params = {}) => {
   const response = await api.get('/api/networks', { params })
-  return response.data
+  // Return just the networks array, not the whole response object
+  return response.data.networks || []
 }
 
 /**

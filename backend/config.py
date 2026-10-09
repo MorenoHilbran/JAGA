@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     API_DESCRIPTION: str = "Graph Analytics-Based Healthcare Fraud Detection API"
     
     # CORS Settings
-    CORS_ORIGINS: List[str] = ["http://localhost:5173", "http://localhost:3000"]
+    CORS_ORIGINS: List[str] = ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5176", "http://localhost:5177", "http://localhost:3000"]
     
     # Security
     SECRET_KEY: str = "change-this-secret-key-in-production"

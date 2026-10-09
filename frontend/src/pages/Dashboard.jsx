@@ -128,6 +128,36 @@ const formatRupiah = (val) => {
 const Dashboard = () => {
   const navigate = useNavigate()
 
+  // Normalize backend data to match frontend expected format
+  const normalizeNetworkData = (network) => {
+    return {
+      ...network,
+      // Generate human-readable name if missing
+      name: network.name || `Jaringan ${network.primary_risk_type?.replace(/_/g, ' ')} - ${network.network_id.split('-').pop()}`,
+      // Default region if missing
+      region: network.region || 'Nasional',
+      // Map investigation_status to status
+      status: network.investigation_status === 'queued' ? 'Triage Dibutuhkan' : network.investigation_status,
+      // Format detected_at from ISO to readable format
+      detected_at: network.detected_at ? new Date(network.detected_at).toLocaleString('id-ID', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZone: 'Asia/Jakarta'
+      }).replace(',', '') + ' WIB' : 'N/A',
+      // Default ICD-10 if missing
+      top_icd10: network.top_icd10 || '—',
+      // Default confidence if missing
+      confidence: network.confidence || '85%',
+      // Normalize entity_count to object if it's a number
+      entity_count: typeof network.entity_count === 'number' 
+        ? { total: network.entity_count, faskes: network.entity_count, doctors: 0, patients: 0 }
+        : network.entity_count
+    }
+  }
+
   // State
   const [networks, setNetworks] = useState(MOCK_NETWORKS)
   const [stats, setStats] = useState({
@@ -157,16 +187,39 @@ const Dashboard = () => {
   const fetchDashboardData = async () => {
     setLoading(true)
     try {
-      const netData = await getRiskNetworks()
+      // Request all networks (set large page_size to get all data)
+      const netData = await getRiskNetworks({ page_size: 100 })
+      console.log('[DEBUG] netData received:', netData)
+      console.log('[DEBUG] Is array?', Array.isArray(netData))
+      console.log('[DEBUG] Length:', netData?.length)
+      
       if (netData && Array.isArray(netData) && netData.length > 0) {
-        setNetworks(netData)
+        console.log('[DEBUG] Setting networks to real data')
+        // Normalize backend data to frontend format
+        const normalizedNetworks = netData.map(normalizeNetworkData)
+        setNetworks(normalizedNetworks)
+      } else {
+        console.log('[DEBUG] Condition failed, using mock data')
       }
+      
       const statData = await getDashboardStats()
+      console.log('[DEBUG] statData received:', statData)
       if (statData) {
-        setStats((prev) => ({ ...prev, ...statData }))
+        // Map backend keys (snake_case) to frontend keys (camelCase)
+        setStats({
+          totalNetworks: statData.total_networks || 0,
+          criticalCount: statData.critical_count || 0,
+          highCount: statData.high_count || 0,
+          mediumCount: statData.medium_count || 0,
+          lowCount: statData.low_count || 0,
+          totalAtRisk: statData.total_amount_at_risk || 0,
+          pendingInvestigations: statData.pending_investigations || 0,
+          consensusPrecision: '97.2%', // TODO: Get from backend
+        })
       }
-    } catch {
+    } catch (error) {
       // Graceful fallback to high-fidelity mock data
+      console.log('[DEBUG] Error caught, using mock data:', error)
       setNetworks(MOCK_NETWORKS)
     } finally {
       setLoading(false)
@@ -211,11 +264,21 @@ const Dashboard = () => {
     })
   }, [networks, searchQuery, filters])
 
+  // Paginate filtered networks
+  const paginatedNetworks = useMemo(() => {
+    const startIndex = (page - 1) * pageSize
+    const endIndex = startIndex + pageSize
+    return filteredNetworks.slice(startIndex, endIndex)
+  }, [filteredNetworks, page, pageSize])
+
+  const totalPages = Math.ceil(filteredNetworks.length / pageSize)
+
   // Table Columns Definition
   const columns = [
     {
       header: 'ID / NAMA KASUS SINDIKAT',
       key: 'network_id',
+      width: 'w-[280px]',
       render: (id, row) => (
         <div className="flex flex-col">
           <div className="flex items-center gap-2">
@@ -238,6 +301,7 @@ const Dashboard = () => {
     {
       header: 'SKOR & TINGKAT RISIKO',
       key: 'risk_score',
+      width: 'w-[180px]',
       render: (score, row) => (
         <div className="flex items-center gap-2.5">
           <RiskScoreGauge score={score} size="sm" />
@@ -253,6 +317,7 @@ const Dashboard = () => {
     {
       header: 'TIPOLOGI ANOMALI',
       key: 'primary_risk_type',
+      width: 'w-[200px]',
       render: (type) => (
         <div className="flex flex-col">
           <span className="text-xs font-semibold text-[#DFE0FF] font-sans">
@@ -267,6 +332,7 @@ const Dashboard = () => {
     {
       header: 'ENTITAS TERLIBAT',
       key: 'entity_count',
+      width: 'w-[160px]',
       render: (counts) => {
         if (!counts) return <span className="font-mono text-xs">—</span>
         if (typeof counts === 'number') {
@@ -296,6 +362,7 @@ const Dashboard = () => {
     {
       header: 'NILAI KLAIM TERINDIKASI',
       key: 'total_claim_amount',
+      width: 'w-[200px]',
       align: 'right',
       isMono: true,
       render: (amount) => (
@@ -312,6 +379,7 @@ const Dashboard = () => {
     {
       header: 'WAKTU DETEKSI',
       key: 'detected_at',
+      width: 'w-[160px]',
       render: (dt) => (
         <span className="text-[11px] font-mono text-[#859588]">
           {dt}
@@ -321,6 +389,7 @@ const Dashboard = () => {
     {
       header: 'AKSI TRIAGE',
       key: 'actions',
+      width: 'w-[120px]',
       align: 'right',
       render: (_, row) => (
         <div className="flex items-center justify-end gap-1.5" onClick={(e) => e.stopPropagation()}>
@@ -484,12 +553,42 @@ const Dashboard = () => {
       >
         <DataTable
           columns={columns}
-          data={filteredNetworks}
+          data={paginatedNetworks}
           keyField="network_id"
           loading={loading}
           onRowClick={(row) => setSelectedCase(row)}
           emptyMessage="Tidak ada jaringan yang cocok dengan parameter filter saat ini."
         />
+        
+        {/* Pagination Controls */}
+        {filteredNetworks.length > pageSize && (
+          <div className="flex items-center justify-between px-6 py-4 border-t border-white/10">
+            <div className="text-xs text-[#859588] font-mono">
+              Showing {((page - 1) * pageSize) + 1}-{Math.min(page * pageSize, filteredNetworks.length)} of {filteredNetworks.length} networks
+            </div>
+            <div className="flex items-center gap-2">
+              <JagaButton
+                variant="secondary"
+                size="sm"
+                onClick={() => setPage(p => Math.max(1, p - 1))}
+                disabled={page === 1}
+              >
+                Previous
+              </JagaButton>
+              <div className="text-xs text-[#859588] font-mono px-3">
+                Page {page} of {totalPages}
+              </div>
+              <JagaButton
+                variant="secondary"
+                size="sm"
+                onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                disabled={page === totalPages}
+              >
+                Next
+              </JagaButton>
+            </div>
+          </div>
+        )}
       </JagaCard>
 
       {/* 5. Quick Triage Side Drawer Modal (Palantir HUD Modal) */}

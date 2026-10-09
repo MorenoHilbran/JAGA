@@ -15,8 +15,14 @@ from datetime import datetime
 import uuid
 import argparse
 
-# Add parent directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent.parent))
+# Add backend directory to path for imports
+backend_path = str(Path(__file__).parent.parent / 'backend')
+sys.path.insert(0, backend_path)
+
+# Load environment variables from backend/.env
+from dotenv import load_dotenv
+env_path = Path(__file__).parent.parent / 'backend' / '.env'
+load_dotenv(env_path)
 
 from sqlalchemy.orm import Session
 from src.database import engine, SessionLocal
@@ -74,10 +80,10 @@ def save_signals_to_db(db_session: Session, signals: list, run_id: str) -> int:
     # Commit all signals
     try:
         db_session.commit()
-        print(f"✓ Successfully saved {saved_count} signals to database")
+        print(f"[OK] Successfully saved {saved_count} signals to database")
     except Exception as e:
         db_session.rollback()
-        print(f"✗ Error committing signals: {e}")
+        print(f"[ERROR] Error committing signals: {e}")
         raise
     
     return saved_count
@@ -224,14 +230,14 @@ def main():
         # Save to database if requested
         if args.save:
             saved_count = save_signals_to_db(db_session, signals, run_id)
-            print(f"\n✓ Detection run complete: {saved_count} signals saved")
+            print(f"\n[OK] Detection run complete: {saved_count} signals saved")
         else:
-            print("\n⚠ Signals not saved (use --save flag to save to database)")
+            print("\n[WARNING] Signals not saved (use --save flag to save to database)")
         
         return 0
         
     except Exception as e:
-        print(f"\n✗ Error during detection run: {e}")
+        print(f"\n[ERROR] Error during detection run: {e}")
         import traceback
         traceback.print_exc()
         return 1

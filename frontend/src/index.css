@@ -1,6 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #080B24;
+  --color-surface-container-lowest: #080B24;
+  --color-surface-container-low: #0D1130;
+  --color-surface-container: #131735;
+  --color-surface-container-high: #1C2248;
+  --color-surface-container-highest: #283060;
+  --color-surface-variant: #222749;
+  --color-surface-bright: #22274c;
+  --color-primary: #c6ffda;
+  --color-primary-container: #35F2A0;
+  --color-primary-accent: #8BFFCE;
+  --color-primary-fixed: #51ffad;
+  --color-on-primary-container: #00472b;
+  --color-secondary: #c1c4ec;
+  --color-secondary-container: #2f3559;
+  --color-on-secondary: #2a2e4e;
+  --color-on-secondary-container: #afb2da;
+  --color-error: #FF5C67;
+  --color-error-container: #481016;
+  --color-error-accent: #FF5C67;
+  --color-on-surface: #dfe0ff;
+  --color-on-surface-variant: #9ca7c5;
+  --color-outline: #859588;
+  --color-outline-variant: #2c345b;
+  --color-inverse-surface: #dfe0ff;
+  
+  --font-sans: Inter, sans-serif;
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: Inter, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
 
 @layer base {
   html {
